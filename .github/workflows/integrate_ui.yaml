@@ -27,4 +27,11 @@ jobs:
 
       - name: Bootstrapping packages
         run: npm install
-      - run: npm run test
+
+      - name: Testing Shared Utils
+        if: always()
+        run: npm jest **/*.test.*
+
+      - name: Testing Storybook UI
+        if: always()
+        run: npm storybook:build
