@@ -11,7 +11,7 @@ const Template = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   type: "primary",
-  label: "primary button",
+  label: "Primary button",
   size: "extra-large",
 };
 
