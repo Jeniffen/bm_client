@@ -27,5 +27,5 @@ jobs:
         run: npm ci
 
       - run: npm ci
-      - run: npm run -s test
+      - run: npm run test
       - run: npm run build --if-present
