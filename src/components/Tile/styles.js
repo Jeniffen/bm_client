@@ -1,0 +1,65 @@
+import styled from "styled-components";
+
+const tileWidth = (tileSize) => {
+  switch (tileSize) {
+    case "medium":
+      return 360;
+    case "large":
+      return 520;
+    default:
+      return 360;
+  }
+};
+
+const tileHeight = (tileSize, tileType) => {
+  switch (tileType) {
+    case "square":
+      return tileWidth(tileSize);
+    case "rectangle":
+      return tileWidth(tileSize) / 1.5;
+    default:
+      return tileWidth(tileSize);
+  }
+};
+
+const TileWrapper = styled.div`
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  width: ${({ tileSize }) => tileWidth(tileSize) + "px"};
+  background-color: transparent;
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const TileImage = styled.div`
+  border-radius: 12px;
+  height: ${({ tileSize, tileType }) => tileHeight(tileSize, tileType) + "px"};
+  width: ${({ tileSize }) => tileWidth(tileSize) + "px"};
+  background-color: #fff;
+  background-image: url(${(props) => props.imageURL});
+  background-position: center;
+  background-size: cover;
+`;
+
+const TileFooter = styled.div`
+  display: flex;
+  flex: 1 1 auto;
+  background-color: transparent;
+  align-items: center;
+`;
+
+const TileFooterTitle = styled.p`
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.025em;
+  margin: 10px 0 0 0;
+`;
+
+export default { TileWrapper, TileImage, TileFooter, TileFooterTitle };
