@@ -21,3 +21,6 @@ jobs:
 
       - name: Test UI Components
         run: npm test
+
+      - name: Testing Storybook UI
+        run: npm storybook:build
