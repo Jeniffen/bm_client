@@ -19,8 +19,11 @@ jobs:
       - name: Bootstrapping packages
         run: npm ci
 
-      - name: Test UI Components
-        run: npm test
+      - name: Test UI components and gernerate coverage report
+        run: npm test -- --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
 
       - name: Test Storybook UI
         run: npm run build-storybook
