@@ -23,4 +23,4 @@ jobs:
         run: npm test
 
       - name: Testing Storybook UI
-        run: npm storybook:build
+        run: npm build-storybook
