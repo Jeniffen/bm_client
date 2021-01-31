@@ -6,5 +6,5 @@ import { Primary } from "./Button.stories";
 
 it("renders the button in the primary state", () => {
   render(<Primary {...Primary.args} />);
-  expect(screen.getByRole("button")).toHaveTextContent("Primary button");
+  expect(screen.getByRole("button")).toHaveTextContent("Primary Button");
 });
