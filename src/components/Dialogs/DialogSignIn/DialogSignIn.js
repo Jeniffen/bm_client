@@ -6,6 +6,8 @@ import { Icons } from "../../Icons";
 import { DialogHeader } from "../DialogHeader";
 import { DialogFooter } from "../DialogFooter";
 import { FormPhoneAuth } from "../../Forms/FormPhoneAuth";
+import io from "socket.io-client";
+import useOAuth from "./useOAuth";
 
 const DialogSignIn = ({
   headerTitle,
@@ -13,6 +15,14 @@ const DialogSignIn = ({
   footerText,
   anchorText,
 }) => {
+  //TODO: Move parameters
+  const API_URL = "https://localhost:5000";
+  const socket = io(API_URL);
+  const provider = "google";
+  console.log(socket);
+  console.log(socket.id);
+
+  const [openPopup] = useOAuth({ API_URL, socket, provider });
   const socialAuth = [
     { key: "mail", logo: "mail", label: "Continue with email" },
     { key: "fb", logo: "logo-facebook", label: "Continue with Facebook" },
@@ -37,6 +47,7 @@ const DialogSignIn = ({
               type="secondary"
               size="extra-large"
               label={label}
+              onClick={openPopup}
               prefixIcon={<Icons type={logo} size="small" />}
             />
           </form>

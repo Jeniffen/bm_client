@@ -2,9 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import Style from "./styles";
 
-const Button = ({ type, label, size, prefixIcon, className }) => {
+const Button = ({ type, label, size, prefixIcon, onClick, className }) => {
   return (
-    <Style.Button className={className} type={type} size={size}>
+    <Style.Button
+      className={className}
+      type={type}
+      size={size}
+      onClick={onClick}
+    >
       {prefixIcon ? prefixIcon : null}
       {label}
     </Style.Button>
