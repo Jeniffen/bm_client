@@ -15,12 +15,13 @@ const DialogSignIn = ({
   footerText,
   anchorText,
 }) => {
-  //TODO: Move parameters
-  const API_URL = "https://localhost:5000";
+  //TODO: Move parameters | Actually it should be PORT 5000
+  // However utilizing http-proxy-middleware it can be changed to 3000
+  // Allowing to use that same domain & port (Hacky - needs fix!)
+  // + UPDATE: seems like this is causing issues with react router
+  const API_URL = "http://localhost:3000";
   const socket = io(API_URL);
   const provider = "google";
-  console.log(socket);
-  console.log(socket.id);
 
   const [openPopup] = useOAuth({ API_URL, socket, provider });
   const socialAuth = [
