@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Button = styled.button`
 
@@ -25,17 +25,17 @@ export const Button = styled.button`
 
   max-width: ${({ size }) => {
     switch (size) {
-      case "small":
-        return "133px";
-      case "extra-large":
-        return "528px";
+      case 'small':
+        return '133px';
+      case 'extra-large':
+        return '528px';
       default:
-        return "528px";
+        return '528px';
     }
   }};
 
-  ${({ type }) =>
-    type === "primary" &&
+  ${({ btnType }) =>
+    btnType === 'primary' &&
     css`
       background-color: #d53f8c;
       color: #fff;
@@ -46,8 +46,8 @@ export const Button = styled.button`
       }
     `}
 
-  ${({ type }) =>
-    type === "secondary" &&
+  ${({ btnType }) =>
+    btnType === 'secondary' &&
     css`
       border: 2px solid #a0aec0;
       background-color: #fff;
@@ -63,8 +63,8 @@ export const Button = styled.button`
     left: 0;
   }
 
-  ${({ type }) =>
-    type === "dark" &&
+  ${({ btnType }) =>
+    btnType === 'dark' &&
     css`
       border: 2px solid #a0aec0;
       background-color: #000;
@@ -78,8 +78,8 @@ export const Button = styled.button`
 
   }
 
-  ${({ type }) =>
-    type === "light" &&
+  ${({ btnType }) =>
+    btnType === 'light' &&
     css`
       background-color: #fff;
       color: #484848;

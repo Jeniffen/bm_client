@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Style from "./styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Style from './styles';
 
 const SectionHero = ({
   imageURL,
@@ -26,7 +26,7 @@ const SectionHero = ({
           />
           <Style.ExtendedButton
             className={className}
-            type={buttonTheme}
+            btnType={buttonTheme}
             size={buttonSize}
             label={buttonLabel}
           />
@@ -56,15 +56,15 @@ SectionHero.propTypes = {
   /**
    * Font weight of sub header
    */
-  subTextWeight: PropTypes.oneOf(["semi-thick", "thick", "xl-thick"]),
+  subTextWeight: PropTypes.oneOf(['semi-thick', 'thick', 'xl-thick']),
   /**
    * Is this the principal call to action on the page?
    */
-  buttonTheme: PropTypes.oneOf(["primary", "secondary", "dark", "light"]),
+  buttonTheme: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light']),
   /**
    * How large should the button be?
    */
-  buttonSize: PropTypes.oneOf(["small", "extra-large"]),
+  buttonSize: PropTypes.oneOf(['small', 'extra-large']),
   /**
    * Button contents
    */

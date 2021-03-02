@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Style from "./styles";
-import { SectionWrapper } from "../SectionWrapper";
-import { Heading } from "../../Heading";
-import { Tile } from "../../Tile";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Style from './styles';
+import { SectionWrapper } from '../SectionWrapper';
+import { Heading } from '../../Heading';
+import { Tile } from '../../Tile';
 
 const SectionSpotlight = ({
   title,
@@ -24,7 +24,7 @@ const SectionSpotlight = ({
       {buttonLabel ? (
         <Style.ExtendedButton
           className={className}
-          type={buttonTheme}
+          btnType={buttonTheme}
           size={buttonSize}
           label={buttonLabel}
         />
@@ -60,15 +60,15 @@ SectionSpotlight.propTypes = {
   /**
    * Theme of the section
    */
-  sectionTheme: PropTypes.oneOf(["light", "dark"]),
+  sectionTheme: PropTypes.oneOf(['light', 'dark']),
   /**
    * The size of the tile displayed
    */
-  tileSize: PropTypes.oneOf(["medium", "large"]),
+  tileSize: PropTypes.oneOf(['medium', 'large']),
   /**
    * The shape of the tile displayed
    */
-  tileType: PropTypes.oneOf(["square", "rectangle"]),
+  tileType: PropTypes.oneOf(['square', 'rectangle']),
   /**
    * Title of tile
    */
@@ -76,7 +76,7 @@ SectionSpotlight.propTypes = {
   /**
    * Is this the principal call to action on the page?
    */
-  buttonTheme: PropTypes.oneOf(["primary", "secondary", "dark"]),
+  buttonTheme: PropTypes.oneOf(['primary', 'secondary', 'dark']),
   /**
    * Button contents
    */
@@ -84,7 +84,7 @@ SectionSpotlight.propTypes = {
   /**
    * How large should the button be?
    */
-  buttonSize: PropTypes.oneOf(["small", "extra-large"]),
+  buttonSize: PropTypes.oneOf(['small', 'extra-large']),
 };
 
 export default SectionSpotlight;

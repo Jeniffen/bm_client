@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Style from "./styles";
-import { SectionWrapper } from "../SectionWrapper";
-import { Heading } from "../../Heading";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Style from './styles';
+import { SectionWrapper } from '../SectionWrapper';
+import { Heading } from '../../Heading';
 
 const SectionBanner = ({
   sectionTheme,
@@ -23,7 +23,7 @@ const SectionBanner = ({
           />
           <Style.ExtendedButton
             className={className}
-            type="light"
+            btnType="light"
             size="small"
             label="Learn more"
           />
@@ -37,7 +37,7 @@ SectionBanner.propTypes = {
   /**
    * Theme of the section
    */
-  sectionTheme: PropTypes.oneOf(["light", "dark"]),
+  sectionTheme: PropTypes.oneOf(['light', 'dark']),
   /**
    * URL to tile image
    */
