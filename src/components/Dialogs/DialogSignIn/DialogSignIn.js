@@ -1,23 +1,50 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Style from "./styles";
-import { Button } from "../../Button";
-import { Icons } from "../../Icons";
-import { DialogHeader } from "../DialogHeader";
-import { DialogFooter } from "../DialogFooter";
-import { FormPhoneAuth } from "../../Forms/FormPhoneAuth";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Style from './styles';
+import { Button } from '../../Button';
+import { Icons } from '../../Icons';
+import { DialogHeader } from '../DialogHeader';
+import { DialogFooter } from '../DialogFooter';
+import { FormPhoneAuth } from '../../Forms/FormPhoneAuth';
+import useOAuth from './useOAuth';
 
 const DialogSignIn = ({
   headerTitle,
   onHeaderClose,
   footerText,
   anchorText,
+  API_URL,
 }) => {
+  const [openPopup, user] = useOAuth({
+    API_URL,
+    providers: ['mail', 'facebook', 'google', 'apple'],
+  });
+
   const socialAuth = [
-    { key: "mail", logo: "mail", label: "Continue with email" },
-    { key: "fb", logo: "logo-facebook", label: "Continue with Facebook" },
-    { key: "googl", logo: "logo-google", label: "Continue with Google" },
-    { key: "aapl", logo: "logo-apple", label: "Continue with Apple" },
+    {
+      key: 'mail',
+      logo: 'mail',
+      label: 'Continue with email',
+      provider: 'mail',
+    },
+    {
+      key: 'fb',
+      logo: 'logo-facebook',
+      label: 'Continue with Facebook',
+      provider: 'facebook',
+    },
+    {
+      key: 'googl',
+      logo: 'logo-google',
+      label: 'Continue with Google',
+      provider: 'google',
+    },
+    {
+      key: 'aapl',
+      logo: 'logo-apple',
+      label: 'Continue with Apple',
+      provider: 'apple',
+    },
   ];
 
   return (
@@ -30,13 +57,15 @@ const DialogSignIn = ({
           inputPlaceholder="Phone number"
         />
         <Style.DialogSeparator seperatorText="or" />
-        {socialAuth.map(({ key, logo, label }) => (
+        {socialAuth.map(({ key, logo, label, provider }) => (
           <form key={key}>
             <Button
               key={key}
-              type="secondary"
+              btnType="secondary"
+              type="button"
               size="extra-large"
               label={label}
+              onClick={() => openPopup(provider)}
               prefixIcon={<Icons type={logo} size="small" />}
             />
           </form>
@@ -64,6 +93,10 @@ DialogSignIn.propTypes = {
    * Anchor text shown in dialog footer
    */
   anchorText: PropTypes.string,
+  /**
+   * OAuth API URL
+   */
+  API_URL: PropTypes.string,
 };
 
 export default DialogSignIn;
