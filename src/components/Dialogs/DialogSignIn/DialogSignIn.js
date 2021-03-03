@@ -93,6 +93,10 @@ DialogSignIn.propTypes = {
    * Anchor text shown in dialog footer
    */
   anchorText: PropTypes.string,
+  /**
+   * OAuth API URL
+   */
+  API_URL: PropTypes.string,
 };
 
 export default DialogSignIn;
