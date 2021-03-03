@@ -1,26 +1,25 @@
-import React, { useContext } from "react";
-import Style from "./styles";
-import { ModalContext } from "../../context/ModalContext";
-import useSearchbarControl from "../../hooks/useSearchbarControl";
+import React, { useContext } from 'react';
+import Style from './styles';
+import { ModalContext } from '../../context/ModalContext';
+import { DialogSignIn } from '../../components/Dialogs/DialogSignIn';
+import useSearchbarControl from '../../hooks/useSearchbarControl';
 
-import { DialogSignIn } from "../../components/Dialogs/DialogSignIn";
-
-const Header = () => {
+const Header = ({ API_URL }) => {
   const { handleOpenModal, handleCloseModal } = useContext(ModalContext);
   const [ref, expandBar, wrapBar, setExpandedBar] = useSearchbarControl({});
 
   const handleHeaderFocus = (e) => {
     e.persist();
-    if (e.target.id === "inputSearchData") {
+    if (e.target.id === 'inputSearchData') {
       setExpandedBar(true);
     }
   };
 
   const items = [
     {
-      key: "1",
-      weight: "bold",
-      text: "Sign up",
+      key: '1',
+      weight: 'bold',
+      text: 'Sign up',
       divider: false,
       onClick: () =>
         handleOpenModal(
@@ -29,13 +28,14 @@ const Header = () => {
             footerText="Already have an account?"
             anchorText="Log in"
             onHeaderClose={handleCloseModal}
+            API_URL={API_URL}
           />
         ),
     },
     {
-      key: "2",
-      weight: "light",
-      text: "Log in",
+      key: '2',
+      weight: 'light',
+      text: 'Log in',
       divider: true,
       onClick: () =>
         handleOpenModal(
@@ -48,27 +48,27 @@ const Header = () => {
         ),
     },
     {
-      key: "3",
-      weight: "light",
-      text: "Offer a service",
+      key: '3',
+      weight: 'light',
+      text: 'Offer a service',
       divider: false,
-      onClick: () => console.log("Route to services"),
+      onClick: () => console.log('Route to services'),
     },
     {
-      key: "4",
-      weight: "light",
-      text: "Help",
+      key: '4',
+      weight: 'light',
+      text: 'Help',
       divider: false,
-      onClick: () => console.log("Route to Help"),
+      onClick: () => console.log('Route to Help'),
     },
   ];
 
   const inputs = [
     {
-      key: "SEARCH_INPUT_SECONDARY",
-      className: "searchInputSecondary",
-      inputLabel: "Service",
-      inputPlaceholder: "What service are you looking for?",
+      key: 'SEARCH_INPUT_SECONDARY',
+      className: 'searchInputSecondary',
+      inputLabel: 'Service',
+      inputPlaceholder: 'What service are you looking for?',
       isSearch: false,
       divider: true,
     },

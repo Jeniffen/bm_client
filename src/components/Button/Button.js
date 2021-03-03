@@ -1,10 +1,24 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Style from "./styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Style from './styles';
 
-const Button = ({ type, label, size, prefixIcon, className }) => {
+const Button = ({
+  btnType,
+  type,
+  label,
+  size,
+  prefixIcon,
+  onClick,
+  className,
+}) => {
   return (
-    <Style.Button className={className} type={type} size={size}>
+    <Style.Button
+      className={className}
+      btnType={btnType}
+      type={type}
+      size={size}
+      onClick={onClick}
+    >
       {prefixIcon ? prefixIcon : null}
       {label}
     </Style.Button>
@@ -15,7 +29,11 @@ Button.propTypes = {
   /**
    * Is this the principal call to action on the page?
    */
-  type: PropTypes.oneOf(["primary", "secondary", "dark", "light"]),
+  btnType: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light']),
+  /**
+   * Type of element
+   */
+  type: PropTypes.string,
   /**
    * Button contents
    */
@@ -23,7 +41,7 @@ Button.propTypes = {
   /**
    * How large should the button be?
    */
-  size: PropTypes.oneOf(["small", "extra-large"]),
+  size: PropTypes.oneOf(['small', 'extra-large']),
   /**
    * Element based icon (svg, image etc.)
    */
