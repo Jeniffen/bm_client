@@ -1,13 +1,23 @@
 import { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
-export default function useOAuth({ API_URL = null, providers = null }) {
+export default function useOAuth({
+  API_URL = null,
+  providers = null,
+  onHeaderClose = null,
+}) {
   const [user, setUser] = useState({});
   const socket = io(API_URL, { transports: ['websocket'] });
 
+  let popup = null;
+
   useEffect(() => {
     providers.map((authProvider) =>
-      socket.on(authProvider, (user) => setUser(user))
+      socket.on(authProvider, (user) => {
+        popup.close();
+        onHeaderClose();
+        setUser(user);
+      })
     );
   }, []);
 
@@ -17,14 +27,14 @@ export default function useOAuth({ API_URL = null, providers = null }) {
     const left = window.innerWidth / 2 - width / 2;
     const top = window.innerHeight / 2 - height / 2;
     const url = `${API_URL}/api/auth/${provider}?socketId=${socket.id}`;
-
-    return window.open(
+    popup = window.open(
       url,
       '',
       `toolbar=no, location=no, directories=no, status=no, menubar=no,
-    scrollbars=no, resizable=no, copyhistory=no, width=${width},
-    height=${height}, top=${top}, left=${left}`
+      scrollbars=no, resizable=no, copyhistory=no, width=${width},
+      height=${height}, top=${top}, left=${left}`
     );
+    return;
   };
 
   return [openPopup, user];
