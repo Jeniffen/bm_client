@@ -18,6 +18,7 @@ const DialogSignIn = ({
   const [openPopup, user] = useOAuth({
     API_URL,
     providers: ['mail', 'facebook', 'google', 'apple'],
+    onHeaderClose
   });
 
   const socialAuth = [
@@ -46,6 +47,8 @@ const DialogSignIn = ({
       provider: 'apple',
     },
   ];
+
+  console.log(user);
 
   return (
     <Style.DialogContainer>
