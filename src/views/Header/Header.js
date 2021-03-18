@@ -1,78 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Style from './styles';
-import { ModalContext } from '../../context/ModalContext';
-import { DialogSignIn } from '../../components/Dialogs/DialogSignIn';
+import useHeader from './useHeader';
 import useSearchbarControl from '../../hooks/useSearchbarControl';
 
 const Header = ({ API_URL }) => {
-  const { handleOpenModal, handleCloseModal } = useContext(ModalContext);
   const [ref, expandBar, wrapBar, setExpandedBar] = useSearchbarControl({});
-
-  const handleHeaderFocus = (e) => {
-    e.persist();
-    if (e.target.id === 'inputSearchData') {
-      setExpandedBar(true);
-    }
-  };
-
-  const items = [
-    {
-      key: '1',
-      weight: 'bold',
-      text: 'Sign up',
-      divider: false,
-      onClick: () =>
-        handleOpenModal(
-          <DialogSignIn
-            headerTitle="Sign Up"
-            footerText="Already have an account?"
-            anchorText="Log in"
-            onHeaderClose={handleCloseModal}
-            API_URL={API_URL}
-          />
-        ),
-    },
-    {
-      key: '2',
-      weight: 'light',
-      text: 'Log in',
-      divider: true,
-      onClick: () =>
-        handleOpenModal(
-          <DialogSignIn
-            headerTitle="Log in"
-            footerText="Don’t have an account?"
-            anchorText="Sign up"
-            onHeaderClose={handleCloseModal}
-          />
-        ),
-    },
-    {
-      key: '3',
-      weight: 'light',
-      text: 'Offer a service',
-      divider: false,
-      onClick: () => console.log('Route to services'),
-    },
-    {
-      key: '4',
-      weight: 'light',
-      text: 'Help',
-      divider: false,
-      onClick: () => console.log('Route to Help'),
-    },
-  ];
-
-  const inputs = [
-    {
-      key: 'SEARCH_INPUT_SECONDARY',
-      className: 'searchInputSecondary',
-      inputLabel: 'Service',
-      inputPlaceholder: 'What service are you looking for?',
-      isSearch: false,
-      divider: true,
-    },
-  ];
+  const [items, inputs, handleHeaderFocus] = useHeader({
+    API_URL,
+    setExpandedBar,
+  });
 
   return (
     <>
