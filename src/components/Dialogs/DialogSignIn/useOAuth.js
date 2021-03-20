@@ -14,9 +14,9 @@ export default function useOAuth({
   useEffect(() => {
     providers.map((authProvider) =>
       socket.on(authProvider, (user) => {
+        setUser(user);
         popup.close();
         onHeaderClose();
-        setUser(user);
       })
     );
   }, []);
