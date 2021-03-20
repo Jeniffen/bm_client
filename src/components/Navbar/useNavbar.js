@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import useAuthState from '../../hooks/useAuthState';
 
 export default function useNavbar() {
