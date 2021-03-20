@@ -15,40 +15,7 @@ const DialogSignIn = ({
   anchorText,
   API_URL,
 }) => {
-  const [openPopup, user] = useOAuth({
-    API_URL,
-    providers: ['mail', 'facebook', 'google', 'apple'],
-    onHeaderClose
-  });
-
-  const socialAuth = [
-    {
-      key: 'mail',
-      logo: 'mail',
-      label: 'Continue with email',
-      provider: 'mail',
-    },
-    {
-      key: 'fb',
-      logo: 'logo-facebook',
-      label: 'Continue with Facebook',
-      provider: 'facebook',
-    },
-    {
-      key: 'googl',
-      logo: 'logo-google',
-      label: 'Continue with Google',
-      provider: 'google',
-    },
-    {
-      key: 'aapl',
-      logo: 'logo-apple',
-      label: 'Continue with Apple',
-      provider: 'apple',
-    },
-  ];
-
-  console.log(user);
+  const [socialAuth, openPopup] = useOAuth({ API_URL, onHeaderClose });
 
   return (
     <Style.DialogContainer>
