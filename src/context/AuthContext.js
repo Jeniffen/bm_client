@@ -18,9 +18,9 @@ const AuthContextProvider = ({ children }) => {
           'http://localhost:5000/api/auth/current_user',
           { withCredentials: true }
         );
-        setAuthState({ authStatus: 'success', error: null, user: result.data });
+        setAuthState({ status: 'success', error: null, user: result.data });
       } catch (error) {
-        setAuthState({ authStatus: 'error', error, user: null });
+        setAuthState({ status: 'error', error, user: null });
       } finally {
         // Loading Status
       }

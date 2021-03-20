@@ -1,13 +1,11 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ModalContext } from '../../context/ModalContext';
 import { DialogSignIn } from '../../components/Dialogs/DialogSignIn';
 import useAuthState from '../../hooks/useAuthState';
 
 export default function useHeader({ API_URL = null, setExpandedBar = null }) {
   const { handleOpenModal, handleCloseModal } = useContext(ModalContext);
-  const auth = useAuthState();
-
-  console.log(auth);
+  const authState = useAuthState();
 
   const handleHeaderFocus = (e) => {
     e.persist();
@@ -78,7 +76,7 @@ export default function useHeader({ API_URL = null, setExpandedBar = null }) {
   const authorizedItems = [
     {
       key: '1',
-      weight: 'bold',
+      weight: 'medium',
       text: 'Messages',
       divider: false,
       onClick: () =>
@@ -94,7 +92,7 @@ export default function useHeader({ API_URL = null, setExpandedBar = null }) {
     },
     {
       key: '2',
-      weight: 'bold',
+      weight: 'medium',
       text: 'Saved',
       divider: true,
       onClick: () =>
@@ -110,14 +108,34 @@ export default function useHeader({ API_URL = null, setExpandedBar = null }) {
     {
       key: '3',
       weight: 'light',
+      text: 'Manage listings',
+      divider: false,
+      onClick: () => console.log('Route to services'),
+    },
+    {
+      key: '4',
+      weight: 'light',
+      text: 'Account',
+      divider: true,
+      onClick: () => console.log('Route to services'),
+    },
+    {
+      key: '5',
+      weight: 'light',
+      text: 'Help',
+      divider: false,
+      onClick: () => console.log('Route to services'),
+    },
+    {
+      key: '6',
+      weight: 'light',
       text: 'Logout',
       divider: false,
       onClick: () => console.log('Route to services'),
     },
   ];
 
-  const items =
-    auth.authStatus === 'success' ? authorizedItems : unauthorizedItems;
+  const items = authState.isAuthenticated ? authorizedItems : unauthorizedItems;
 
   return [items, inputs, handleHeaderFocus];
 }

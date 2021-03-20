@@ -1,16 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Style from "./styles";
-import { Toggle } from "../Toggle";
-import { Avatar } from "../Avatar";
-import { Menu } from "../Menus/Menu";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Style from './styles';
+import useNavbar from './useNavbar';
+import { Toggle } from '../Toggle';
+import { Avatar } from '../Avatar';
+import { Menu } from '../Menus/Menu';
 
 const Navbar = ({ items, className }) => {
+  const [imageURL, userName] = useNavbar();
+
   return (
     <Style.Wrapper className={className}>
       <Style.Content>
         <Toggle toggleElement={<Menu items={items} />}>
-          <Avatar size="small" imageURL="avatar" username="avatar-name" />
+          <Avatar size="small" imageURL={imageURL} username={userName} />
         </Toggle>
       </Style.Content>
     </Style.Wrapper>

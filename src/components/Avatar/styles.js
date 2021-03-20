@@ -1,17 +1,17 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Avatar = styled.div`
   box-sizing: border-box;
   border-radius: 50%;
-  border: 2px solid #a0aec0;
+  border: 1px solid transparent;
   width: 50px;
   height: 50px;
-  background-color: #a0aec0;
+  background-color: #94aab6;
 
   :hover {
     cursor: pointer;
     background-color: #94aab6;
-    border: 2px solid #94aab6;
+    border: 1px solid transparent;
   }
 
   img {
@@ -24,17 +24,17 @@ export const Avatar = styled.div`
 
   ${({ size }) => {
     switch (size) {
-      case "tiny":
+      case 'tiny':
         return css`
           width: 25px;
           height: 25px;
         `;
-      case "small":
+      case 'small':
         return css`
           width: 40px;
           height: 40px;
         `;
-      case "medium":
+      case 'medium':
         return css`
           width: 50px;
           height: 50px;
