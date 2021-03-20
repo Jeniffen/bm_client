@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import PropTypes from "prop-types";
-import { MenuWrapper } from "../MenuWrapper";
-import { MenuItem } from "../MenuItem";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { MenuWrapper } from '../MenuWrapper';
+import { MenuItem } from '../MenuItem';
 
 const Menu = ({ items }) => {
   return (

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import io from 'socket.io-client';
 
 export default function useOAuth({
@@ -6,17 +6,42 @@ export default function useOAuth({
   providers = null,
   onHeaderClose = null,
 }) {
-  const [user, setUser] = useState({});
-  const socket = io(API_URL, { transports: ['websocket'] });
+  const socialAuth = [
+    {
+      key: 'mail',
+      logo: 'mail',
+      label: 'Continue with email',
+      provider: 'mail',
+    },
+    {
+      key: 'fb',
+      logo: 'logo-facebook',
+      label: 'Continue with Facebook',
+      provider: 'facebook',
+    },
+    {
+      key: 'googl',
+      logo: 'logo-google',
+      label: 'Continue with Google',
+      provider: 'google',
+    },
+    {
+      key: 'aapl',
+      logo: 'logo-apple',
+      label: 'Continue with Apple',
+      provider: 'apple',
+    },
+  ];
 
   let popup = null;
+  const socket = io(API_URL, { transports: ['websocket'] });
 
   useEffect(() => {
-    providers.map((authProvider) =>
-      socket.on(authProvider, (user) => {
-        setUser(user);
+    socialAuth.map(({ provider }) =>
+      socket.on(provider, () => {
         popup.close();
         onHeaderClose();
+        window.location.reload();
       })
     );
   }, []);
@@ -37,5 +62,5 @@ export default function useOAuth({
     return;
   };
 
-  return [openPopup, user];
+  return [socialAuth, openPopup];
 }

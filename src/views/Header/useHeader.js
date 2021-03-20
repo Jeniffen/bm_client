@@ -1,4 +1,5 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
+import axios from 'axios';
 import { ModalContext } from '../../context/ModalContext';
 import { DialogSignIn } from '../../components/Dialogs/DialogSignIn';
 import useAuthState from '../../hooks/useAuthState';
@@ -12,6 +13,14 @@ export default function useHeader({ API_URL = null, setExpandedBar = null }) {
     if (e.target.id === 'inputSearchData') {
       setExpandedBar(true);
     }
+  };
+
+  // Logout function in dropdown menu
+  const handleLogout = async () => {
+    await axios.get('http://localhost:5000/api/auth/logout', {
+      withCredentials: true,
+    });
+    window.location.reload();
   };
 
   const inputs = [
@@ -131,7 +140,7 @@ export default function useHeader({ API_URL = null, setExpandedBar = null }) {
       weight: 'light',
       text: 'Logout',
       divider: false,
-      onClick: () => console.log('Route to services'),
+      onClick: () => handleLogout(),
     },
   ];
 
