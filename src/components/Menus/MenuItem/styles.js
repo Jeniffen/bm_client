@@ -1,11 +1,13 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const fontWeight = ({ weight }) => {
   switch (weight) {
-    case "light":
+    case 'light':
       return 400;
-    case "bold":
+    case 'medium':
+      return 500;
+    case 'bold':
       return 700;
     default:
       return 400;

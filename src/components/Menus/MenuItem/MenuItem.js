@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Style from "./styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Style from './styles';
 
 const MenuItem = ({ weight, text, divider, onClick }) => {
   return (
@@ -17,7 +17,7 @@ MenuItem.propTypes = {
   /**
    * Font weight that will be display
    */
-  weight: PropTypes.oneOf(["light", "bold"]),
+  weight: PropTypes.oneOf(['light', 'medium', 'bold']),
   /**
    * Link text that will be shown
    */
