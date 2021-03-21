@@ -1,6 +1,5 @@
 import { useState, useEffect, createContext } from 'react';
-import axios from 'axios';
-import userService from '../api/userService';
+import authService from '../api/authService';
 const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
@@ -11,7 +10,7 @@ const AuthContextProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    userService.getCurrentUser(setAuthState);
+    authService.getCurrentUser(setAuthState);
   }, []);
 
   return (

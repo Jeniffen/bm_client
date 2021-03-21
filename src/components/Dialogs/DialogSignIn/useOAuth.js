@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import oAuthService from '../../../api/oAuthService';
+import authService from '../../../api/authService';
 
 export default function useOAuth({ providers = null, onHeaderClose = null }) {
   const socialAuth = [
@@ -30,7 +30,7 @@ export default function useOAuth({ providers = null, onHeaderClose = null }) {
   ];
 
   let popup = null;
-  const socket = oAuthService.socket;
+  const socket = authService.socket;
 
   useEffect(() => {
     socialAuth.map(({ provider }) =>
@@ -47,7 +47,7 @@ export default function useOAuth({ providers = null, onHeaderClose = null }) {
     const height = 600;
     const left = window.innerWidth / 2 - width / 2;
     const top = window.innerHeight / 2 - height / 2;
-    const url = `${oAuthService.api[provider]}?socketId=${socket.id}`;
+    const url = `${authService.api[provider]}?socketId=${socket.id}`;
 
     popup = window.open(
       url,
