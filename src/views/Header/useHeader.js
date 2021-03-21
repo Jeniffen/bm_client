@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import axios from 'axios';
 import { ModalContext } from '../../context/ModalContext';
 import { DialogSignIn } from '../../components/Dialogs/DialogSignIn';
+import authService from '../../api/authService';
 import useAuthState from '../../hooks/useAuthState';
 
-export default function useHeader({ API_URL = null, setExpandedBar = null }) {
+export default function useHeader({ setExpandedBar = null }) {
   const { handleOpenModal, handleCloseModal } = useContext(ModalContext);
   const authState = useAuthState();
 
@@ -13,14 +13,6 @@ export default function useHeader({ API_URL = null, setExpandedBar = null }) {
     if (e.target.id === 'inputSearchData') {
       setExpandedBar(true);
     }
-  };
-
-  // Logout function in dropdown menu
-  const handleLogout = async () => {
-    await axios.get('http://localhost:5000/api/auth/logout', {
-      withCredentials: true,
-    });
-    window.location.reload();
   };
 
   const inputs = [
@@ -47,7 +39,6 @@ export default function useHeader({ API_URL = null, setExpandedBar = null }) {
             footerText="Already have an account?"
             anchorText="Log in"
             onHeaderClose={handleCloseModal}
-            API_URL={API_URL}
           />
         ),
     },
@@ -95,7 +86,6 @@ export default function useHeader({ API_URL = null, setExpandedBar = null }) {
             footerText="Already have an account?"
             anchorText="Log in"
             onHeaderClose={handleCloseModal}
-            API_URL={API_URL}
           />
         ),
     },
@@ -140,7 +130,7 @@ export default function useHeader({ API_URL = null, setExpandedBar = null }) {
       weight: 'light',
       text: 'Logout',
       divider: false,
-      onClick: () => handleLogout(),
+      onClick: () => authService.getLogout(),
     },
   ];
 

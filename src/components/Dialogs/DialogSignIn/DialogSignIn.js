@@ -13,9 +13,8 @@ const DialogSignIn = ({
   onHeaderClose,
   footerText,
   anchorText,
-  API_URL,
 }) => {
-  const [socialAuth, openPopup] = useOAuth({ API_URL, onHeaderClose });
+  const [socialAuth, openPopup] = useOAuth({ onHeaderClose });
 
   return (
     <Style.DialogContainer>
@@ -63,10 +62,6 @@ DialogSignIn.propTypes = {
    * Anchor text shown in dialog footer
    */
   anchorText: PropTypes.string,
-  /**
-   * OAuth API URL
-   */
-  API_URL: PropTypes.string,
 };
 
 export default DialogSignIn;

@@ -1,11 +1,7 @@
 import { useEffect } from 'react';
-import io from 'socket.io-client';
+import authService from '../../../api/authService';
 
-export default function useOAuth({
-  API_URL = null,
-  providers = null,
-  onHeaderClose = null,
-}) {
+export default function useOAuth({ providers = null, onHeaderClose = null }) {
   const socialAuth = [
     {
       key: 'mail',
@@ -34,7 +30,7 @@ export default function useOAuth({
   ];
 
   let popup = null;
-  const socket = io(API_URL, { transports: ['websocket'] });
+  const socket = authService.socket;
 
   useEffect(() => {
     socialAuth.map(({ provider }) =>
@@ -51,7 +47,8 @@ export default function useOAuth({
     const height = 600;
     const left = window.innerWidth / 2 - width / 2;
     const top = window.innerHeight / 2 - height / 2;
-    const url = `${API_URL}/api/auth/${provider}?socketId=${socket.id}`;
+    const url = `${authService.api[provider]}?socketId=${socket.id}`;
+
     popup = window.open(
       url,
       '',

@@ -3,12 +3,9 @@ import Style from './styles';
 import useHeader from './useHeader';
 import useSearchbarControl from '../../hooks/useSearchbarControl';
 
-const Header = ({ API_URL }) => {
+const Header = () => {
   const [ref, expandBar, wrapBar, setExpandedBar] = useSearchbarControl({});
-  const [items, inputs, handleHeaderFocus] = useHeader({
-    API_URL,
-    setExpandedBar,
-  });
+  const [items, inputs, handleHeaderFocus] = useHeader({ setExpandedBar });
 
   return (
     <>
