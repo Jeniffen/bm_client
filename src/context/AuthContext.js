@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
-
+import userService from '../api/userService';
 const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
@@ -11,21 +11,7 @@ const AuthContextProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
-      // Loading Status
-      try {
-        const result = await axios.get(
-          'http://localhost:5000/api/auth/current_user',
-          { withCredentials: true }
-        );
-        setAuthState({ status: 'success', error: null, user: result.data });
-      } catch (error) {
-        setAuthState({ status: 'error', error, user: null });
-      } finally {
-        // Loading Status
-      }
-    };
-    fetchData();
+    userService.getCurrentUser(setAuthState);
   }, []);
 
   return (
