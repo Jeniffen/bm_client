@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import jwtdecode from 'jwt-decode';
 import authService from '../../../api/authService';
 
 export default function useOAuth({ providers = null, onHeaderClose = null }) {
@@ -31,13 +32,12 @@ export default function useOAuth({ providers = null, onHeaderClose = null }) {
 
   let popup = null;
   const socket = authService.socket;
-
   useEffect(() => {
     socialAuth.map(({ provider }) =>
-      socket.on(provider, () => {
+      socket.on(provider, (authToken) => {
         popup.close();
         onHeaderClose();
-        window.location.reload();
+        authService.refresh(authToken);
       })
     );
   }, []);
@@ -61,3 +61,12 @@ export default function useOAuth({ providers = null, onHeaderClose = null }) {
 
   return [socialAuth, openPopup];
 }
+
+// export const setToken = authToken => {
+//   try {
+//     localStorage.setItem('authToken', authToken)
+//   }
+//   catch (err) {
+//     console.log(err)
+//   }
+// }
