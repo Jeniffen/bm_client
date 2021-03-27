@@ -6,6 +6,10 @@
 .pnp.js
 storybook-static
 
+# certificates
+*.key
+*.crt
+
 # testing
 /coverage
 
