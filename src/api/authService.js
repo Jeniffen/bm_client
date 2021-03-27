@@ -23,6 +23,14 @@ export default {
     }
   },
 
+  refresh: async (authToken) => {
+    await axios.get(`${API_URL}/api/auth/refresh`, {
+      headers: { Authorization: `Bearer ${authToken}` },
+      withCredentials: true,
+    });
+    window.location.reload();
+  },
+
   getLogout: async () => {
     await axios.get(`${API_URL}/api/auth/logout`, { withCredentials: true });
     window.location.reload();
