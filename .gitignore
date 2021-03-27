@@ -19,6 +19,7 @@ storybook-static
 # misc
 .DS_Store
 .env.local
+.env.developmentgit
 .env.development.local
 .env.test.local
 .env.production.local
