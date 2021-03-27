@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import jwtdecode from 'jwt-decode';
 import authService from '../../../api/authService';
 
 export default function useOAuth({ providers = null, onHeaderClose = null }) {
@@ -61,12 +60,3 @@ export default function useOAuth({ providers = null, onHeaderClose = null }) {
 
   return [socialAuth, openPopup];
 }
-
-// export const setToken = authToken => {
-//   try {
-//     localStorage.setItem('authToken', authToken)
-//   }
-//   catch (err) {
-//     console.log(err)
-//   }
-// }
