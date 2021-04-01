@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 
-import { StyledFormWrapper, StyledInputGroup } from './StyledFormPhoneAuth';
+import Style from './styles';
 import { Dropdown } from '../../Dropdown';
 import { Input } from '../../Input';
 import { Button } from '../../Button';
@@ -17,8 +17,8 @@ const FormPhoneAuth = ({ size, dropdownType, inputPlaceholder }) => {
   };
 
   return (
-    <StyledFormWrapper>
-      <StyledInputGroup>
+    <Style.FormWrapper>
+      <Style.InputGroup>
         <Dropdown
           register={register}
           size={size}
@@ -35,13 +35,13 @@ const FormPhoneAuth = ({ size, dropdownType, inputPlaceholder }) => {
           onFocus={() => setValue(inputPlaceholder, getValues(dropdownType))}
           onBlur={() => handleOnBlur(getValues('primary-input'))}
         />
-      </StyledInputGroup>
+      </Style.InputGroup>
       <p>
         We’ll call or text you to confirm your number. Standard message and data
         rates apply.
       </p>
       <Button btnType="primary" size="extra-large" label="Continue" />
-    </StyledFormWrapper>
+    </Style.FormWrapper>
   );
 };
 

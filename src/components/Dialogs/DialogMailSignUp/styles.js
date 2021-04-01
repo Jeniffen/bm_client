@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const DialogContainer = styled.div`
   box-sizing: border-box;
@@ -30,7 +30,7 @@ const SeparatorStyle = styled.p`
   line-height: 0.1em;
   margin: 6px 0 24px 0;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    'Helvetica Neue', sans-serif !important;
+    "Helvetica Neue", sans-serif !important;
   font-size: 12px;
   color: #718096;
 
@@ -40,7 +40,7 @@ const SeparatorStyle = styled.p`
   }
 `;
 
-const DialogSeparator = ({ seperatorText }) => {
+export const DialogSeparator = ({ seperatorText }) => {
   return (
     <SeparatorStyle>
       <span>{seperatorText}</span>

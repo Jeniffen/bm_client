@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-export const StyledFormWrapper = styled.form`
+const FormWrapper = styled.form`
   *,
   ::before,
   ::after {
@@ -13,7 +13,7 @@ export const StyledFormWrapper = styled.form`
   box-sizing: border-box;
   margin-top: 16px;
   max-width: 528px;
-  overflow: visible;
+  overflow: hidden;
 
   p {
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
@@ -24,16 +24,10 @@ export const StyledFormWrapper = styled.form`
   }
 
   hr.inputGroup {
-    boxsizing: content-box;
+    box-sizing: border-box;
     width: 100%;
     border-top: 1px inset rgba(217, 217, 217, 0.24);
     margin: 0;
-  }
-
-  :focus-within {
-    & hr.inputGroup {
-      border-top: 1px solid rgba(217, 217, 217, 0);
-    }
   }
 
   button {
@@ -41,9 +35,8 @@ export const StyledFormWrapper = styled.form`
   }
 `;
 
-export const StyledInputGroup = styled.div`
-  boxsizing: "border-box";
-
+const InputGroup = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding: 1px;
@@ -51,4 +44,12 @@ export const StyledInputGroup = styled.div`
   border-radius: 12px;
   background: #fff;
   min-height: 96px;
+
+  :focus-within {
+    & hr.inputGroup {
+      border-top: 1px solid rgba(217, 217, 217, 0);
+    }
+  }
 `;
+
+export default { InputGroup, FormWrapper };
