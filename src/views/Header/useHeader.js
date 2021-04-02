@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ModalContext } from '../../context/ModalContext';
-import { DialogSignIn } from '../../components/Dialogs/DialogSignIn';
+import { DialogOAuth } from '../../components/Dialogs/DialogViews/DialogOAuth';
 import authService from '../../api/authService';
 import useAuthState from '../../hooks/useAuthState';
 
@@ -34,7 +34,7 @@ export default function useHeader({ setExpandedBar = null }) {
       divider: false,
       onClick: () =>
         handleOpenModal(
-          <DialogSignIn
+          <DialogOAuth
             headerTitle="Sign Up"
             footerText="Already have an account?"
             anchorText="Log in"
@@ -49,7 +49,7 @@ export default function useHeader({ setExpandedBar = null }) {
       divider: true,
       onClick: () =>
         handleOpenModal(
-          <DialogSignIn
+          <DialogOAuth
             headerTitle="Log in"
             footerText="Don’t have an account?"
             anchorText="Sign up"
@@ -81,7 +81,7 @@ export default function useHeader({ setExpandedBar = null }) {
       divider: false,
       onClick: () =>
         handleOpenModal(
-          <DialogSignIn
+          <DialogOAuth
             headerTitle="Sign Up"
             footerText="Already have an account?"
             anchorText="Log in"
@@ -96,7 +96,7 @@ export default function useHeader({ setExpandedBar = null }) {
       divider: true,
       onClick: () =>
         handleOpenModal(
-          <DialogSignIn
+          <DialogOAuth
             headerTitle="Log in"
             footerText="Don’t have an account?"
             anchorText="Sign up"

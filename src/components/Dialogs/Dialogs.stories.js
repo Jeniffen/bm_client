@@ -1,8 +1,8 @@
 import React from 'react';
 import { DialogHeader } from './DialogHeader';
-import { DialogFooter } from './DialogFooter';
-import { DialogSignIn } from './DialogSignIn';
 import { DialogContainer } from './DialogContainer';
+import { DialogOAuth } from './DialogViews/DialogOAuth';
+import { DialogMailAuth } from './DialogViews/DialogMailAuth';
 
 export default {
   title: 'COMPONENTS API/Dialogs',
@@ -15,32 +15,22 @@ export default {
 };
 
 const TemplateHeader = (args) => <DialogHeader {...args} />;
-
 export const HeaderDefault = TemplateHeader.bind({});
 HeaderDefault.args = {
   headerTitle: 'Header Title',
 };
 
-const TemplateFooter = (args) => <DialogFooter {...args} />;
-
-export const FooterDefault = TemplateFooter.bind({});
-FooterDefault.args = {
-  footerText: 'Example footer text',
-  anchorText: 'anchor text',
-};
-
-const TemplateSignIn = (args) => <DialogSignIn {...args} />;
-
-export const SignIn = TemplateSignIn.bind({});
-SignIn.args = {
-  headerTitle: 'Log in',
-  footerText: 'Don’t have an account?',
-  anchorText: 'Sign up',
-};
-
 const TemplateDialogWrapper = (args) => <DialogContainer {...args} />;
-
 export const ContainerDefault = TemplateDialogWrapper.bind({});
 ContainerDefault.args = {
+  headerTitle: 'Container Header',
+};
+
+const TemplateOAuth = (args) => <DialogOAuth {...args} />;
+export const DefaultAuth = TemplateOAuth.bind({});
+
+const TemplateMailSignUp = (args) => <DialogMailAuth {...args} />;
+export const DefaultMailSignUp = TemplateMailSignUp.bind({});
+DefaultMailSignUp.args = {
   headerTitle: 'Finish signing up',
 };

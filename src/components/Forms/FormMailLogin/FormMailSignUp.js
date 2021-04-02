@@ -6,11 +6,13 @@ import { Input } from '../../Input';
 import { Button } from '../../Button';
 import { Checkbox } from '../../Checkbox';
 
-const FormMailSignUp = ({ size }) => {
+const FormMailSignUp = ({ size, dropdownType, inputPlaceholder }) => {
   const { register, handleSubmit, getValues, setValue } = useForm();
 
   const handleOnBlur = (value) => {
-    console.log('nothing');
+    if (!value) {
+      setValue(inputPlaceholder, '');
+    }
   };
 
   return (
