@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const StyledHeaderWrapper = styled.div`
+const HeaderWrapper = styled.div`
+  box-sizing: border-box;
   position: relative;
   display: flex;
   height: 64px;
@@ -17,7 +18,7 @@ export const StyledHeaderWrapper = styled.div`
     width: 100%;
     font-weight: 600;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-      "Helvetica Neue", sans-serif !important;
+      'Helvetica Neue', sans-serif !important;
     text-align: center;
     font-size: 16px;
   }
@@ -27,3 +28,5 @@ export const StyledHeaderWrapper = styled.div`
     left: 24px;
   }
 `;
+
+export default { HeaderWrapper };

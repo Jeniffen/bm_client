@@ -36,10 +36,7 @@ const FormMailSignUp = ({ size, dropdownType, inputPlaceholder }) => {
           onBlur={() => handleOnBlur(getValues('primary-input'))}
         />
       </Style.InputGroup>
-      <p>
-        We’ll call or text you to confirm your number. Standard message and data
-        rates apply.
-      </p>
+      <p>Make sure it matches the name on your government ID.</p>
       <Style.InputWrapper>
         <Input
           register={register}

@@ -2,7 +2,7 @@ import React from 'react';
 import { DialogHeader } from './DialogHeader';
 import { DialogFooter } from './DialogFooter';
 import { DialogSignIn } from './DialogSignIn';
-import { DialogMailSignUp } from './DialogMailSignUp';
+import { DialogContainer } from './DialogContainer';
 
 export default {
   title: 'COMPONENTS API/Dialogs',
@@ -38,11 +38,9 @@ SignIn.args = {
   anchorText: 'Sign up',
 };
 
-const TemplateMailSignUp = (args) => <DialogMailSignUp {...args} />;
+const TemplateDialogWrapper = (args) => <DialogContainer {...args} />;
 
-export const MailSignUp = TemplateMailSignUp.bind({});
-MailSignUp.args = {
+export const ContainerDefault = TemplateDialogWrapper.bind({});
+ContainerDefault.args = {
   headerTitle: 'Finish signing up',
-  footerText: 'Don’t have an account?',
-  anchorText: 'Sign up',
 };

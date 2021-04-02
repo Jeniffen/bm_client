@@ -8,7 +8,7 @@ const Checkbox = ({ labelText }) => {
   return (
     <Style.LabelWrapper>
       <Style.Checkbox checked={checked} onClick={handleCheckboxChange} />
-      <span>{labelText}</span>
+      <span onClick={handleCheckboxChange}>{labelText}</span>
     </Style.LabelWrapper>
   );
 };

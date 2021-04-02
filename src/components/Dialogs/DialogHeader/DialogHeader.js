@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { StyledHeaderWrapper } from "./StyledDialogHeader";
-import { IconButton } from "../../IconButton";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Style from './styles';
+import { IconButton } from '../../IconButton';
 
 const DialogHeader = ({ headerTitle, onHeaderClose }) => {
   return (
-    <StyledHeaderWrapper>
+    <Style.HeaderWrapper>
       <IconButton onClick={onHeaderClose} size="x-small" iconType="close" />
       <h1>{headerTitle}</h1>
-    </StyledHeaderWrapper>
+    </Style.HeaderWrapper>
   );
 };
 
