@@ -12,9 +12,11 @@ const FormOAuth = ({
   inputPlaceholder,
   footerText,
   anchorText,
+  handleAnchor,
+  handleMailAuth,
   onHeaderClose,
 }) => {
-  const [socialAuth, openPopup] = useOAuth({ onHeaderClose });
+  const [socialAuth] = useOAuth({ onHeaderClose, handleMailAuth });
 
   return (
     <Style.FormWrapper>
@@ -24,7 +26,7 @@ const FormOAuth = ({
         inputPlaceholder={inputPlaceholder}
       />
       <Style.DialogSeparator seperatorText="or" />
-      {socialAuth.map(({ key, logo, label, provider }) => (
+      {socialAuth.map(({ key, logo, label, provider, onClick }) => (
         <form key={key}>
           <Button
             key={key}
@@ -32,14 +34,14 @@ const FormOAuth = ({
             type="button"
             size={size}
             label={label}
-            onClick={() => openPopup(provider)}
+            onClick={onClick}
             prefixIcon={<Icons type={logo} size="small" />}
           />
         </form>
       ))}
       <Style.FooterWrapper>
         <p>
-          {footerText} <a>{anchorText}</a>
+          {footerText} <a onClick={handleAnchor}>{anchorText}</a>
         </p>
       </Style.FooterWrapper>
     </Style.FormWrapper>

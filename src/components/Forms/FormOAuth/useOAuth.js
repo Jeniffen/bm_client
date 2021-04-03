@@ -1,46 +1,12 @@
 import { useEffect } from 'react';
 import authService from '../../../api/authService';
 
-export default function useOAuth({ providers = null, onHeaderClose = null }) {
-  const socialAuth = [
-    {
-      key: 'mail',
-      logo: 'mail',
-      label: 'Continue with email',
-      provider: 'mail',
-    },
-    {
-      key: 'fb',
-      logo: 'logo-facebook',
-      label: 'Continue with Facebook',
-      provider: 'facebook',
-    },
-    {
-      key: 'googl',
-      logo: 'logo-google',
-      label: 'Continue with Google',
-      provider: 'google',
-    },
-    {
-      key: 'aapl',
-      logo: 'logo-apple',
-      label: 'Continue with Apple',
-      provider: 'apple',
-    },
-  ];
-
+export default function useOAuth({
+  onHeaderClose = null,
+  handleMailAuth = null,
+}) {
+  // Initialize popup in order to able to close with JS
   let popup = null;
-  const socket = authService.socket;
-  useEffect(() => {
-    socialAuth.map(({ provider }) =>
-      socket.on(provider, (authToken) => {
-        popup.close();
-        onHeaderClose();
-        authService.refresh(authToken);
-      })
-    );
-  }, []);
-
   const openPopup = (provider) => {
     const width = 600;
     const height = 600;
@@ -58,5 +24,47 @@ export default function useOAuth({ providers = null, onHeaderClose = null }) {
     return;
   };
 
-  return [socialAuth, openPopup];
+  const socialAuth = [
+    {
+      key: 'mail',
+      logo: 'mail',
+      label: 'Continue with email',
+      provider: 'mail',
+      onClick: handleMailAuth,
+    },
+    {
+      key: 'fb',
+      logo: 'logo-facebook',
+      label: 'Continue with Facebook',
+      provider: 'facebook',
+      onClick: () => openPopup('facebook'),
+    },
+    {
+      key: 'googl',
+      logo: 'logo-google',
+      label: 'Continue with Google',
+      provider: 'google',
+      onClick: () => openPopup('google'),
+    },
+    {
+      key: 'aapl',
+      logo: 'logo-apple',
+      label: 'Continue with Apple',
+      provider: 'apple',
+      onClick: () => openPopup('apple'),
+    },
+  ];
+
+  const socket = authService.socket;
+  useEffect(() => {
+    socialAuth.slice(1).map(({ provider }) =>
+      socket.on(provider, (authToken) => {
+        popup.close();
+        // onHeaderClose();
+        authService.refresh(authToken);
+      })
+    );
+  }, []);
+
+  return [socialAuth];
 }
