@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 import useInput from './useInput';
 
 const Input = ({ register, size, border, placeholder, inputPrefix, value }) => {
-  const [showLabel, handleInputChange] = useInput();
+  const { name } = { ...register };
+  const [showLabel, handleInputChange] = useInput({ name });
 
   return (
-    <Style.Wrapper onBlur={handleInputChange} size={size}>
+    <Style.Wrapper
+      onChange={handleInputChange}
+      onBlur={handleInputChange}
+      size={size}
+    >
       <Style.PrimaryInput
         className="primary inputField"
         inputPrefix={inputPrefix}

@@ -1,6 +1,23 @@
 /* eslint-disable import/no-anonymous-default-export */
 import styled, { css } from 'styled-components';
 
+const Wrapper = styled.div`
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+
+  ${({ size }) =>
+    size === 'extra-large' &&
+    css`
+      input.primary {
+        height: 48px;
+        width: 100%;
+        min-width: 452px;
+        max-width: 528px;
+      }
+    `}
+`;
+
 const PrefixInput = styled.input`
   border: none;
   height: 48px;
@@ -67,23 +84,6 @@ const PrimaryInput = styled.input`
       background: none;
     }
   }
-`;
-
-const Wrapper = styled.div`
-  box-sizing: border-box;
-  position: relative;
-  border: none;
-
-  ${({ size }) =>
-    size === 'extra-large' &&
-    css`
-      input.primary {
-        height: 48px;
-        width: 100%;
-        min-width: 452px;
-        max-width: 528px;
-      }
-    `}
 `;
 
 export default { PrefixInput, InputLabel, PrimaryInput, Wrapper };
