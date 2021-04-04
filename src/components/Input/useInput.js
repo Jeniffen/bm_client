@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
-export default function useInput({ name = null }) {
+export default function useInput({ register = null }) {
   const [showLabel, setShowLabel] = useState(false);
-  const inputDomNode = name !== null && name !== undefined ? 0 : name;
+
+  const { name } = { ...register };
+  const inputDomNode = name === null || name === undefined ? 0 : name;
 
   const handleInputChange = () => {
     document.getElementsByClassName('primary inputField')[inputDomNode]

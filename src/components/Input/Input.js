@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import useInput from './useInput';
 
 const Input = ({ register, size, border, placeholder, inputPrefix, value }) => {
-  const { name } = { ...register };
-  const [showLabel, handleInputChange] = useInput({ name });
+  const [showLabel, handleInputChange] = useInput({ register });
 
   return (
     <Style.Wrapper
