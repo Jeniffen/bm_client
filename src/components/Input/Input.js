@@ -7,11 +7,7 @@ const Input = ({ register, size, border, placeholder, inputPrefix, value }) => {
   const [showLabel, handleInputChange] = useInput({ register });
 
   return (
-    <Style.Wrapper
-      onChange={handleInputChange}
-      onBlur={handleInputChange}
-      size={size}
-    >
+    <Style.Wrapper onChange={handleInputChange} size={size}>
       <Style.PrimaryInput
         className="primary inputField"
         inputPrefix={inputPrefix}
