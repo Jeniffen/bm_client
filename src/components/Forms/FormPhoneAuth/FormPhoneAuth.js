@@ -20,20 +20,18 @@ const FormPhoneAuth = ({ size, dropdownType, inputPlaceholder }) => {
     <Style.FormWrapper>
       <Style.InputGroup>
         <Dropdown
-          register={register}
+          register={register('countrycode')}
           size={size}
           type={dropdownType}
           border={false}
         />
         <hr className="inputGroup" />
         <Input
-          register={register}
+          register={register('phonenumber')}
           size={size}
           placeholder={inputPlaceholder}
           prefix={true}
           border={false}
-          onFocus={() => setValue(inputPlaceholder, getValues(dropdownType))}
-          onBlur={() => handleOnBlur(getValues('primary-input'))}
         />
       </Style.InputGroup>
       <p>

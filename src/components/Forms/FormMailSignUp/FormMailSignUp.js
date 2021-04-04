@@ -5,11 +5,12 @@ import { useForm } from 'react-hook-form';
 import { Input } from '../../Input';
 import { Button } from '../../Button';
 import { Checkbox } from '../../Checkbox';
+import authService from '../../../api/authService';
 
 const FormMailSignUp = ({ size }) => {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => authService.postMailSignUp(data);
 
   return (
     <Style.FormWrapper onSubmit={handleSubmit(onSubmit)}>

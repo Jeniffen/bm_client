@@ -18,9 +18,13 @@ const FormMailLogin = ({
   return (
     <Style.FormWrapper>
       <Style.InputGroup>
-        <Input register={register} size={size} placeholder="Email" />
+        <Input register={register('email')} size={size} placeholder="Email" />
         <hr className="inputGroup" />
-        <Input register={register} size={size} placeholder="Password" />
+        <Input
+          register={register('password')}
+          size={size}
+          placeholder="Password"
+        />
       </Style.InputGroup>
       <Button btnType="primary" size="extra-large" label="Log in" />
       <Style.FooterWrapper>
