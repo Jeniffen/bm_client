@@ -30,7 +30,7 @@ const FormPhoneAuth = ({ size, dropdownType, inputPlaceholder }) => {
           register={register('phonenumber')}
           size={size}
           placeholder={inputPlaceholder}
-          prefix={true}
+          inputPrefix={true}
           border={false}
         />
       </Style.InputGroup>

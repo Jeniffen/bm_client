@@ -1,20 +1,27 @@
 import React from 'react';
 import Style from './styles';
 import PropTypes from 'prop-types';
+import useInput from './useInput';
 
-const Input = ({ register, size, border, placeholder, prefix, value }) => {
+const Input = ({ register, size, border, placeholder, inputPrefix, value }) => {
+  const [showLabel, handleInputChange] = useInput();
+
   return (
-    <Style.Wrapper size={size}>
+    <Style.Wrapper onBlur={handleInputChange} size={size}>
       <Style.PrimaryInput
-        className="primary"
-        prefix={prefix}
+        className="primary inputField"
+        inputPrefix={inputPrefix}
         border={border}
         value={value}
         {...register}
       />
-      <span>{placeholder}</span>
-      {prefix ? (
-        <Style.PrefixInput className="prefix" name={placeholder} disabled />
+      <Style.InputLabel showLabel={showLabel}>{placeholder}</Style.InputLabel>
+      {inputPrefix ? (
+        <Style.PrefixInput
+          className="inputPrefix"
+          name={placeholder}
+          disabled
+        />
       ) : null}
     </Style.Wrapper>
   );

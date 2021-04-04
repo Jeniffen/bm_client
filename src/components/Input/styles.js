@@ -5,22 +5,6 @@ const Wrapper = styled.div`
   position: relative;
   border: none;
 
-  span {
-    position: absolute;
-    margin: 15px 0;
-    font-family: sans-serif;
-    font-weight: 300;
-    color: #a0aec0;
-    display: flex;
-    font-size: 15px;
-    top: 0px;
-    left: 16px;
-    transition: all 0.2s;
-    transform-origin: 0% 0%;
-    background: none;
-    pointer-events: none;
-  }
-
   ${({ size }) =>
     size === 'extra-large' &&
     css`
@@ -33,10 +17,35 @@ const Wrapper = styled.div`
     `}
 `;
 
+const InputLabel = styled.span`
+  position: absolute;
+  margin: 15px 0;
+  font-family: sans-serif;
+  font-weight: 300;
+  color: #a0aec0;
+  display: flex;
+  font-size: 15px;
+  top: 0px;
+  left: 16px;
+  transition: all 0.2s;
+  transform-origin: 0% 0%;
+  background: none;
+  pointer-events: none;
+
+  ${({ showLabel }) =>
+    showLabel &&
+    css`
+      transform: scale(0.8) translateY(-10px);
+      background: none;
+    `}
+`;
+
 const PrimaryInput = styled.input`
   box-sizing: border-box;
-  position: ${({ prefix }) => (prefix ? css`absolute` : css`relative`)};
-  padding: 16px 0 4px 44px;
+  position: ${({ inputPrefix }) =>
+    inputPrefix ? css`absolute` : css`relative`};
+  padding: ${({ inputPrefix }) =>
+    inputPrefix ? css`20px 0 4px 44px;` : css`20px 0 4px 14px;`};
   height: 48px;
   width: 100%;
   font-weight: 300;
@@ -51,7 +60,7 @@ const PrimaryInput = styled.input`
   &:focus {
     border: 2px solid #284b63;
 
-    + span {
+    + ${InputLabel} {
       transform: scale(0.8) translateY(-10px);
       background: none;
     }
@@ -68,4 +77,4 @@ const PrefixInput = styled.input`
   background: none;
 `;
 
-export default { Wrapper, PrimaryInput, PrefixInput };
+export default { Wrapper, PrimaryInput, InputLabel, PrefixInput };
