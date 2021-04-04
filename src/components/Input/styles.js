@@ -1,20 +1,14 @@
+/* eslint-disable import/no-anonymous-default-export */
 import styled, { css } from 'styled-components';
 
-const Wrapper = styled.div`
-  box-sizing: border-box;
-  position: relative;
+const PrefixInput = styled.input`
   border: none;
-
-  ${({ size }) =>
-    size === 'extra-large' &&
-    css`
-      input.primary {
-        height: 48px;
-        width: 100%;
-        min-width: 452px;
-        max-width: 528px;
-      }
-    `}
+  height: 48px;
+  padding: 16px 0 4px 16px;
+  font-weight: 300;
+  font-size: 15px;
+  color: #495055;
+  background: none;
 `;
 
 const InputLabel = styled.span`
@@ -42,10 +36,6 @@ const InputLabel = styled.span`
 
 const PrimaryInput = styled.input`
   box-sizing: border-box;
-  position: ${({ inputPrefix }) =>
-    inputPrefix ? css`absolute` : css`relative`};
-  padding: ${({ inputPrefix }) =>
-    inputPrefix ? css`20px 0 4px 44px;` : css`20px 0 4px 14px;`};
   height: 48px;
   width: 100%;
   font-weight: 300;
@@ -54,6 +44,18 @@ const PrimaryInput = styled.input`
   background: none;
   outline: none;
   border-radius: 12px;
+
+  ${({ inputPrefix }) =>
+    inputPrefix
+      ? css`
+          position: absolute;
+          padding: 20px 0 4px 44px;
+        `
+      : css`
+          position: relative;
+          padding: 20px 0 4px 14px;
+        `}
+
   border: ${({ border }) =>
     border ? css`2px solid #d9d9d9` : css`2px solid #fff`};
 
@@ -67,14 +69,21 @@ const PrimaryInput = styled.input`
   }
 `;
 
-const PrefixInput = styled.input`
+const Wrapper = styled.div`
+  box-sizing: border-box;
+  position: relative;
   border: none;
-  height: 48px;
-  padding: 16px 0 4px 16px;
-  font-weight: 300;
-  font-size: 15px;
-  color: #495055;
-  background: none;
+
+  ${({ size }) =>
+    size === 'extra-large' &&
+    css`
+      input.primary {
+        height: 48px;
+        width: 100%;
+        min-width: 452px;
+        max-width: 528px;
+      }
+    `}
 `;
 
-export default { Wrapper, PrimaryInput, InputLabel, PrefixInput };
+export default { PrefixInput, InputLabel, PrimaryInput, Wrapper };
