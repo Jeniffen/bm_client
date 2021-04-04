@@ -8,15 +8,16 @@ const FormWrapper = styled.form`
     border-width: 0;
     border-style: solid;
     border-color: #e2e8f0;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   }
 
   box-sizing: border-box;
+  margin-top: 16px;
   max-width: 528px;
-  overflow: visible;
-  margin-bottom: 42px;
+  overflow: hidden;
 
   p {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+
     font-size: 12px;
     color: #718096;
     margin 8px 0 14px 0;
@@ -41,8 +42,8 @@ const InputGroup = styled.div`
   padding: 1px;
   box-shadow: inset 0px 0px 0px 1px #d9d9d9;
   border-radius: 12px;
+  background: #fff;
   min-height: 96px;
-  margin-bottom: 16px;
 
   :focus-within {
     & hr.inputGroup {
@@ -51,29 +52,4 @@ const InputGroup = styled.div`
   }
 `;
 
-const FooterWrapper = styled.div`
-  width: 100%;
-  max-height: 64px;
-  max-width: 568px;
-
-  p.password {
-    margin-bottom: 32px;
-  }
-
-  p {
-    margin: 20px 0 22px 0;
-    font-size: 14px;
-    font-weight: 300;
-    color: #4a5568;
-  }
-
-  a {
-    font-weight: 500;
-    text-decoration: underline;
-    cursor: pointer;
-    color: #000;
-    margin: 20px 0 20px 0;
-  }
-`;
-
-export default { InputGroup, FormWrapper, FooterWrapper };
+export default { InputGroup, FormWrapper };

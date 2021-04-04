@@ -16,7 +16,9 @@ export default function useDialogAuthOverview({ dialogType = null }) {
         : null
       : authType.view === 'mailSignup'
       ? 'Finish signing up'
-      : null;
+      : authType.view === 'mailLogin'
+      ? 'Log in'
+      : 'null';
 
   const footerText =
     authType.type === 'signup'
@@ -36,8 +38,10 @@ export default function useDialogAuthOverview({ dialogType = null }) {
     authType.type === 'signup'
       ? () => setAuthType({ view: 'mailSignup', type: 'signup' })
       : authType.type === 'login'
-      ? () => setAuthType({ view: null, type: 'login' })
+      ? () => setAuthType({ view: 'mailLogin', type: 'login' })
       : null;
+
+  const handleOptions = () => setAuthType({ view: 'overview', type: 'login' });
 
   const handleAnchor =
     authType.type === 'signup'
@@ -52,6 +56,7 @@ export default function useDialogAuthOverview({ dialogType = null }) {
     footerText,
     anchorText,
     handleMailAuth,
+    handleOptions,
     handleAnchor,
   ];
 }

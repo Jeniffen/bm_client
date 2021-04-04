@@ -2,6 +2,7 @@ import React from 'react';
 import { DialogContainer } from '../../DialogContainer';
 import { FormOAuth } from '../../../Forms/FormOAuth';
 import { FormMailSignUp } from '../../../Forms/FormMailSignUp';
+import { FormMailLogin } from '../../../Forms/FormMailLogin';
 import useDialogAuthOverview from './useDialogAuthOverview';
 
 const DialogOAuth = ({ dialogType }) => {
@@ -11,6 +12,7 @@ const DialogOAuth = ({ dialogType }) => {
     footerText,
     anchorText,
     handleMailAuth,
+    handleOptions,
     handleAnchor,
   ] = useDialogAuthOverview({ dialogType });
 
@@ -27,6 +29,16 @@ const DialogOAuth = ({ dialogType }) => {
       />
     ),
     mailSignup: <FormMailSignUp />,
+    mailLogin: (
+      <FormMailLogin
+        size={'extra-large'}
+        inputPlaceholder={'Phone number'}
+        footerText={footerText}
+        anchorText={anchorText}
+        handleOptions={handleOptions}
+        handleAnchor={handleAnchor}
+      />
+    ),
   };
 
   return (

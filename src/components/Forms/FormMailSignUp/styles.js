@@ -11,7 +11,6 @@ const FormWrapper = styled.form`
   }
 
   box-sizing: border-box;
-  margin-top: 16px;
   max-width: 528px;
   overflow: visible;
 

@@ -1,1 +1,1 @@
-export { default as FormMailSignUp } from './FormMailSignUp';
+export { default as FormMailLogin } from './FormMailLogin';
