@@ -2,34 +2,19 @@ import React from 'react';
 import Style from './styles';
 import PropTypes from 'prop-types';
 
-const Input = ({
-  register,
-  size,
-  border,
-  placeholder,
-  prefix,
-  value,
-  onFocus,
-  onBlur,
-}) => {
+const Input = ({ register, size, border, placeholder, prefix, value }) => {
   return (
     <Style.Wrapper size={size}>
       <Style.PrimaryInput
         className="primary"
-        onFocus={onFocus}
-        onBlur={onBlur}
         prefix={prefix}
         border={border}
         value={value}
+        {...register}
       />
       <span>{placeholder}</span>
       {prefix ? (
-        <Style.PrefixInput
-          className="prefix"
-          name={placeholder}
-          ref={register}
-          disabled
-        />
+        <Style.PrefixInput className="prefix" name={placeholder} disabled />
       ) : null}
     </Style.Wrapper>
   );

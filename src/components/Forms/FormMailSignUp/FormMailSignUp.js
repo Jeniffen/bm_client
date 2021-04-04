@@ -7,36 +7,31 @@ import { Button } from '../../Button';
 import { Checkbox } from '../../Checkbox';
 
 const FormMailSignUp = ({ size }) => {
-  const { register, handleSubmit, getValues, setValue } = useForm();
+  const { register, handleSubmit } = useForm();
 
-  const handleOnBlur = (value) => {
-    console.log('nothing');
-  };
+  const onSubmit = (data) => console.log(data);
 
   return (
-    <Style.FormWrapper>
+    <Style.FormWrapper onSubmit={handleSubmit(onSubmit)}>
       <Style.InputGroup>
         <Input
-          register={register}
+          register={register('firstName')}
           size={size}
           placeholder="First name"
-          onBlur={() => handleOnBlur(getValues('primary-input'))}
         />
         <hr className="inputGroup" />
         <Input
-          register={register}
+          register={register('lastName')}
           size={size}
           placeholder="Last name"
-          onBlur={() => handleOnBlur(getValues('primary-input'))}
         />
       </Style.InputGroup>
       <p>Make sure it matches the name on your government ID.</p>
       <Style.InputWrapper>
         <Input
-          register={register}
+          register={register('birthdate')}
           size={size}
           placeholder="Birthdate"
-          onBlur={() => handleOnBlur(getValues('primary-input'))}
         />
       </Style.InputWrapper>
       <p>
@@ -44,20 +39,14 @@ const FormMailSignUp = ({ size }) => {
         with other people who use [APPNAME].
       </p>
       <Style.InputWrapper>
-        <Input
-          register={register}
-          size={size}
-          placeholder="Email"
-          onBlur={() => handleOnBlur(getValues('primary-input'))}
-        />
+        <Input register={register('email')} size={size} placeholder="Email" />
       </Style.InputWrapper>
       <p>We'll email you booking confirmations and receipts.</p>
       <Style.InputWrapper>
         <Input
-          register={register}
+          register={register('password')}
           size={size}
           placeholder="Password"
-          onBlur={() => handleOnBlur(getValues('primary-input'))}
         />
       </Style.InputWrapper>
       <p>
@@ -65,7 +54,12 @@ const FormMailSignUp = ({ size }) => {
         Service, Payments Terms of Service, Privacy Policy, and
         Nondiscrimination Policy.
       </p>
-      <Button btnType="primary" size="extra-large" label="Agree and continue" />
+      <Button
+        type="submit"
+        btnType="primary"
+        size="extra-large"
+        label="Agree and continue"
+      />
       <Style.SeparatorStyle />
       <p>
         [APPNAME] will send you members-only deals, inspiration, marketing
@@ -73,28 +67,12 @@ const FormMailSignUp = ({ size }) => {
         any time in your account settings or directly from the marketing
         notification.
       </p>
-      <Checkbox labelText="I don’t want to receive marketing messages from [APPNAME]." />
+      <Checkbox
+        register={register('promotion')}
+        labelText="I don’t want to receive marketing messages from [APPNAME]."
+      />
     </Style.FormWrapper>
   );
-};
-
-FormMailSignUp.propTypes = {
-  /**
-   * How large should the inputgroup be?
-   */
-  size: PropTypes.oneOf(['extra-large']),
-  /**
-   * What type of values does dropdown contain
-   */
-  dropdownType: PropTypes.string,
-  /**
-   * Input placeholder
-   */
-  inputPlaceholder: PropTypes.string,
-  /**
-   * Classes to be applied to the root element
-   */
-  className: PropTypes.string,
 };
 
 export default FormMailSignUp;
