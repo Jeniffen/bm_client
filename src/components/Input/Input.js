@@ -6,6 +6,7 @@ import useInput from './useInput';
 const Input = ({
   register,
   type,
+  typeErr,
   size,
   border,
   placeholder,
@@ -19,6 +20,7 @@ const Input = ({
       <Style.PrimaryInput
         className="primary inputField"
         type={type}
+        typeErr={typeErr}
         inputPrefix={inputPrefix}
         border={border}
         value={value}

@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   position: relative;
   border: none;
+  color: #495055;
 
   ${({ size }) =>
     size === 'extra-large' &&
@@ -24,7 +25,7 @@ const PrefixInput = styled.input`
   padding: 16px 0 4px 16px;
   font-weight: 300;
   font-size: 15px;
-  color: #495055;
+
   background: none;
 `;
 
@@ -33,7 +34,7 @@ const InputLabel = styled.span`
   margin: 15px 0;
   font-family: sans-serif;
   font-weight: 300;
-  color: #a0aec0;
+  color: #4f565c;
   display: flex;
   font-size: 15px;
   top: 0px;
@@ -58,7 +59,7 @@ const PrimaryInput = styled.input`
   font-weight: 300;
   font-size: 15px;
   color: #495055;
-  background: none;
+  background: ${({ typeErr }) => (typeErr ? css`#fff1f0` : css`#fff`)};
   outline: none;
   border-radius: 12px;
 
@@ -77,8 +78,15 @@ const PrimaryInput = styled.input`
     border ? css`2px solid #d9d9d9` : css`2px solid #fff`};
 
   &:focus {
-    border: 2px solid #284b63;
-
+    ${({ typeErr }) =>
+      typeErr
+        ? css`
+            border: 2px solid #c12315;
+            background: #fff;
+          `
+        : css`
+            border: 2px solid #284b63;
+          `}
     + ${InputLabel} {
       transform: scale(0.8) translateY(-10px);
       background: none;

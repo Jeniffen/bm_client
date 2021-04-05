@@ -17,10 +17,12 @@ const FormMailSignUp = ({ size }) => {
     .format('MM-DD-YYYY');
 
   const schema = Joi.object({
-    firstName: Joi.string()
-      .required()
-      .messages({ 'string.empty': '⚠️ First name is required.' }),
+    firstName: Joi.string().alphanum().required().messages({
+      'string.empty': '⚠️ First name is required.',
+      'string.alphanum': '⚠️ Please use valid characters for your name.',
+    }),
     lastName: Joi.string()
+      .alphanum()
       .required()
       .messages({ 'string.empty': '⚠️ Last name is required.' }),
     birthdate: Joi.date().less(minumumDate).required().messages({
@@ -58,15 +60,17 @@ const FormMailSignUp = ({ size }) => {
 
   return (
     <Style.FormWrapper onSubmit={handleSubmit(onSubmit)}>
-      <Style.InputGroup>
+      <Style.InputGroup typeErr={errors.firstName || errors.lastName}>
         <Input
           register={register('firstName')}
+          typeErr={errors.firstName}
           size={size}
           placeholder="First name"
         />
         <hr className="inputGroup" />
         <Input
           register={register('lastName')}
+          typeErr={errors.lastName}
           size={size}
           placeholder="Last name"
         />
@@ -78,9 +82,10 @@ const FormMailSignUp = ({ size }) => {
       ) : (
         <p>Make sure it matches the name on your government ID.</p>
       )}
-      <Style.InputWrapper>
+      <Style.InputWrapper typeErr={errors.birthdate}>
         <Input
           register={register('birthdate')}
+          typeErr={errors.birthdate}
           size={size}
           placeholder="Birthdate"
         />
@@ -93,17 +98,23 @@ const FormMailSignUp = ({ size }) => {
           with other people who use [APPNAME].
         </p>
       )}
-      <Style.InputWrapper>
-        <Input register={register('email')} size={size} placeholder="Email" />
+      <Style.InputWrapper typeErr={errors.email}>
+        <Input
+          register={register('email')}
+          typeErr={errors.email}
+          size={size}
+          placeholder="Email"
+        />
       </Style.InputWrapper>
       {errors.email ? (
         <p>{errors.email?.message}</p>
       ) : (
         <p>We'll email you booking confirmations and receipts.</p>
       )}
-      <Style.InputWrapper>
+      <Style.InputWrapper typeErr={errors.password}>
         <Input
           register={register('password')}
+          typeErr={errors.password}
           size={size}
           type="password"
           placeholder="Password"
