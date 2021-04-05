@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.12.5",
+    "@hookform/resolvers": "^2.0.0",
     "@storybook/react": "^6.2.0-beta.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -11,6 +12,7 @@
     "axios": "^0.21.1",
     "http-proxy-middleware": "^1.0.6",
     "jest-svg-transformer": "^1.0.0",
+    "joi": "^17.4.0",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.1",
     "polished": "^4.0.5",
