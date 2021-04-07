@@ -6,6 +6,7 @@ export default function useInput({ register = null }) {
 
   const inputDomNode = name === null || name === undefined ? 0 : name;
   const domElement = document.getElementsByClassName('complexInput');
+
   // This function controls the label within in the input field.
   // Correct functionality is only ensured in conjunction wiht react-hook-forms.
   const handleInputChange = () => {

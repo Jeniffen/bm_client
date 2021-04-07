@@ -51,8 +51,6 @@ const FormMailSignUp = ({ size }) => {
     formState: { errors },
   } = useForm({ resolver: joiResolver(schema) });
 
-  console.log('errors', errors);
-
   const onSubmit = (data) => {
     // If checkbox for promotion was selected, user actively opted-out
     data.promotion = !data.promotion;

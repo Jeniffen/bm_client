@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Style from './styles';
 import useInput from './useInput';
 
@@ -26,6 +27,33 @@ const Input_ = ({
       </Style.InputLabel>
     </Style.Wrapper>
   );
+};
+
+Input_.propTypes = {
+  /**
+   * Size of the input field
+   */
+  size: PropTypes.oneOf(['extra-large']),
+  /**
+   * HTML input type
+   */
+  type: PropTypes.string,
+  /**
+   * Placeholder text within the input field
+   */
+  placeholder: PropTypes.string,
+  /**
+   * Text of label below input field
+   */
+  labelText: PropTypes.string,
+  /**
+   * Error object passed from form validation
+   */
+  typeErr: PropTypes.object,
+  /**
+   * Classname of the input field
+   */
+  className: PropTypes.string,
 };
 
 export default Input_;

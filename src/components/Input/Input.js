@@ -14,7 +14,7 @@ const Input = ({
   value,
 }) => {
   const [showLabel, handleInputChange] = useInput({ register });
-  console.log(register);
+
   return (
     <Style.Wrapper onChange={handleInputChange} size={size}>
       <Style.PrimaryInput
