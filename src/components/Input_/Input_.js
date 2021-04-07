@@ -3,26 +3,27 @@ import Style from './styles';
 import useInput from './useInput';
 
 const Input_ = ({
-  register,
-  type,
-  typeErr,
   size,
-  border,
+  type,
   placeholder,
+  labelText,
+  typeErr,
+  register,
   className,
 }) => {
   const [showLabel, handleInputChange] = useInput({ register });
-  console.log(size);
+
   return (
-    <Style.Wrapper onChange={handleInputChange} size={size}>
+    <Style.Wrapper size={size} typeErr={typeErr} onChange={handleInputChange}>
       <Style.PrimaryInput
-        className={`complexInput ${className}`}
         type={type}
-        typeErr={typeErr}
-        border={border}
+        className={`complexInput ${className}`}
         {...register}
       />
-      <Style.InputLabel showLabel={showLabel}>{placeholder}</Style.InputLabel>
+      <Style.Placeholder showLabel={showLabel}>{placeholder}</Style.Placeholder>
+      <Style.InputLabel>
+        {typeErr ? typeErr?.message : labelText || null}
+      </Style.InputLabel>
     </Style.Wrapper>
   );
 };

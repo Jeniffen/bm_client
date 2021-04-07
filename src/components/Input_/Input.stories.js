@@ -11,7 +11,9 @@ const Template = (args) => <Input_ {...args} />;
 export const Input = Template.bind({});
 Input.args = {
   size: 'extra-large',
-  border: true,
+  typeErr: { message: 'err' },
   placeholder: 'phone number',
+  labelText:
+    'To sign up, you need to be at least 18. Your birthday won’t be shared with other people who use [APPNAME].',
   register: { name: 'Example' },
 };

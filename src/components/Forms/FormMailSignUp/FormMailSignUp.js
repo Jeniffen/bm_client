@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
 import { useForm } from 'react-hook-form';
 import { Input } from '../../Input';
+import { Input_ } from '../../Input_';
 import { Button } from '../../Button';
 import { Checkbox } from '../../Checkbox';
 import { joiResolver } from '@hookform/resolvers/joi';
@@ -82,45 +84,27 @@ const FormMailSignUp = ({ size }) => {
       ) : (
         <p>Make sure it matches the name on your government ID.</p>
       )}
-      <Style.InputWrapper typeErr={errors.birthdate}>
-        <Input
-          register={register('birthdate')}
-          typeErr={errors.birthdate}
-          size={size}
-          placeholder="Birthdate"
-        />
-      </Style.InputWrapper>
-      {errors.birthdate ? (
-        <p>{errors.birthdate?.message}</p>
-      ) : (
-        <p>
-          To sign up, you need to be at least 18. Your birthday won’t be shared
-          with other people who use [APPNAME].
-        </p>
-      )}
-      <Style.InputWrapper typeErr={errors.email}>
-        <Input
-          register={register('email')}
-          typeErr={errors.email}
-          size={size}
-          placeholder="Email"
-        />
-      </Style.InputWrapper>
-      {errors.email ? (
-        <p>{errors.email?.message}</p>
-      ) : (
-        <p>We'll email you booking confirmations and receipts.</p>
-      )}
-      <Style.InputWrapper typeErr={errors.password}>
-        <Input
-          register={register('password')}
-          typeErr={errors.password}
-          size={size}
-          type="password"
-          placeholder="Password"
-        />
-      </Style.InputWrapper>
-      {errors.password ? <p>{errors.password?.message}</p> : null}
+      <Input_
+        size={size}
+        placeholder="Birthdate"
+        typeErr={errors.birthdate}
+        register={register('birthdate')}
+        labelText="To sign up, you need to be at least 18. Your birthday won’t be shared
+        with other people who use [APPNAME]."
+      />
+      <Input_
+        size={size}
+        placeholder="Email"
+        typeErr={errors.email}
+        register={register('email')}
+        labelText="We'll email you booking confirmations and receipts."
+      />
+      <Input_
+        size={size}
+        placeholder="Password"
+        typeErr={errors.password}
+        register={register('password')}
+      />
       <p>
         By selecting Agree and continue below, I agree to [APPNAME] Terms of
         Service, Payments Terms of Service, Privacy Policy, and

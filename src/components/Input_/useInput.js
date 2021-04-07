@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 export default function useInput({ register = null }) {
+  const { name } = register;
   const [showLabel, setShowLabel] = useState(false);
 
-  const { name } = { ...register };
   const inputDomNode = name === null || name === undefined ? 0 : name;
   const domElement = document.getElementsByClassName('complexInput');
   // This function controls the label within in the input field.
