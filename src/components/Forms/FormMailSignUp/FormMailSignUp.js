@@ -2,64 +2,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
-import { useForm } from 'react-hook-form';
 import { InputGroup } from './../../Inputs/InputGroup';
 import { Input } from '../../Inputs/Input';
 import { Button } from '../../Button';
 import { Checkbox } from '../../Checkbox';
-import { joiResolver } from '@hookform/resolvers/joi';
-import Joi from 'joi';
-import moment from 'moment';
-import authService from '../../../api/authService';
+
+import useFormMailSignUp from './useFormMailSignUp';
 
 const FormMailSignUp = ({ size }) => {
-  const minumumDate = moment()
-    .subtract(18, 'years')
-    .add(1, 'days')
-    .format('MM-DD-YYYY');
-
-  const schema = Joi.object({
-    firstName: Joi.string().alphanum().required().messages({
-      'string.empty': '⚠️ First name is required.',
-      'string.alphanum': '⚠️ Please use valid characters for your name.',
-    }),
-    lastName: Joi.string()
-      .alphanum()
-      .required()
-      .messages({ 'string.empty': '⚠️ Last name is required.' }),
-    birthdate: Joi.date().less(minumumDate).required().messages({
-      'date.base': '⚠️ Select your birth date to continue.',
-      'date.less':
-        '⚠️ You must be 18 or older to use [APPNAME]. Other people won’t see your birthday.',
-    }),
-    email: Joi.string()
-      .email({ tlds: { allow: false } })
-      .required()
-      .messages({
-        'string.empty': '⚠️ Email is required.',
-        'string.email': '⚠️ Enter a valid email.',
-      }),
-    password: Joi.string().required().messages({
-      'string.empty': '⚠️ Password is required.',
-    }),
-    promotion: Joi.boolean(),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: joiResolver(schema) });
-
-  const onSubmit = (data) => {
-    // If checkbox for promotion was selected, user actively opted-out
-    data.promotion = !data.promotion;
-    console.log(data);
-    // authService.postMailSignUp(data);
-  };
+  const [register, errors, handleOnSubmit] = useFormMailSignUp();
 
   return (
-    <Style.FormWrapper onSubmit={handleSubmit(onSubmit)}>
+    <Style.FormWrapper onSubmit={handleOnSubmit}>
       <InputGroup
         labelText={'Make sure it matches the name on your government ID.'}
         typeErr={errors.firstName || errors.lastName}
@@ -127,6 +81,13 @@ const FormMailSignUp = ({ size }) => {
       />
     </Style.FormWrapper>
   );
+};
+
+FormMailSignUp.propTypes = {
+  /**
+   * How large should the button be?
+   */
+  size: PropTypes.oneOf(['extra-large']),
 };
 
 export default FormMailSignUp;
