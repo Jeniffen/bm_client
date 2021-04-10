@@ -1,15 +1,14 @@
 import React from 'react';
-import { Input_ } from './';
+import { Input } from '.';
 
 export default {
-  title: 'COMPONENTS API/Input_',
-  component: Input_,
+  title: 'COMPONENTS API/Inputs',
+  component: Input,
 };
 
-const Template = (args) => <Input_ {...args} />;
-
-export const Input = Template.bind({});
-Input.args = {
+const Template = (args) => <Input {...args} />;
+export const InputField = Template.bind({});
+InputField.args = {
   size: 'extra-large',
   typeErr: { message: 'err' },
   placeholder: 'phone number',

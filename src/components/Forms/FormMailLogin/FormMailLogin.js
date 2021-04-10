@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
 import { useForm } from 'react-hook-form';
-import { Input } from '../../Input';
+import { Input } from '../../Inputs/Input';
 import { Button } from '../../Button';
 
 const FormMailLogin = ({

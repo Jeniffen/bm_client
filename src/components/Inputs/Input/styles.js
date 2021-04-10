@@ -1,17 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import styled, { css } from 'styled-components';
 
-const InputLabel = styled.p`
-  max-width: 520px;
-
-  margin: 8px 0 24px 0px !important;
-  padding-left: 2px;
-
-  color: #718096;
-  font-size: 12px;
-  font-weight: 300;
-`;
-
 const Placeholder = styled.span`
   display: flex;
   position: absolute;
@@ -41,7 +30,6 @@ const Placeholder = styled.span`
 
 const PrimaryInput = styled.input`
   box-sizing: border-box;
-  background: #fff;
 
   padding: 20px 0 4px 14px;
 
@@ -52,13 +40,12 @@ const PrimaryInput = styled.input`
   font-size: 15px;
   color: #495055;
 
-  border: 2px solid #fff;
-  border-radius: 12px;
-  box-shadow: inset 0px 0px 0px 1px #c9c9c9;
+  border-radius: 12px !important;
+
   outline: none;
 
   &:focus {
-    border: 2px solid #284b63;
+    border: 2px solid #284b63 !important;
     box-shadow: none;
 
     + ${Placeholder} {
@@ -66,6 +53,47 @@ const PrimaryInput = styled.input`
       background: none;
     }
   }
+
+  ${({ grouped }) =>
+    grouped
+      ? css`
+          background: transparent;
+          border: 2px solid transparent !important;
+          border: none;
+
+          ${({ typeErr }) =>
+            typeErr
+              ? css`
+                  background: transparent;
+                  box-shadow: inset 0px 0px 0px 1px transparent;
+                `
+              : css`
+                  background: #fff;
+                  background-clip: padding-box;
+                `}
+        `
+      : css`
+          background: #fff;
+          border: 2px solid #fff;
+          box-shadow: inset 0px 0px 0px 1px #c9c9c9;
+
+          ${({ typeErr }) =>
+            typeErr &&
+            css`
+              background: #fff1f0;
+              box-shadow: inset 0px 0px 0px 1px #c12315;
+            `}
+        `}
+
+  ${({ typeErr }) =>
+    typeErr &&
+    css`
+      &:focus {
+        background: #fff;
+        border: 2px solid #c12315 !important;
+        box-shadow: inset 0px 0px 0px 0px #c9c9c9;
+      }
+    `}
 `;
 
 const Wrapper = styled.div`
@@ -85,25 +113,6 @@ const Wrapper = styled.div`
         max-width: 528px;
       }
     `}
-
-  ${({ typeErr }) =>
-    typeErr &&
-    css`
-      ${InputLabel} {
-        color: #c12315;
-      }
-
-      ${PrimaryInput} {
-        background: #fff1f0;
-        box-shadow: inset 0px 0px 0px 1px #c12315;
-
-        &:focus {
-          background: #fff;
-          border: 2px solid #c12315;
-          box-shadow: inset 0px 0px 0px 0px #c9c9c9;
-        }
-      }
-    `}
 `;
 
-export default { InputLabel, Placeholder, PrimaryInput, Wrapper };
+export default { Placeholder, PrimaryInput, Wrapper };

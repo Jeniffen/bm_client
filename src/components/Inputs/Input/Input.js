@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
 import useInput from './useInput';
+import { InputLabel } from './../InputLabel';
 
-const Input_ = ({
+const Input = ({
   size,
   type,
+  grouped,
   placeholder,
   labelText,
   typeErr,
@@ -15,21 +17,21 @@ const Input_ = ({
   const [showLabel, handleInputChange] = useInput({ register });
 
   return (
-    <Style.Wrapper size={size} typeErr={typeErr} onChange={handleInputChange}>
+    <Style.Wrapper size={size} onChange={handleInputChange}>
       <Style.PrimaryInput
         type={type}
+        grouped={grouped}
+        typeErr={typeErr}
         className={`complexInput ${className}`}
         {...register}
       />
       <Style.Placeholder showLabel={showLabel}>{placeholder}</Style.Placeholder>
-      <Style.InputLabel>
-        {typeErr ? typeErr?.message : labelText || null}
-      </Style.InputLabel>
+      {labelText && <InputLabel typeErr={typeErr} labelText={labelText} />}
     </Style.Wrapper>
   );
 };
 
-Input_.propTypes = {
+Input.propTypes = {
   /**
    * Size of the input field
    */
@@ -56,4 +58,4 @@ Input_.propTypes = {
   className: PropTypes.string,
 };
 
-export default Input_;
+export default Input;

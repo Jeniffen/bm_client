@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 
 import Style from './styles';
 import { Dropdown } from '../../Dropdown';
-import { Input } from '../../Input';
+import { Input } from '../../Inputs/Input';
 import { Button } from '../../Button';
 
 const FormPhoneAuth = ({ size, dropdownType, inputPlaceholder }) => {

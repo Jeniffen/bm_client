@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
 import { useForm } from 'react-hook-form';
-import { Input } from '../../Input';
-import { Input_ } from '../../Input_';
+import { InputGroup } from './../../Inputs/InputGroup';
+import { Input } from '../../Inputs/Input';
 import { Button } from '../../Button';
 import { Checkbox } from '../../Checkbox';
 import { joiResolver } from '@hookform/resolvers/joi';
@@ -60,29 +60,29 @@ const FormMailSignUp = ({ size }) => {
 
   return (
     <Style.FormWrapper onSubmit={handleSubmit(onSubmit)}>
-      <Style.InputGroup typeErr={errors.firstName || errors.lastName}>
-        <Input
-          register={register('firstName')}
-          typeErr={errors.firstName}
-          size={size}
-          placeholder="First name"
-        />
-        <hr className="inputGroup" />
-        <Input
-          register={register('lastName')}
-          typeErr={errors.lastName}
-          size={size}
-          placeholder="Last name"
-        />
-      </Style.InputGroup>
-      {errors.firstName ? (
-        <p>{errors.firstName?.message}</p>
-      ) : errors.lastName ? (
-        <p>{errors.lastName?.message}</p>
-      ) : (
-        <p>Make sure it matches the name on your government ID.</p>
-      )}
-      <Input_
+      <InputGroup
+        labelText={'Make sure it matches the name on your government ID.'}
+        typeErr={errors.firstName || errors.lastName}
+        inputA={
+          <Input
+            size={size}
+            grouped={true}
+            register={register('firstName')}
+            typeErr={errors.firstName}
+            placeholder="First name"
+          />
+        }
+        inputB={
+          <Input
+            size={size}
+            grouped={true}
+            register={register('lastName')}
+            typeErr={errors.lastName}
+            placeholder="Last name"
+          />
+        }
+      />
+      <Input
         size={size}
         placeholder="Birthdate"
         typeErr={errors.birthdate}
@@ -90,14 +90,14 @@ const FormMailSignUp = ({ size }) => {
         labelText="To sign up, you need to be at least 18. Your birthday won’t be shared
         with other people who use [APPNAME]."
       />
-      <Input_
+      <Input
         size={size}
         placeholder="Email"
         typeErr={errors.email}
         register={register('email')}
         labelText="We'll email you booking confirmations and receipts."
       />
-      <Input_
+      <Input
         size={size}
         placeholder="Password"
         typeErr={errors.password}
