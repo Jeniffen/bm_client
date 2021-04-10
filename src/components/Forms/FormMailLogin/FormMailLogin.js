@@ -65,17 +65,21 @@ FormMailLogin.propTypes = {
    */
   size: PropTypes.oneOf(['extra-large']),
   /**
-   * What type of values does dropdown contain
+   * Text asking if user has account
    */
-  dropdownType: PropTypes.string,
+  footerText: PropTypes.string,
   /**
-   * Input placeholder
+   * Text that is shown with link to sign in
    */
-  inputPlaceholder: PropTypes.string,
+  anchorText: PropTypes.string,
   /**
-   * Classes to be applied to the root element
+   * function to alternative options to login
    */
-  className: PropTypes.string,
+  handleOptions: PropTypes.func,
+  /**
+   * function to with link to sign in
+   */
+  handleAnchor: PropTypes.func,
 };
 
 export default FormMailLogin;

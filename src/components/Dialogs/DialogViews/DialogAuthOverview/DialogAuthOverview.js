@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { DialogContainer } from '../../DialogContainer';
 import { FormOAuth } from '../../../Forms/FormOAuth';
 import { FormMailSignUp } from '../../../Forms/FormMailSignUp';
@@ -46,6 +47,13 @@ const DialogOAuth = ({ dialogType }) => {
       {authDialog[view]}
     </DialogContainer>
   );
+};
+
+DialogOAuth.propTypes = {
+  /**
+   * Indicator if dialog is called for signin or login
+   */
+  type: PropTypes.oneOf(['signup', 'login']),
 };
 
 export default DialogOAuth;
