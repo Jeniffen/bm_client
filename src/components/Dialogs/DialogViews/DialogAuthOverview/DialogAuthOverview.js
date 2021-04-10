@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { DialogContainer } from '../../DialogContainer';
 import { FormOAuth } from '../../../Forms/FormOAuth';
 import { FormMailSignUp } from '../../../Forms/FormMailSignUp';
