@@ -1,4 +1,10 @@
-import styled, { css } from 'styled-components';
+/* eslint-disable import/no-anonymous-default-export */
+import styled from 'styled-components';
+import { Button } from '../../Button';
+
+const ExtendedButton = styled(Button)`
+  margin-top: 16px;
+`;
 
 const FormWrapper = styled.form`
   *,
@@ -76,4 +82,4 @@ const FooterWrapper = styled.div`
   }
 `;
 
-export default { InputGroup, FormWrapper, FooterWrapper };
+export default { ExtendedButton, InputGroup, FormWrapper, FooterWrapper };
