@@ -1,7 +1,7 @@
 import React from 'react';
 import { DialogHeader } from './DialogHeader';
 import { DialogContainer } from './DialogContainer';
-import { DialogOAuth } from './DialogViews/DialogOAuth';
+import { DialogAuthOverview } from './DialogViews/DialogAuthOverview';
 import { DialogMailAuth } from './DialogViews/DialogMailAuth';
 
 export default {
@@ -26,7 +26,7 @@ ContainerDefault.args = {
   headerTitle: 'Container Header',
 };
 
-const TemplateOAuth = (args) => <DialogOAuth {...args} />;
+const TemplateOAuth = (args) => <DialogAuthOverview {...args} />;
 export const DefaultAuth = TemplateOAuth.bind({});
 
 const TemplateMailSignUp = (args) => <DialogMailAuth {...args} />;

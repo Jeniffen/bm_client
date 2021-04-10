@@ -60,9 +60,9 @@ const LabelWrapper = styled.label`
   }
 `;
 
-const Checkbox = ({ className, checked, onClick }) => (
+const Checkbox = ({ className, checked, onClick, register }) => (
   <CheckboxContainer className={className}>
-    <HiddenCheckbox Checked={checked} />
+    <HiddenCheckbox Checked={checked} {...register} />
     <StyledCheckbox checked={checked} onClick={onClick}>
       <Icon viewBox="0 0 24 24">
         <polyline points="20 6 9 17 4 12" />

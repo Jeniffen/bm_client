@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const FormWrapper = styled.form`
   *,
@@ -11,7 +11,6 @@ const FormWrapper = styled.form`
   }
 
   box-sizing: border-box;
-  margin-top: 16px;
   max-width: 528px;
   overflow: visible;
 
@@ -26,7 +25,7 @@ const FormWrapper = styled.form`
   hr.inputGroup {
     box-sizing: content-box;
     width: 100%;
-    border-top: 1px inset rgba(217, 217, 217, 0.24);
+    border-top: 1px inset rgba(201, 201, 201, 0.35);
     margin: 0;
   }
 
@@ -40,8 +39,7 @@ const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1px;
-  box-shadow: inset 0px 0px 0px 1px #d9d9d9;
-  border-radius: 12px;
+  border-radius: 13px;
   min-height: 96px;
 
   :focus-within {
@@ -49,12 +47,29 @@ const InputGroup = styled.div`
       border-top: 1px solid rgba(217, 217, 217, 0);
     }
   }
+
+  ${({ typeErr }) =>
+    typeErr
+      ? css`
+          background: #fff1f0;
+          box-shadow: inset 0px 0px 0px 1px #c12315;
+
+          hr.inputGroup {
+            border-top: 1px solid rgba(193, 35, 21, 1);
+          }
+        `
+      : css`
+          box-shadow: inset 0px 0px 0px 1px #c9c9c9;
+        `}
 `;
 
 const InputWrapper = styled.div`
   box-sizing: border-box;
   padding: 1px;
-  box-shadow: inset 0px 0px 0px 1px #d9d9d9;
+  box-shadow: ${({ typeErr }) =>
+    typeErr
+      ? css`inset 0px 0px 0px 1px #c12315`
+      : css`inset 0px 0px 0px 1px #c9c9c9`};
   border-radius: 12px;
 
   :focus-within {
@@ -63,14 +78,9 @@ const InputWrapper = styled.div`
 
 const SeparatorStyle = styled.p`
   width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #cbd5e0;
+  border-bottom: 1px solid #c9c9c9;
   line-height: 0.1em;
   margin: 28px 0 24px 0 !important;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    'Helvetica Neue', sans-serif !important;
-  font-size: 12px;
-  color: #718096;
 `;
 
 export default { InputGroup, InputWrapper, FormWrapper, SeparatorStyle };

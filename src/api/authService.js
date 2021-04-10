@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 import io from 'socket.io-client';
 import { API_URL } from '../config';
@@ -33,6 +34,13 @@ export default {
 
   getLogout: async () => {
     await axios.get(`${API_URL}/api/auth/logout`, { withCredentials: true });
+    window.location.reload();
+  },
+
+  postMailSignUp: async (payload) => {
+    await axios.post(`${API_URL}/api/auth/mailsignup`, payload, {
+      withCredentials: true,
+    });
     window.location.reload();
   },
 };

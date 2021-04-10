@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ModalContext } from '../../context/ModalContext';
-import { DialogOAuth } from '../../components/Dialogs/DialogViews/DialogOAuth';
+import { DialogAuthOverview } from '../../components/Dialogs/DialogViews/DialogAuthOverview';
 import authService from '../../api/authService';
 import useAuthState from '../../hooks/useAuthState';
 
@@ -33,14 +33,7 @@ export default function useHeader({ setExpandedBar = null }) {
       text: 'Sign up',
       divider: false,
       onClick: () =>
-        handleOpenModal(
-          <DialogOAuth
-            headerTitle="Sign Up"
-            footerText="Already have an account?"
-            anchorText="Log in"
-            onHeaderClose={handleCloseModal}
-          />
-        ),
+        handleOpenModal(<DialogAuthOverview dialogType={'signup'} />),
     },
     {
       key: '2',
@@ -48,14 +41,7 @@ export default function useHeader({ setExpandedBar = null }) {
       text: 'Log in',
       divider: true,
       onClick: () =>
-        handleOpenModal(
-          <DialogOAuth
-            headerTitle="Log in"
-            footerText="Don’t have an account?"
-            anchorText="Sign up"
-            onHeaderClose={handleCloseModal}
-          />
-        ),
+        handleOpenModal(<DialogAuthOverview dialogType={'login'} />),
     },
     {
       key: '3',
@@ -79,30 +65,14 @@ export default function useHeader({ setExpandedBar = null }) {
       weight: 'medium',
       text: 'Messages',
       divider: false,
-      onClick: () =>
-        handleOpenModal(
-          <DialogOAuth
-            headerTitle="Sign Up"
-            footerText="Already have an account?"
-            anchorText="Log in"
-            onHeaderClose={handleCloseModal}
-          />
-        ),
+      onClick: () => console.log(null),
     },
     {
       key: '2',
       weight: 'medium',
       text: 'Saved',
       divider: true,
-      onClick: () =>
-        handleOpenModal(
-          <DialogOAuth
-            headerTitle="Log in"
-            footerText="Don’t have an account?"
-            anchorText="Sign up"
-            onHeaderClose={handleCloseModal}
-          />
-        ),
+      onClick: () => console.log(null),
     },
     {
       key: '3',
