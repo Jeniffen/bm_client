@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyledDropdown } from './StyledDropdown';
 import PropTypes from 'prop-types';
+import Style from './styles';
 
-const Dropdown = ({ register, size, type, border }) => {
+const Dropdown = ({ size, grouped, labelText, className }) => {
   const [countryCodes] = React.useState([
     { key: 'AT', value: '+43', label: 'Austria (+43)' },
     { key: 'CAN', value: '+1', label: 'Canada (+1)' },
@@ -10,34 +10,34 @@ const Dropdown = ({ register, size, type, border }) => {
   ]);
 
   return (
-    <StyledDropdown size={size} border={border}>
-      <select name={type} {...register}>
+    <Style.Wrapper size={size}>
+      <Style.Dropdown grouped={grouped} className={`complexInput ${className}`}>
         {countryCodes.map(({ value, label }) => (
           <option key={value} value={value} label={label} />
         ))}
-      </select>
-      <span>{type}</span>
-    </StyledDropdown>
+      </Style.Dropdown>
+      <Style.DropdownLabel>{labelText}</Style.DropdownLabel>
+    </Style.Wrapper>
   );
 };
 
 Dropdown.propTypes = {
   /**
-   * register object for ReactForms
+   * Size of the input field
    */
   size: PropTypes.oneOf(['extra-large']),
   /**
-   * How large should the dropdown be?
+   * Indicator if element is part of an input group
    */
-  size: PropTypes.oneOf(['extra-large']),
+  grouped: PropTypes.bool,
   /**
-   * What type of values does dropdown contain
+   * Text of label below input field
    */
-  type: PropTypes.string,
+  labelText: PropTypes.string,
   /**
-   * Does input have a border?
+   * Classname of the input field
    */
-  border: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default Dropdown;

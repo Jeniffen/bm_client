@@ -59,7 +59,6 @@ const PrimaryInput = styled.input`
       ? css`
           background: transparent;
           border: 2px solid transparent !important;
-          border: none;
 
           ${({ typeErr }) =>
             typeErr

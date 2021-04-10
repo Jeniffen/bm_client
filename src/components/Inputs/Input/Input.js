@@ -41,6 +41,10 @@ Input.propTypes = {
    */
   type: PropTypes.string,
   /**
+   * Indicator if element is part of an input group
+   */
+  grouped: PropTypes.bool,
+  /**
    * Placeholder text within the input field
    */
   placeholder: PropTypes.string,

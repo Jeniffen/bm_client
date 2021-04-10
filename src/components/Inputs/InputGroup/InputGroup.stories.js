@@ -3,20 +3,22 @@ import { InputGroup } from '.';
 import { Input } from './../Input';
 
 export default {
-  title: 'COMPONENTS API/Inputs',
-  component: InputGroup,
+  title: 'COMPONENTS API/Inputs/InputGroup',
 };
 
 const TemplateInputGroup = (args) => <InputGroup {...args} />;
 export const DefaultInputGroup = TemplateInputGroup.bind({});
 DefaultInputGroup.args = {
-  typeErr: { message: 'err' },
+  labelText: 'Make sure it matches the name on your government ID.',
+  typeErr: { message: 'This is the error message of input A' } || {
+    message: 'This is the error message of input B',
+  },
   inputA: (
     <Input
       size="extra-large"
       grouped={true}
       placeholder={'First name'}
-      typeErr={{ message: 'err' }}
+      typeErr={{ message: 'This is the error message of input A' }}
       register={{ name: 'firstName' }}
     />
   ),
@@ -25,7 +27,7 @@ DefaultInputGroup.args = {
       size="extra-large"
       grouped={true}
       placeholder={'Last name'}
-      typeErr={{ message: 'err' }}
+      typeErr={{ message: 'This is the error message of input B' }}
       register={{ name: 'lastName' }}
     />
   ),

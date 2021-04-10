@@ -10,6 +10,8 @@ const InputLabel = styled.p`
   color: #718096;
   font-size: 12px;
   font-weight: 300;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    'Helvetica Neue', sans-serif;
 
   ${({ typeErr }) =>
     typeErr &&
