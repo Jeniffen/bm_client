@@ -21,6 +21,14 @@ const InputGroup = ({ inputA, inputB, labelText, typeErr, className }) => {
 
 InputGroup.propTypes = {
   /**
+   * First input of input group
+   */
+  inputA: PropTypes.element,
+  /**
+   * Second input of input group
+   */
+  inputB: PropTypes.element,
+  /**
    * Text of label below input field
    */
   labelText: PropTypes.string,
