@@ -49,7 +49,8 @@ const LabelWrapper = styled.label`
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
       'Helvetica Neue', sans-serif !important;
     font-size: 12px;
-    color: #718096;
+    font-weight: 300;
+    color: #4a5568;
     margin: 8px 0 28px 12px;
   }
 

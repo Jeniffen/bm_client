@@ -57,11 +57,13 @@ const FormMailSignUp = ({ size }) => {
         typeErr={errors.password}
         register={register('password')}
       />
-      <p>
-        By selecting Agree and continue below, I agree to [APPNAME] Terms of
-        Service, Payments Terms of Service, Privacy Policy, and
-        Nondiscrimination Policy.
-      </p>
+      <Style.Paragraph>
+        By selecting <b>Agree and continue</b> below, I agree to [APPNAME]{' '}
+        <a href="#">Terms of Service</a>,{' '}
+        <a href="#">Payments Terms of Service</a>,{' '}
+        <a href="#">Privacy Policy</a>, and{' '}
+        <a href="#">Nondiscrimination Policy</a>.
+      </Style.Paragraph>
       <Button
         type="submit"
         btnType="primary"
@@ -69,12 +71,12 @@ const FormMailSignUp = ({ size }) => {
         label="Agree and continue"
       />
       <Style.SeparatorStyle />
-      <p>
+      <Style.Paragraph>
         [APPNAME] will send you members-only deals, inspiration, marketing
         emails, and push notifications. You can opt out of receiving these at
         any time in your account settings or directly from the marketing
         notification.
-      </p>
+      </Style.Paragraph>
       <Checkbox
         register={register('promotion')}
         labelText="I don’t want to receive marketing messages from [APPNAME]."
