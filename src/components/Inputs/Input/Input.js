@@ -11,6 +11,7 @@ const Input = ({
   placeholder,
   labelText,
   typeErr,
+  onClick,
   register,
   className,
 }) => {
@@ -22,6 +23,7 @@ const Input = ({
         type={type}
         grouped={grouped}
         typeErr={typeErr}
+        onClick={onClick}
         className={`complexInput ${className}`}
         {...register}
       />
@@ -56,6 +58,14 @@ Input.propTypes = {
    * Error object passed from form validation
    */
   typeErr: PropTypes.object,
+  /**
+   * Function to trigger when clicked on input field
+   */
+  onClick: PropTypes.func,
+  /**
+   * Object with form elements
+   */
+  register: PropTypes.object,
   /**
    * Classname of the input field
    */

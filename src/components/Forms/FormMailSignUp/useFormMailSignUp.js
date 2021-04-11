@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
@@ -5,6 +6,8 @@ import moment from 'moment';
 import authService from '../../../api/authService';
 
 export default function useFormMailSignUp() {
+  const [showValidPassowrd, setShowValidPassword] = useState(false);
+
   const minumumDate = moment()
     .subtract(18, 'years')
     .add(1, 'days')
@@ -31,24 +34,44 @@ export default function useFormMailSignUp() {
         'string.empty': '⚠️ Email is required.',
         'string.email': '⚠️ Enter a valid email.',
       }),
-    password: Joi.string().required().messages({
-      'string.empty': '⚠️ Password is required.',
-    }),
+    password: Joi.string()
+      .required()
+      .min(8)
+      .pattern(new RegExp('[0-9]'))
+      .pattern(new RegExp('[\\W_]'))
+      .messages({
+        'string.empty': '⚠️ Password is required.',
+        'string.min': '⚠️ At least 8 characters are required.',
+        'string.pattern.base': '⚠️ Password requires one number and symbol',
+      }),
     promotion: Joi.boolean(),
   });
 
   const onSubmit = (data) => {
     // If checkbox for promotion was selected, user actively opted-out
     data.promotion = !data.promotion;
+
     console.log(data);
     // authService.postMailSignUp(data);
   };
 
+  const onError = (error) => {
+    error.password && setShowValidPassword(true);
+  };
+
   const {
+    watch,
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: joiResolver(schema) });
 
-  return [register, errors, handleSubmit(onSubmit)];
+  return [
+    watch,
+    register,
+    errors,
+    handleSubmit(onSubmit, onError),
+    showValidPassowrd,
+    setShowValidPassword,
+  ];
 }

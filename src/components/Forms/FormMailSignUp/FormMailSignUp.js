@@ -4,13 +4,21 @@ import PropTypes from 'prop-types';
 import Style from './styles';
 import { InputGroup } from './../../Inputs/InputGroup';
 import { Input } from '../../Inputs/Input';
+import { PasswordValidator } from '../../Inputs/PasswordValidator';
 import { Button } from '../../Button';
 import { Checkbox } from '../../Checkbox';
 
 import useFormMailSignUp from './useFormMailSignUp';
 
 const FormMailSignUp = ({ size }) => {
-  const [register, errors, handleOnSubmit] = useFormMailSignUp();
+  const [
+    watch,
+    register,
+    errors,
+    handleOnSubmit,
+    showValidPassowrd,
+    setShowValidPassword,
+  ] = useFormMailSignUp();
 
   return (
     <Style.FormWrapper onSubmit={handleOnSubmit}>
@@ -56,6 +64,11 @@ const FormMailSignUp = ({ size }) => {
         placeholder="Password"
         typeErr={errors.password}
         register={register('password')}
+        onClick={() => setShowValidPassword(true)}
+      />
+      <PasswordValidator
+        value={watch('password')}
+        showValidPassowrd={showValidPassowrd}
       />
       <Style.Paragraph>
         By selecting <b>Agree and continue</b> below, I agree to [APPNAME]{' '}
