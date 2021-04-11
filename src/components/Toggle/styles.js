@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ParentWrapper = styled.div`
   box-sizing: border-box;
@@ -14,4 +14,5 @@ const ChildWrapper = styled.div`
   top: 120%;
 `;
 
-export default { ParentWrapper, ChildWrapper };
+const Style = { ParentWrapper, ChildWrapper };
+export default Style;

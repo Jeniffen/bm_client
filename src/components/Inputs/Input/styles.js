@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import styled, { css } from 'styled-components';
 
 const Placeholder = styled.span`
@@ -114,4 +113,5 @@ const Wrapper = styled.div`
     `}
 `;
 
-export default { Placeholder, PrimaryInput, Wrapper };
+const Style = { Placeholder, PrimaryInput, Wrapper };
+export default Style;

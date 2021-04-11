@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "@hookform/resolvers": "^2.0.0",
+    "@storybook/addon-docs": "^6.2.7",
     "@storybook/react": "^6.2.0-beta.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -40,8 +41,8 @@
     "test": "jest",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public --no-dll",
-    "build-storybook": "build-storybook -s public --no-dll",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
     "dev": "concurrently \"npm run start\" \"npm run storybook\""
   },
   "eslintConfig": {
@@ -50,6 +51,14 @@
       {
         "files": [
           "src/**/*.stories.js"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      },
+      {
+        "files": [
+          "**/*.stories.*"
         ],
         "rules": {
           "import/no-anonymous-default-export": "off"
@@ -72,16 +81,17 @@
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-react": "^7.12.10",
-    "@storybook/addon-actions": "^6.2.0-beta.11",
-    "@storybook/addon-essentials": "^6.2.0-beta.11",
-    "@storybook/addon-links": "^6.2.0-beta.11",
-    "@storybook/node-logger": "^6.2.0-beta.11",
-    "@storybook/preset-create-react-app": "^3.1.6",
+    "@storybook/addon-actions": "^6.2.7",
+    "@storybook/addon-essentials": "^6.2.7",
+    "@storybook/addon-links": "^6.2.7",
+    "@storybook/node-logger": "^6.2.7",
+    "@storybook/preset-create-react-app": "^3.1.7",
     "autoprefixer": "^9.8.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.1.0",
     "concurrently": "^5.3.0",
     "postcss-cli": "^7.1.2",
-    "react-is": "^17.0.1"
+    "react-is": "^17.0.1",
+    "react-refresh": "^0.10.0"
   }
 }

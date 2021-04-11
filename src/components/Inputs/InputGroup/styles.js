@@ -30,7 +30,7 @@ const InputGroupWrapper = styled.div`
       box-shadow: inset 0px 0px 0px 1px #c12315;
 
       hr.inputGroup {
-        border-top: 1px solid rgba(193, 35, 21, 1);
+        border-top: 1px solid rgba(193, 35, 21, 1) !important;
       }
     `}
 `;
@@ -45,7 +45,7 @@ const GroupContainer = styled.div`
 
   :focus-within {
     & hr.inputGroup {
-      border-top: 1px solid rgba(217, 217, 217, 0);
+      border-top: 1px solid rgba(217, 217, 217, 0) !important;
     }
   }
 `;
