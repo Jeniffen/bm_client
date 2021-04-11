@@ -45,6 +45,7 @@ const FormMailSignUp = ({ size }) => {
       />
       <Input
         size={size}
+        // type="date"
         placeholder="Birthdate"
         typeErr={errors.birthdate}
         register={register('birthdate')}
@@ -53,6 +54,7 @@ const FormMailSignUp = ({ size }) => {
       />
       <Input
         size={size}
+        type="email"
         placeholder="Email"
         typeErr={errors.email}
         register={register('email')}
@@ -60,6 +62,7 @@ const FormMailSignUp = ({ size }) => {
       />
       <Input
         size={size}
+        type="password"
         placeholder="Password"
         typeErr={errors.password}
         register={register('password')}

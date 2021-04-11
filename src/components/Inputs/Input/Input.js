@@ -25,6 +25,7 @@ const Input = ({
         typeErr={typeErr}
         onClick={onClick}
         className={`complexInput ${className}`}
+        autocomplete="off"
         {...register}
       />
       <Style.Placeholder showLabel={showLabel}>{placeholder}</Style.Placeholder>
