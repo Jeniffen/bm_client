@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import styled, { css } from 'styled-components';
 
 const Wrapper = styled.div`
@@ -27,4 +26,5 @@ const Label = styled.p`
         `}
 `;
 
-export default { Wrapper, Label };
+const Style = { Wrapper, Label };
+export default Style;

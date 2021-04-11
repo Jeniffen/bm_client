@@ -72,4 +72,5 @@ const Checkbox = ({ className, checked, onClick, register }) => (
   </CheckboxContainer>
 );
 
-export default { LabelWrapper, Checkbox };
+const Style = { LabelWrapper, Checkbox };
+export default Style;
