@@ -7,7 +7,6 @@ import { Input } from '../../Inputs/Input';
 import { PasswordValidator } from '../../Inputs/PasswordValidator';
 import { Button } from '../../Button';
 import { Checkbox } from '../../Checkbox';
-
 import useFormMailSignUp from './useFormMailSignUp';
 
 const FormMailSignUp = ({ size }) => {

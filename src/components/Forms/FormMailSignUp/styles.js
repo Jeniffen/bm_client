@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import styled from 'styled-components';
 
 const FormWrapper = styled.form`
@@ -42,4 +41,5 @@ const Paragraph = styled.p`
   }
 `;
 
-export default { FormWrapper, SeparatorStyle, Paragraph };
+const Style = { FormWrapper, SeparatorStyle, Paragraph };
+export default Style;
