@@ -29,7 +29,7 @@ const DialogOAuth = ({ dialogType }) => {
         handleAnchor={handleAnchor}
       />
     ),
-    mailSignup: <FormMailSignUp />,
+    mailSignup: <FormMailSignUp size={'extra-large'} />,
     mailLogin: (
       <FormMailLogin
         size={'extra-large'}

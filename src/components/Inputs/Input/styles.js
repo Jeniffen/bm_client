@@ -1,5 +1,26 @@
 import styled, { css } from 'styled-components';
 
+const ToggleWrapper = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+
+  padding-right: 12px;
+`;
+
+const ToggleButton = styled.button`
+  background: none;
+
+  margin: 0 !important;
+
+  outline: none;
+
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
 const Placeholder = styled.span`
   display: flex;
   position: absolute;
@@ -29,10 +50,13 @@ const Placeholder = styled.span`
 
 const PrimaryInput = styled.input`
   box-sizing: border-box;
+  background: transparent;
 
   padding: 20px 0 4px 14px;
 
-  height: 48px;
+  height: 100%;
+  min-height: 48px;
+  max-height: 48px;
   width: 100%;
 
   font-weight: 300;
@@ -40,19 +64,46 @@ const PrimaryInput = styled.input`
   color: #495055;
 
   border-radius: 12px !important;
-
+  border: none;
   outline: none;
 
   &:focus {
-    border: 2px solid #284b63 !important;
-    box-shadow: none;
-
     + ${Placeholder} {
       transform: scale(0.8) translateY(-10px);
       background: none;
     }
   }
+`;
 
+const Wrapper = styled.div`
+  * {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+      'Helvetica Neue', sans-serif !important;
+  }
+
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  border: 2px solid transparent !important;
+
+  ${({ size }) =>
+    size === 'extra-large' &&
+    css`
+      height: 52px !important;
+      width: 100%;
+      min-width: 452px;
+      max-width: 528px;
+    `}
+
+  border-radius: 12px !important;
+  outline: none;
+
+  &:focus-within {
+    border: 2px solid #284b63 !important;
+    box-shadow: none;
+  }
   ${({ grouped }) =>
     grouped
       ? css`
@@ -72,7 +123,6 @@ const PrimaryInput = styled.input`
         `
       : css`
           background: #fff;
-          border: 2px solid #fff;
           box-shadow: inset 0px 0px 0px 1px #c9c9c9;
 
           ${({ typeErr }) =>
@@ -86,7 +136,7 @@ const PrimaryInput = styled.input`
   ${({ typeErr }) =>
     typeErr &&
     css`
-      &:focus {
+      &:focus-within {
         background: #fff;
         border: 2px solid #c12315 !important;
         box-shadow: inset 0px 0px 0px 0px #c9c9c9;
@@ -94,24 +144,11 @@ const PrimaryInput = styled.input`
     `}
 `;
 
-const Wrapper = styled.div`
-  box-sizing: border-box;
-  position: relative;
-
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    'Helvetica Neue', sans-serif !important;
-
-  ${({ size }) =>
-    size === 'extra-large' &&
-    css`
-      input.complexInput {
-        height: 48px;
-        width: 100%;
-        min-width: 452px;
-        max-width: 528px;
-      }
-    `}
-`;
-
-const Style = { Placeholder, PrimaryInput, Wrapper };
+const Style = {
+  ToggleWrapper,
+  ToggleButton,
+  Placeholder,
+  PrimaryInput,
+  Wrapper,
+};
 export default Style;

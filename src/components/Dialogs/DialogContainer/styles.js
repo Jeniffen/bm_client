@@ -11,6 +11,7 @@ const DialogContainer = styled.div`
 `;
 
 const DialogBody = styled.div`
+  box-sizing: content-box;
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -18,4 +19,5 @@ const DialogBody = styled.div`
   margin-bottom: 8px;
 `;
 
-export default { DialogContainer, DialogBody };
+const Style = { DialogContainer, DialogBody };
+export default Style;

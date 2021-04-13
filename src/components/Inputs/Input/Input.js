@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
 import useInput from './useInput';
@@ -10,6 +10,7 @@ const Input = ({
   grouped,
   placeholder,
   labelText,
+  togglePassword,
   typeErr,
   onClick,
   register,
@@ -17,20 +18,50 @@ const Input = ({
 }) => {
   const [showLabel, handleInputChange] = useInput({ register });
 
+  const [showPassword, setShowPassword] = useState({
+    toggle: false,
+    inputType: 'password',
+    label: 'Show',
+  });
+
+  const handleTogglePassword = () => {
+    setShowPassword({
+      toggle: !showPassword.toggle,
+      inputType: showPassword.toggle ? 'password' : 'text',
+      label: showPassword.toggle ? 'Show' : 'Hide',
+    });
+  };
+
+  const inputType = type === 'password' ? showPassword.inputType : type;
+
   return (
-    <Style.Wrapper size={size} onChange={handleInputChange}>
-      <Style.PrimaryInput
-        type={type}
-        grouped={grouped}
+    <>
+      <Style.Wrapper
+        size={size}
         typeErr={typeErr}
-        onClick={onClick}
-        className={`complexInput ${className}`}
-        autocomplete="off"
-        {...register}
-      />
-      <Style.Placeholder showLabel={showLabel}>{placeholder}</Style.Placeholder>
+        grouped={grouped}
+        onChange={handleInputChange}
+      >
+        <Style.PrimaryInput
+          type={inputType}
+          onClick={onClick}
+          className={`complexInput ${className}`}
+          autocomplete="off"
+          {...register}
+        />
+        <Style.Placeholder showLabel={showLabel}>
+          {placeholder}
+        </Style.Placeholder>
+        {togglePassword && (
+          <Style.ToggleWrapper>
+            <Style.ToggleButton type="button" onClick={handleTogglePassword}>
+              {showPassword.label}
+            </Style.ToggleButton>
+          </Style.ToggleWrapper>
+        )}
+      </Style.Wrapper>
       {labelText && <InputLabel typeErr={typeErr} labelText={labelText} />}
-    </Style.Wrapper>
+    </>
   );
 };
 
