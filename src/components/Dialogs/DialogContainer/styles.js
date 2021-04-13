@@ -18,4 +18,5 @@ const DialogBody = styled.div`
   margin-bottom: 8px;
 `;
 
-export default { DialogContainer, DialogBody };
+const Style = { DialogContainer, DialogBody };
+export default Style;

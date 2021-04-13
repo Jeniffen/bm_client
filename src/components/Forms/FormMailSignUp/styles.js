@@ -10,7 +10,6 @@ const FormWrapper = styled.form`
     border-color: #e2e8f0;
   }
 
-  box-sizing: border-box;
   max-width: 528px;
   overflow: visible;
 

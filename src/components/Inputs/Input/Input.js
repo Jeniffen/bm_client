@@ -15,22 +15,41 @@ const Input = ({
   register,
   className,
 }) => {
-  const [showLabel, handleInputChange] = useInput({ register });
+  const [
+    inputType,
+    showLabel,
+    handleInputChange,
+    showPassword,
+    handleTogglePassword,
+  ] = useInput({ register, type });
 
   return (
-    <Style.Wrapper size={size} onChange={handleInputChange}>
-      <Style.PrimaryInput
-        type={type}
-        grouped={grouped}
+    <>
+      <Style.Wrapper
+        size={size}
         typeErr={typeErr}
-        onClick={onClick}
-        className={`complexInput ${className}`}
-        autocomplete="off"
-        {...register}
-      />
-      <Style.Placeholder showLabel={showLabel}>{placeholder}</Style.Placeholder>
+        grouped={grouped}
+        onChange={handleInputChange}
+      >
+        <Style.PrimaryInput
+          type={inputType}
+          onClick={onClick}
+          className={`complexInput ${className}`}
+          autocomplete="off"
+          {...register}
+        />
+        <Style.Placeholder showLabel={showLabel}>
+          {placeholder}
+        </Style.Placeholder>
+        {type === 'password' && (
+          <Style.PasswordToggle
+            label={showPassword.label}
+            onClick={handleTogglePassword}
+          />
+        )}
+      </Style.Wrapper>
       {labelText && <InputLabel typeErr={typeErr} labelText={labelText} />}
-    </Style.Wrapper>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import { FormMailSignUp } from '../../../Forms/FormMailSignUp';
 const DialogMailAuth = () => {
   return (
     <DialogContainer headerTitle={'Finish signing up'}>
-      <FormMailSignUp />
+      <FormMailSignUp size="extra-large" />
     </DialogContainer>
   );
 };
