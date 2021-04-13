@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
 import useInput from './useInput';
@@ -10,29 +10,18 @@ const Input = ({
   grouped,
   placeholder,
   labelText,
-  togglePassword,
   typeErr,
   onClick,
   register,
   className,
 }) => {
-  const [showLabel, handleInputChange] = useInput({ register });
-
-  const [showPassword, setShowPassword] = useState({
-    toggle: false,
-    inputType: 'password',
-    label: 'Show',
-  });
-
-  const handleTogglePassword = () => {
-    setShowPassword({
-      toggle: !showPassword.toggle,
-      inputType: showPassword.toggle ? 'password' : 'text',
-      label: showPassword.toggle ? 'Show' : 'Hide',
-    });
-  };
-
-  const inputType = type === 'password' ? showPassword.inputType : type;
+  const [
+    inputType,
+    showLabel,
+    handleInputChange,
+    showPassword,
+    handleTogglePassword,
+  ] = useInput({ register, type });
 
   return (
     <>
@@ -52,12 +41,11 @@ const Input = ({
         <Style.Placeholder showLabel={showLabel}>
           {placeholder}
         </Style.Placeholder>
-        {togglePassword && (
-          <Style.ToggleWrapper>
-            <Style.ToggleButton type="button" onClick={handleTogglePassword}>
-              {showPassword.label}
-            </Style.ToggleButton>
-          </Style.ToggleWrapper>
+        {type === 'password' && (
+          <Style.PasswordToggle
+            label={showPassword.label}
+            onClick={handleTogglePassword}
+          />
         )}
       </Style.Wrapper>
       {labelText && <InputLabel typeErr={typeErr} labelText={labelText} />}

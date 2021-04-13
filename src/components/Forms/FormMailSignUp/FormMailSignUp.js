@@ -10,7 +10,6 @@ import { Checkbox } from '../../Checkbox';
 import useFormMailSignUp from './useFormMailSignUp';
 
 const FormMailSignUp = ({ size }) => {
-  console.log(size);
   const [
     watch,
     register,
@@ -65,7 +64,6 @@ const FormMailSignUp = ({ size }) => {
         size={size}
         type="password"
         placeholder="Password"
-        togglePassword={true}
         typeErr={errors.password}
         register={register('password')}
         onClick={() => setShowValidPassword(true)}

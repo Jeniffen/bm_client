@@ -144,9 +144,16 @@ const Wrapper = styled.div`
     `}
 `;
 
+const PasswordToggle = ({ label, onClick }) => (
+  <ToggleWrapper>
+    <ToggleButton type="button" onClick={onClick}>
+      {label}
+    </ToggleButton>
+  </ToggleWrapper>
+);
+
 const Style = {
-  ToggleWrapper,
-  ToggleButton,
+  PasswordToggle,
   Placeholder,
   PrimaryInput,
   Wrapper,
