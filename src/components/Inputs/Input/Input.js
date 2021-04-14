@@ -34,6 +34,7 @@ const Input = ({
         <Style.PrimaryInput
           type={inputType}
           onClick={onClick}
+          showLabel={showLabel}
           className={`complexInput ${className}`}
           autocomplete="off"
           {...register}
