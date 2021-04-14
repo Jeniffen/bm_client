@@ -52,7 +52,7 @@ const PrimaryInput = styled.input`
   box-sizing: border-box;
   background: transparent;
 
-  padding: 20px 0 4px 14px;
+  padding: 20px 12px 4px 14px;
 
   height: 100%;
   min-height: 48px;
@@ -72,6 +72,20 @@ const PrimaryInput = styled.input`
       transform: scale(0.8) translateY(-10px);
       background: none;
     }
+  }
+
+  &[type='date'] {
+    color: transparent;
+
+    &:focus {
+      color: #495055;
+    }
+
+    ${({ showLabel }) =>
+      showLabel &&
+      css`
+        color: #495055;
+      `}
   }
 `;
 
