@@ -50,9 +50,7 @@ export default function useFormMailSignUp() {
   const onSubmit = (data) => {
     // If checkbox for promotion was selected, user actively opted-out
     data.promotion = !data.promotion;
-
-    console.log(data);
-    // authService.postMailSignUp(data);
+    authService.postMailSignUp(data);
   };
 
   const onError = (error) => {
