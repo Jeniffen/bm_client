@@ -23,7 +23,7 @@ const Input = ({
     showPassword,
     handleTogglePassword,
   ] = useInput({ register, type });
-  console.log(register);
+
   return (
     <>
       <Style.Wrapper
