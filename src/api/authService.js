@@ -37,10 +37,8 @@ export default {
     window.location.reload();
   },
 
-  postMailSignUp: async (payload) => {
-    const res = await axios.post(`${API_URL}/api/auth/mailsignup`, payload, {
+  postMailSignUp: async (payload) =>
+    await axios.post(`${API_URL}/api/auth/mailsignup`, payload, {
       withCredentials: true,
-    });
-    return res;
-  },
+    }),
 };
