@@ -66,7 +66,7 @@ const FormMailSignUp = ({ size }) => {
         placeholder="Password"
         typeErr={errors.password}
         register={register('password')}
-        onClick={() => setShowValidPassword(true)}
+        onFocus={() => setShowValidPassword(true)}
       />
       <PasswordValidator
         value={watch('password')}
