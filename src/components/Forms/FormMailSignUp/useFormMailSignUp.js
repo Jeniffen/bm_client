@@ -47,10 +47,12 @@ export default function useFormMailSignUp() {
     promotion: Joi.boolean(),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     // If checkbox for promotion was selected, user actively opted-out
     data.promotion = !data.promotion;
-    authService.postMailSignUp(data);
+
+    const res = await authService.postMailSignUp(data);
+    authService.refresh(res.data);
   };
 
   const onError = (error) => {
