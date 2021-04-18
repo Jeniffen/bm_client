@@ -41,4 +41,9 @@ export default {
     await axios.post(`${API_URL}/api/auth/mailsignup`, payload, {
       withCredentials: true,
     }),
+
+  postMailLogin: async (payload) =>
+    await axios.post(`${API_URL}/api/auth/maillogin`, payload, {
+      withCredentials: true,
+    }),
 };

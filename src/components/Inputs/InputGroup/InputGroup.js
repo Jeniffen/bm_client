@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import Style from './styles';
 import { InputLabel } from './../InputLabel';
 
-const InputGroup = ({ inputA, inputB, labelText, typeErr, className }) => {
+const InputGroup = ({
+  inputA,
+  inputB,
+  labelText,
+  forceLabel,
+  typeErr,
+  className,
+}) => {
   return (
     <React.Fragment>
       <Style.GroupWrapper
@@ -14,7 +21,9 @@ const InputGroup = ({ inputA, inputB, labelText, typeErr, className }) => {
         <hr className="inputGroup" />
         {inputB}
       </Style.GroupWrapper>
-      {labelText && <InputLabel typeErr={typeErr} labelText={labelText} />}
+      {(labelText || forceLabel) && (
+        <InputLabel typeErr={typeErr} labelText={labelText} />
+      )}
     </React.Fragment>
   );
 };
@@ -28,6 +37,10 @@ InputGroup.propTypes = {
    * Second input of input group
    */
   inputB: PropTypes.element,
+  /**
+   * Indicator to show error labels even if no regular label is passed
+   */
+  forceLabel: PropTypes.bool,
   /**
    * Text of label below input field
    */
