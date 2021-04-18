@@ -12,6 +12,7 @@ const Input = ({
   labelText,
   typeErr,
   onClick,
+  onFocus,
   register,
   className,
 }) => {
@@ -22,13 +23,14 @@ const Input = ({
     showPassword,
     handleTogglePassword,
   ] = useInput({ register, type });
-
+  console.log(register);
   return (
     <>
       <Style.Wrapper
         size={size}
         typeErr={typeErr}
         grouped={grouped}
+        onFocus={onFocus}
         onChange={handleInputChange}
       >
         <Style.PrimaryInput
@@ -79,6 +81,10 @@ Input.propTypes = {
    * Error object passed from form validation
    */
   typeErr: PropTypes.object,
+  /**
+   * Function to trigger when field is on focus
+   */
+  onFocus: PropTypes.func,
   /**
    * Function to trigger when clicked on input field
    */
