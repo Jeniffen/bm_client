@@ -20,4 +20,5 @@ const InputLabel = styled.p`
     `}
 `;
 
-export default { InputLabel };
+const Style = { InputLabel };
+export default Style;

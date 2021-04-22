@@ -67,4 +67,5 @@ const GroupWrapper = ({ typeErr, children }) => {
   );
 };
 
-export default { GroupWrapper, ErrorContainer, ExtendedInputLabel };
+const Style = { GroupWrapper, ErrorContainer, ExtendedInputLabel };
+export default Style;
