@@ -82,4 +82,5 @@ const FooterWrapper = styled.div`
   }
 `;
 
-export default { ExtendedButton, InputGroup, FormWrapper, FooterWrapper };
+const Style = { ExtendedButton, InputGroup, FormWrapper, FooterWrapper };
+export default Style;
