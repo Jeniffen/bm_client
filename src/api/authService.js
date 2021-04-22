@@ -42,8 +42,13 @@ export default {
       withCredentials: true,
     }),
 
-  postMailLogin: async (payload) =>
-    await axios.post(`${API_URL}/api/auth/maillogin`, payload, {
-      withCredentials: true,
-    }),
+  postMailLogin: async (payload) => {
+    try {
+      return await axios.post(`${API_URL}/api/auth/maillogin`, payload, {
+        withCredentials: true,
+      });
+    } catch (e) {
+      return e.response;
+    }
+  },
 };

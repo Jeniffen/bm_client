@@ -9,6 +9,7 @@ const InputGroup = ({
   labelText,
   forceLabel,
   typeErr,
+  resErr,
   className,
 }) => {
   return (
@@ -22,7 +23,10 @@ const InputGroup = ({
         {inputB}
       </Style.GroupWrapper>
       {(labelText || forceLabel) && (
-        <InputLabel typeErr={typeErr} labelText={labelText} />
+        <Style.ErrorContainer>
+          <Style.ExtendedInputLabel typeErr={typeErr} labelText={labelText} />
+          <Style.ExtendedInputLabel typeErr={resErr} />
+        </Style.ErrorContainer>
       )}
     </React.Fragment>
   );
@@ -49,6 +53,10 @@ InputGroup.propTypes = {
    * Error object passed from form validation
    */
   typeErr: PropTypes.object,
+  /**
+   * Error object passed from response object
+   */
+  resErr: PropTypes.object,
   /**
    * Classname of the input field
    */

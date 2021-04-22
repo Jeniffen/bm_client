@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import styled, { css } from 'styled-components';
+import { InputLabel } from './../InputLabel';
 
 const InputGroupWrapper = styled.div`
   box-sizing: border-box;
@@ -35,6 +36,14 @@ const InputGroupWrapper = styled.div`
     `}
 `;
 
+const ExtendedInputLabel = styled(InputLabel)`
+  margin: 2px 0 !important;
+`;
+
+const ErrorContainer = styled.div`
+  margin: 8px 0 24px 0px;
+`;
+
 const GroupContainer = styled.div`
   *,
   ::before,
@@ -58,4 +67,4 @@ const GroupWrapper = ({ typeErr, children }) => {
   );
 };
 
-export default { GroupWrapper };
+export default { GroupWrapper, ErrorContainer, ExtendedInputLabel };

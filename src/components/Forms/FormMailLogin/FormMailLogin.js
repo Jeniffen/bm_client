@@ -13,13 +13,14 @@ const FormMailLogin = ({
   handleOptions,
   handleAnchor,
 }) => {
-  const [register, handleOnSubmit, errors] = useFormMailLogin();
+  const [register, handleOnSubmit, errors, resErr] = useFormMailLogin();
 
   return (
     <Style.FormWrapper onSubmit={handleOnSubmit}>
       <InputGroup
         forceLabel={true}
         typeErr={errors.email || errors.password}
+        resErr={resErr}
         inputA={
           <Input
             size={size}
@@ -32,6 +33,7 @@ const FormMailLogin = ({
         inputB={
           <Input
             size={size}
+            type="password"
             grouped={true}
             register={register('password')}
             typeErr={errors.password}
