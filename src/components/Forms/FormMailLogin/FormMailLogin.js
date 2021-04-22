@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
-import { useForm } from 'react-hook-form';
+import useFormMailLogin from './useFormMailLogin';
+
 import { InputGroup } from '../../Inputs/InputGroup';
 import { Input } from '../../Inputs/Input';
 
@@ -12,14 +13,14 @@ const FormMailLogin = ({
   handleOptions,
   handleAnchor,
 }) => {
-  const {
-    register,
-    formState: { errors },
-  } = useForm();
+  const [register, handleOnSubmit, errors, resErr] = useFormMailLogin();
 
   return (
-    <Style.FormWrapper>
+    <Style.FormWrapper onSubmit={handleOnSubmit}>
       <InputGroup
+        forceLabel={true}
+        typeErr={errors.email || errors.password}
+        resErr={resErr}
         inputA={
           <Input
             size={size}
@@ -32,6 +33,7 @@ const FormMailLogin = ({
         inputB={
           <Input
             size={size}
+            type="password"
             grouped={true}
             register={register('password')}
             typeErr={errors.password}
