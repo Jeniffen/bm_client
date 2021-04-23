@@ -2,8 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
+
 import { InputGroup } from './../../Inputs/InputGroup';
 import { Input } from '../../Inputs/Input';
+import { InputLabel } from './../../Inputs/InputLabel';
 import { PasswordValidator } from '../../Inputs/PasswordValidator';
 import { Button } from '../../Button';
 import { Checkbox } from '../../Checkbox';
@@ -17,6 +19,7 @@ const FormMailSignUp = ({ size }) => {
     handleOnSubmit,
     showValidPassowrd,
     setShowValidPassword,
+    resErr,
   ] = useFormMailSignUp();
 
   return (
@@ -79,6 +82,7 @@ const FormMailSignUp = ({ size }) => {
         <a href="#">Privacy Policy</a>, and{' '}
         <a href="#">Nondiscrimination Policy</a>.
       </Style.Paragraph>
+      {resErr && <InputLabel typeErr={resErr} />}
       <Button
         type="submit"
         btnType="primary"

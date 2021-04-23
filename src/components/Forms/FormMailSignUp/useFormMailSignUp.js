@@ -7,6 +7,7 @@ import authService from '../../../api/authService';
 
 export default function useFormMailSignUp() {
   const [showValidPassowrd, setShowValidPassword] = useState(false);
+  const [resErr, setResErr] = useState(null);
 
   const minumumDate = moment()
     .subtract(18, 'years')
@@ -51,8 +52,17 @@ export default function useFormMailSignUp() {
     // If checkbox for promotion was selected, user actively opted-out
     data.promotion = !data.promotion;
 
-    const res = await authService.postMailSignUp(data);
-    authService.refresh(res.data);
+    const user = await authService.postMailSignUp(data);
+    switch (user.status) {
+      case 200:
+        return authService.refresh(user.data);
+      default:
+        const errMessage =
+          user.status === 409
+            ? '⚠️ There is already an account associated with this email address.'
+            : user.statusText;
+        setResErr({ status: user.status, message: errMessage });
+    }
   };
 
   const onError = (error) => {
@@ -73,5 +83,6 @@ export default function useFormMailSignUp() {
     handleSubmit(onSubmit, onError),
     showValidPassowrd,
     setShowValidPassword,
+    resErr,
   ];
 }
