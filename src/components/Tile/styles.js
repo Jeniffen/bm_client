@@ -1,10 +1,12 @@
-import styled from "styled-components";
+import styled, { css } from 'styled-components';
 
 const tileWidth = (tileSize) => {
   switch (tileSize) {
-    case "medium":
-      return 360;
-    case "large":
+    case 'medium':
+      return css`
+        width: 30vw;
+      `;
+    case 'large':
       return 520;
     default:
       return 360;
@@ -13,9 +15,9 @@ const tileWidth = (tileSize) => {
 
 const tileHeight = (tileSize, tileType) => {
   switch (tileType) {
-    case "square":
+    case 'square':
       return tileWidth(tileSize);
-    case "rectangle":
+    case 'rectangle':
       return tileWidth(tileSize) / 1.5;
     default:
       return tileWidth(tileSize);
@@ -28,7 +30,7 @@ const TileWrapper = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 12px;
-  width: ${({ tileSize }) => tileWidth(tileSize) + "px"};
+  ${({ tileSize }) => tileWidth}
   background-color: transparent;
 
   :hover {
@@ -38,8 +40,8 @@ const TileWrapper = styled.div`
 
 const TileImage = styled.div`
   border-radius: 12px;
-  height: ${({ tileSize, tileType }) => tileHeight(tileSize, tileType) + "px"};
-  width: ${({ tileSize }) => tileWidth(tileSize) + "px"};
+  height: 18vw;
+  width: 18vw;
   background-color: #fff;
   background-image: url(${(props) => props.imageURL});
   background-position: center;
@@ -55,11 +57,12 @@ const TileFooter = styled.div`
 
 const TileFooterTitle = styled.p`
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    "Helvetica Neue", sans-serif !important;
+    'Helvetica Neue', sans-serif !important;
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.025em;
   margin: 10px 0 0 0;
 `;
 
-export default { TileWrapper, TileImage, TileFooter, TileFooterTitle };
+const Style = { TileWrapper, TileImage, TileFooter, TileFooterTitle };
+export default Style;

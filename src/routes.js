@@ -7,7 +7,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 export const Routes = () => {
   return (
     <div>
-      <Header />
       <Switch>
         <Route exact path="/Home" component={Home} />
         <Route exact path="/">
