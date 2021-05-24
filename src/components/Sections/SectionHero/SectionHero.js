@@ -6,32 +6,19 @@ const SectionHero = ({
   imageURL,
   headingText,
   headingColor,
-  mainHeaderSize,
   mainHeaderWeight,
-  buttonTheme,
-  buttonSize,
-  buttonLabel,
   className,
 }) => {
   return (
     <Style.Wrapper imageURL={imageURL}>
-      <Style.Content>
-        <Style.CallToAction>
-          <Style.Header
-            className={className}
-            mainTitle={headingText}
-            textColor={headingColor}
-            mainTextSize={mainHeaderSize}
-            mainTextWeight={mainHeaderWeight}
-          />
-          <Style.ExtendedButton
-            className={className}
-            btnType={buttonTheme}
-            size={buttonSize}
-            label={buttonLabel}
-          />
-        </Style.CallToAction>
-      </Style.Content>
+      <Style.CallToAction>
+        <Style.Header
+          className={className}
+          mainTitle={headingText}
+          textColor={headingColor}
+          mainTextWeight={mainHeaderWeight}
+        />
+      </Style.CallToAction>
     </Style.Wrapper>
   );
 };
@@ -52,23 +39,11 @@ SectionHero.propTypes = {
   /**
    * Font size for main header (numeric value withouht "px")
    */
-  mainHeaderSize: PropTypes.string,
+  mainHeaderWeight: PropTypes.number,
   /**
-   * Font weight of sub header
+   * ClassName of element
    */
-  subTextWeight: PropTypes.oneOf(['semi-thick', 'thick', 'xl-thick']),
-  /**
-   * Is this the principal call to action on the page?
-   */
-  buttonTheme: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light']),
-  /**
-   * How large should the button be?
-   */
-  buttonSize: PropTypes.oneOf(['small', 'extra-large']),
-  /**
-   * Button contents
-   */
-  buttonLabel: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 export default SectionHero;

@@ -89,7 +89,7 @@ const Home = () => {
   const bannerImageURL =
     'https://images.unsplash.com/photo-1519802772250-a52a9af0eacb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2135&q=80';
 
-  const Heroheader = 'Dive into \n inspirations';
+  const Heroheader = 'Dive into inspirations';
 
   return (
     <div>
@@ -97,11 +97,7 @@ const Home = () => {
         imageURL={heroContent.imageURL}
         headingText={Heroheader}
         headingColor="#fff"
-        mainHeaderSize="80"
-        mainHeaderWeight="xl-thick"
-        buttonTheme="light"
-        buttonSize="small"
-        buttonLabel="Get inspired"
+        mainHeaderWeight={700}
       />
     </div>
   );

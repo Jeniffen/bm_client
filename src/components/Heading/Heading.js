@@ -1,33 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Style from "./styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Style from './styles';
 
-const Heading = ({
-  mainTitle,
-  subTitle,
-  textAlign,
-  textColor,
-  mainTextWeight,
-  subTextWeight,
-  mainTextSize,
-  subTextSize,
-  className,
-}) => {
+const Heading = ({ mainTitle, textColor, mainTextWeight, className }) => {
   return (
-    <Style.Wrapper
-      textAlign={textAlign}
-      textColor={textColor}
-      className={className}
-    >
-      <Style.MainHeader
-        mainTextWeight={mainTextWeight}
-        mainTextSize={mainTextSize}
-      >
+    <Style.Wrapper className={className}>
+      <Style.MainHeader textColor={textColor} mainTextWeight={mainTextWeight}>
         {mainTitle}
       </Style.MainHeader>
-      <Style.SubHeader subTextWeight={subTextWeight} subTextSize={subTextSize}>
-        {subTitle}
-      </Style.SubHeader>
     </Style.Wrapper>
   );
 };
@@ -38,33 +18,17 @@ Heading.propTypes = {
    */
   mainTitle: PropTypes.string,
   /**
-   * Secondary header text
-   */
-  subTitle: PropTypes.string,
-  /**
-   * Aligment of header text
-   */
-  textAlign: PropTypes.oneOf(["left", "center", "right"]),
-  /**
    * Color of header text
    */
   textColor: PropTypes.string,
   /**
    * Font weight of main header
    */
-  mainTextWeight: PropTypes.oneOf(["semi-thick", "thick", "xl-thick"]),
+  mainTextWeight: PropTypes.number,
   /**
-   * Font weight of sub header
+   * ClassName of element
    */
-  subTextWeight: PropTypes.oneOf(["semi-thick", "thick", "xl-thick"]),
-  /**
-   * Font size for main header (numeric value withouht "px")
-   */
-  mainTextSize: PropTypes.string,
-  /**
-   * Font size for main header (numeric value withouht "px")
-   */
-  subTextSize: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Heading;

@@ -1,32 +1,5 @@
-import styled from "styled-components";
-import { Button } from "../../Button";
-import { Heading } from "../../Heading";
-
-export const Wrapper = styled.div`
-  position: relative;
-  background: url(${(props) => props.imageURL}) no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 84vh;
-  background-color: #f7fafc;
-  background-position: 50% 60%;
-
-  @media only screen and (max-width: 640px) {
-    background-position: 50% 60%;
-  }
-`;
-
-export const Content = styled.div`
-  position: relative;
-  margin: 0px auto;
-  padding: 0 80px;
-  width: 100%;
-  height: 100%;
-  max-width: 1760px;
-  display: flex;
-  justify-content: space-between;
-  }
-`;
+import styled from 'styled-components';
+import { Heading } from '../../Heading';
 
 export const CallToAction = styled.div`
   position: absolute;
@@ -34,20 +7,39 @@ export const CallToAction = styled.div`
 `;
 
 export const Header = styled(Heading)`
-  line-height: 68px;
+  line-height: 4em;
 `;
 
-export const ExtendedButton = styled(Button)`
-  margin-top: 28px;
+const HeroWrapper = styled.div`
+  box-sizing: border-box;
   position: relative;
-  font-weight: 600;
-  height: 34px;
+  overflow: hidden;
+
+  height: 80vh;
+  width: 100%;
 `;
 
-export default {
+const HeroImage = styled.div`
+  box-sizing: border-box;
+  position: relative;
+
+  background: url(${({ imageURL }) => imageURL}) no-repeat;
+  background-size: 317%;
+  background-position: 45% 100%;
+
+  height: 75vh;
+  width: 100%;
+`;
+
+const Wrapper = ({ imageURL, children }) => (
+  <HeroWrapper>
+    <HeroImage imageURL={imageURL}>{children}</HeroImage>
+  </HeroWrapper>
+);
+
+const Style = {
   Wrapper,
-  Content,
   CallToAction,
   Header,
-  ExtendedButton,
 };
+export default Style;
