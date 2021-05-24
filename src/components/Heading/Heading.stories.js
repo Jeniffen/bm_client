@@ -1,15 +1,14 @@
-import React from "react";
-import { Heading } from "./";
+import React from 'react';
+import { Heading } from './';
 
 export default {
-  title: "COMPONENTS API/Heading",
+  title: 'COMPONENTS API/Heading',
 };
 
 const Template = (args) => <Heading {...args} />;
-
-export const HeadingDefault = Template.bind({});
-HeadingDefault.args = {
-  mainTitle: "This is a Header",
-  subTitle: "this is a Sub-Header",
-  textAlign: "left",
+export const FluidHeader = Template.bind({});
+FluidHeader.args = {
+  mainTitle: 'This is an example fluid header',
+  textColor: '#000',
+  mainTextWeight: 700,
 };
