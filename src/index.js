@@ -1,5 +1,5 @@
 import React from 'react';
-import GlobalStyle from './styles/globalStyles';
+import { GlobalStyle } from './styles/globalStyles';
 import { AuthContextProvider } from './context/AuthContext';
 import { ModalContextProvider } from './context/ModalContext';
 
