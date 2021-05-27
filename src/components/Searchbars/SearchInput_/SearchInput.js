@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Style from './styles';
-import useSearchInput from './useSearchInput';
+import React from "react";
+import PropTypes from "prop-types";
+import Style from "./styles";
+import useSearchInput from "./useSearchInput";
 
 const SearchInput = ({
   inputLabel,
@@ -23,11 +23,12 @@ const SearchInput = ({
         className={className}
       >
         <Style.InputWrapper id="searchinputInputWrapper">
+          <Style.Label id="searchinputLabel">{inputLabel}</Style.Label>
           <Style.Input
             id="inputSearchData"
             ref={inputSearch}
             placeholder={inputPlaceholder}
-            value={isSearchbarFolded ? '' : inputValue}
+            value={isSearchbarFolded ? "" : inputValue}
             autocomplete="off"
             onChange={handleChange}
           />

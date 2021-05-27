@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import { IconButton } from '../../IconButton';
-import { SearchButton } from '../SearchButton';
+import styled, { css } from "styled-components";
+import { IconButton } from "../../IconButton";
+import { SearchButton } from "../SearchButton";
 
 const ClearButton = styled(IconButton)`
   display: none;
@@ -25,15 +25,15 @@ const InputWrapper = styled.label`
   outline: none;
   border: none;
   border-radius: 32px;
-  height: 100%;
-  width: 300px;
+  height: 64px;
+  width: 100%;
   padding: 14px 32px;
   background-color: transparent;
 
   ${ButtonContainer} {
     position: absolute;
     top: 0;
-    right: 8px;
+    right: 12px;
   }
 
   :hover {
@@ -70,10 +70,6 @@ const Input = styled.input`
   :focus {
     font-weight: 500;
   }
-
-  ::placeholder {
-    color: #000;
-  }
 `;
 
 const VSeparator = styled.div`
@@ -98,11 +94,11 @@ const Wrapper = styled.div`
   justify-content: center;
   overflow: visible;
   max-width: 440px;
-  width: 300px;
+  width: 100%;
   background-color: transparent;
 
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    'Helvetica Neue', sans-serif !important;
+    "Helvetica Neue", sans-serif !important;
 
   :focus-within {
     ${InputWrapper} {
@@ -113,7 +109,7 @@ const Wrapper = styled.div`
 
     ${ClearButton} {
       display: ${({ inputState }) => {
-        return inputState === '' ? css`none` : css`flex`;
+        return inputState === "" ? css`none` : css`flex`;
       }};
       background-color: #efefef;
 
@@ -141,7 +137,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Style = {
+export default {
   ExtendedSearchButton,
   ButtonContainer,
   Wrapper,
@@ -151,4 +147,3 @@ const Style = {
   ClearButton,
   VSeparator,
 };
-export default Style;
