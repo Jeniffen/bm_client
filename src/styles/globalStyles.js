@@ -1,10 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
       "Helvetica Neue", sans-serif !important;
+    font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400)); 
   }
 
   *,
@@ -18,5 +19,3 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 `;
-
-export default GlobalStyle;
