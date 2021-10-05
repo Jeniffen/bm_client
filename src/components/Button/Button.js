@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Style from './styles';
 
 const Button = ({
-  btnType,
+  buttonType,
   type,
   label,
   size,
@@ -14,7 +14,7 @@ const Button = ({
   return (
     <Style.Button
       className={className}
-      btnType={btnType}
+      buttonType={buttonType}
       type={type}
       size={size}
       onClick={onClick}
@@ -29,11 +29,11 @@ Button.propTypes = {
   /**
    * Is this the principal call to action on the page?
    */
-  btnType: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light']),
+  buttonType: PropTypes.oneOf(['primary', 'secondary', 'dark', 'light']),
   /**
    * Type of element
    */
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']).isRequired,
   /**
    * Button contents
    */
