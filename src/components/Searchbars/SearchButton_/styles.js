@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { Icons } from '../../Icons';
+import styled, { css } from "styled-components";
+import { Icons } from "../../Icons";
 
 export const Label = styled.span`
   font-size: 16px;
@@ -15,11 +15,11 @@ export const Icon = styled(Icons)`
 export const Button = styled.button`
   box-sizing: border-box;
   display: flex;
-  height: 36px;
-  max-height: 36px;
-  width: 36px;
+  height: 48px;
+  max-height: 48px;
+  width: 48px;
   transition: width 0.1s ease;
-  border-radius: 50%;
+  border-radius: ${({ expand }) => (expand ? "24px" : "50%")};
   background-color: #d53f8c;
   border: none;
   outline: none;
@@ -55,5 +55,4 @@ export const Button = styled.button`
     `}
 `;
 
-const Style = { Label, Icon, Button };
-export default Style;
+export default { Label, Icon, Button };

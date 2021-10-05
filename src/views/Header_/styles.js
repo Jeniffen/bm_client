@@ -18,7 +18,7 @@ const SearchbarExtended = styled(Searchbar)`
       }
 
       #searchbarSearchPanel {
-        /* transition: width 0.2s ease; */
+        transition: width 0.2s ease;
         width: 300px;
         height: 48px;
         border: 1px solid #ddd;
@@ -107,15 +107,24 @@ const SearchbarExtended = styled(Searchbar)`
           background-color: #efefef;
         }
       }
+
+      #searchinputButtonContainer {
+        right: 12px;
+      }
+
+      .SearchButton {
+        height: 48px !important;
+        width: 48px;
+      }
     `}
 `;
 
 const NavbarExtended = styled(Navbar)`
-  /* position: absolute;
+  position: absolute;
   top: 0;
   right: 80px;
   width: 300px;
-  z-index: 50; */
+  z-index: 50;
 `;
 
 const WrapperSection = styled(SectionWrapper)`
@@ -124,9 +133,9 @@ const WrapperSection = styled(SectionWrapper)`
   background-color: transparent;
 
   #sectionContent {
-    /* transition: height 0.2s ease 0.05s; */
+    transition: height 0.2s ease 0.05s;
     min-height: 80px;
-    height: 80px;
+    height: 196px;
     justify-content: center;
     flex-direction: row;
     align-items: center;
@@ -135,7 +144,7 @@ const WrapperSection = styled(SectionWrapper)`
   ${({ wrapBar }) =>
     wrapBar &&
     css`
-      transition: background-color 0.3s ease 0.1s;
+      transition: background-color 0.1s ease 0.1s;
       background-color: #fff;
       box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 12px;
 
@@ -149,8 +158,8 @@ const WrapperSection = styled(SectionWrapper)`
     expandBar &&
     css`
       #sectionContent {
-        /* transition: height 0.2s ease !important; */
-        /* height: 196px !important; */
+        transition: height 0.2s ease !important;
+        height: 196px !important;
       }
     `}
 `;
@@ -176,12 +185,10 @@ const Spotlight = styled.div`
         `
       : null}
 `;
-
-const Style = {
+export default {
   SearchbarExtended,
   NavbarExtended,
   WrapperSection,
   Wrapper,
   Spotlight,
 };
-export default Style;

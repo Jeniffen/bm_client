@@ -5,17 +5,15 @@ const SearchPanel = styled.div`
   align-content: stretch;
   position: relative;
   overflow: visible;
-
-  margin: 0 auto;
-  padding: 0;
-
-  height: 48px;
-  max-height: 48px;
-  width: 300px;
-  max-width: 300px;
-
+  transition: width 0.1s ease;
+  width: 850px;
+  max-width: 850px;
+  height: 64px;
+  max-height: 64px;
   border: 1px solid transparent;
   border-radius: 32px;
+  margin: 0 auto;
+  padding: 0;
   background-color: #fff;
   box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
 
@@ -58,8 +56,8 @@ const FormWrapper = styled.form`
   flex-direction: column;
   background-color: transparent;
   width: 850px;
-  height: 48px;
-  max-height: 48px;
+  height: 146px;
+  max-height: 146px;
 `;
 
 const Style = { FormWrapper, SearchPanel };
