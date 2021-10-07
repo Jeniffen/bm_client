@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Heading } from '../../Heading';
+import { Heading } from '../../components/Heading';
 
 export const CallToAction = styled.div`
   position: absolute;

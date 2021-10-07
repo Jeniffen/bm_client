@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
 
-const SectionHero = ({
+const Hero = ({
   imageURL,
   headingText,
   headingColor,
@@ -23,7 +23,7 @@ const SectionHero = ({
   );
 };
 
-SectionHero.propTypes = {
+Hero.propTypes = {
   /**
    * URL to tile image
    */
@@ -46,4 +46,4 @@ SectionHero.propTypes = {
   className: PropTypes.string,
 };
 
-export default SectionHero;
+export default Hero;
