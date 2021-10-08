@@ -10,37 +10,30 @@ const HeroWrapper = styled.div`
 `;
 
 const HeroImage = styled.div`
-  /* Extra-small devices */
-  @media only screen and (max-width: 479px) {
-    background-size: 317%;
-    background-position: 45% 100%;
+  /* Default styles */
+  /* box model */
+  box-sizing: border-box;
+  height: 75vh;
+  width: 100%;
+
+  /* background */
+  background: url(${({ imageURL }) => imageURL}) no-repeat;
+  background-size: 317%;
+  background-position: 45% 100%;
+
+  /* layout  */
+  position: relative;
+
+  @media all and (orientation: landscape) {
+    background-size: 105%;
+    background-position: 0% 45%;
   }
 
-  /* Small devices */
-  @media screen and (min-width: 480px) and (max-width: 767px) {
+  /* Tablets*/
+  @media all and (min-width: 48rem) and (orientation: portrait) {
     background-size: 210%;
     background-position: 45% 90%;
   }
-
-  /* Medium devices */
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    background-size: 200%;
-    background-position: 40% 90%;
-  }
-
-  /* Large/extra large devices */
-  @media only screen and (min-width: 1024px) {
-    background-size: 120%;
-    background-position: 40% 100%;
-  }
-
-  box-sizing: border-box;
-  position: relative;
-
-  background: url(${({ imageURL }) => imageURL}) no-repeat;
-
-  height: 75vh;
-  width: 100%;
 `;
 
 const Wrapper = ({ imageURL, children }) => (
