@@ -5,7 +5,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
       "Helvetica Neue", sans-serif !important;
-    font-size: 16px; 
   }
 
   *,
