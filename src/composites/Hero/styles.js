@@ -18,21 +18,53 @@ const HeroImage = styled.div`
 
   /* background */
   background: url(${({ imageURL }) => imageURL}) no-repeat;
-  background-size: 317%;
-  background-position: 45% 100%;
+  background-size: 325%;
+  background-position: 50% 95%;
 
   /* layout  */
   position: relative;
 
-  @media all and (orientation: landscape) {
-    background-size: 105%;
-    background-position: 0% 45%;
-  }
-
-  /* Tablets*/
-  @media all and (min-width: 48rem) and (orientation: portrait) {
+  /* Media query order matters */
+  /* iPads, Tablets */
+  @media all and (min-width: 30rem) {
     background-size: 210%;
     background-position: 45% 90%;
+  }
+
+  /* Small screens, laptops */
+  @media all and (min-width: 48rem) {
+    background-size: 210%;
+    background-position: 45% 90%;
+  }
+
+  /* Tilted small screens phones */
+  @media all and (orientation: landscape) {
+    background-size: 110%;
+    background-position: 30% 50%;
+  }
+
+  /* Desktops, large screens */
+  @media all and (min-width: 64rem) {
+    background-size: 200%;
+    background-position: 45% 100%;
+  }
+
+  /* Tilted tablet */
+  @media all and (min-width: 64rem) and (orientation: landscape) {
+    background-size: 110%;
+    background-position: 30% 90%;
+  }
+
+  /* Extra large screens, TV */
+  @media all and (min-width: 75rem) {
+    background-size: 110%;
+    background-position: 45% 90%;
+  }
+
+  /* UHD Screens and beyond */
+  @media all and (min-width: 128rem) {
+    background-size: 100%;
+    background-position: 45% 45%;
   }
 `;
 
