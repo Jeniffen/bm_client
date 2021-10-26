@@ -1,80 +1,60 @@
 import styled from 'styled-components';
 
 const HeroWrapper = styled.div`
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-
-  height: 80vh;
-  width: 100%;
-`;
-
-const HeroImage = styled.div`
   /* Default styles */
   /* box model */
   box-sizing: border-box;
-  height: 75vh;
+  height: calc(1.3 * 100vw);
   width: 100%;
 
   /* background */
   background: url(${({ imageURL }) => imageURL}) no-repeat;
-  background-size: 325%;
-  background-position: 50% 95%;
+  background-size: 315vw;
+  background-position: 50% 60%;
 
   /* layout  */
   position: relative;
+  overflow: hidden;
 
   /* Media query order matters */
   /* iPads, Tablets */
-  @media all and (min-width: 30rem) {
-    background-size: 210%;
-    background-position: 45% 90%;
-  }
-
-  /* Small screens, laptops */
-  @media all and (min-width: 48rem) {
-    background-size: 210%;
-    background-position: 45% 90%;
-  }
-
-  /* Tilted small screens phones */
-  @media all and (orientation: landscape) {
-    background-size: 110%;
-    background-position: 30% 50%;
-  }
-
-  /* Desktops, large screens */
-  @media all and (min-width: 64rem) {
-    background-size: 200%;
+  @media all and (min-width: 28rem) {
+    background-size: 250%;
     background-position: 45% 100%;
   }
 
-  /* Tilted tablet */
-  @media all and (min-width: 64rem) and (orientation: landscape) {
-    background-size: 110%;
-    background-position: 30% 90%;
+  /* Small screens, laptops */
+  @media all and (min-width: 46rem) {
+    height: calc(0.8 * 100vw);
+
+    background-size: 150%;
+    background-position: 45% 100%;
+  }
+
+  /* Desktops, large screens */
+  @media all and (min-width: 62rem) {
+    height: calc(0.5 * 100vw);
+
+    background-size: 130%;
+    background-position: 45% 75%;
   }
 
   /* Extra large screens, TV */
-  @media all and (min-width: 75rem) {
+  @media all and (min-width: 73rem) {
     background-size: 110%;
     background-position: 45% 90%;
   }
 
   /* UHD Screens and beyond */
-  @media all and (min-width: 128rem) {
+  @media all and (min-width: 126rem) {
+    height: calc(0.4 * 100vw);
+
     background-size: 100%;
     background-position: 45% 45%;
   }
 `;
 
-const Wrapper = ({ imageURL, children }) => (
-  <HeroWrapper>
-    <HeroImage imageURL={imageURL}>{children}</HeroImage>
-  </HeroWrapper>
-);
-
 const Style = {
-  Wrapper,
+  HeroWrapper,
 };
 export default Style;
