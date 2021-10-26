@@ -4,7 +4,10 @@ import Style from './styles';
 
 const Hero = ({ imageURL, className }) => {
   return (
-    <Style.Wrapper className={className} imageURL={imageURL}></Style.Wrapper>
+    <Style.HeroWrapper
+      className={className}
+      imageURL={imageURL}
+    ></Style.HeroWrapper>
   );
 };
 
