@@ -113,6 +113,11 @@ const customViewports = {
 };
 
 export const parameters = {
+  options: {
+    storySort: {
+      order: ['Example', 'COMPONENTS', 'COMPOSITES'],
+    },
+  },
   viewport: {
     defaultViewport: 'iPhoneX',
     viewports: {

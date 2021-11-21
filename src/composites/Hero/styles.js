@@ -1,5 +1,51 @@
 import styled from 'styled-components';
 
+const HeroTagline = styled.span`
+  /* Layout */
+  position: absolute;
+  top: 60%;
+
+  /* Typography */
+  color: #ffffff;
+  letter-spacing: -0.1rem;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 17.5vw, 4rem);
+  line-height: clamp(2.25rem, 14vw, 3.75rem);
+  white-space: pre-wrap;
+
+  /* Small screens, laptops */
+  @media all and (min-width: 46rem) {
+    font-size: 6rem;
+    line-height: 5rem;
+  }
+
+  /* Extra large screens, TV */
+  @media all and (min-width: 73rem) {
+    font-size: 6rem;
+    line-height: 5rem;
+  }
+`;
+
+const HeroContent = styled.div`
+  /* box model */
+  height: 100%;
+  width: 100%;
+  padding: 96px 24px 32px 24px;
+
+  /* background */
+  background: linear-gradient(180deg, #ffffff00 31%, #dd4e89 100%);
+
+  /* layout  */
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+  /* Small screens, laptops */
+  @media all and (min-width: 46rem) {
+    padding: 250px 40px 40px 40px;
+  }
+`;
+
 const HeroWrapper = styled.div`
   /* Default styles */
   /* box model */
@@ -27,7 +73,7 @@ const HeroWrapper = styled.div`
   @media all and (min-width: 46rem) {
     height: calc(0.8 * 100vw);
 
-    background-size: 150%;
+    background-size: 145%;
     background-position: 45% 100%;
   }
 
@@ -55,6 +101,8 @@ const HeroWrapper = styled.div`
 `;
 
 const Style = {
+  HeroContent,
+  HeroTagline,
   HeroWrapper,
 };
 export default Style;
