@@ -1,6 +1,5 @@
 import React from 'react';
 import { SectionBanner } from './SectionBanner';
-import { SectionHero } from './SectionHero';
 import { SectionSpotlight } from './SectionSpotlight';
 
 export default {
@@ -10,16 +9,6 @@ export default {
 const TemplateBanner = (args) => <SectionBanner {...args} />;
 
 export const BannerDefault = TemplateBanner.bind({});
-
-const TemplateHero = (args) => <SectionHero {...args} />;
-export const HeroDefault = TemplateHero.bind({});
-HeroDefault.args = {
-  imageURL:
-    'https://images.unsplash.com/photo-1587271511223-18b7ef9a327a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3900&q=80',
-  headingText: 'Dive into inspirations',
-  headingColor: '#fff',
-  mainHeaderWeight: 700,
-};
 
 const TemplateSpotlight = (args) => <SectionSpotlight {...args} />;
 
