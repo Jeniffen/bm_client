@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  boxsizing: "border-box";
+  box-sizing: 'border-box';
   display: flex;
   position: fixed;
   align-items: center;
@@ -18,4 +18,9 @@ const Content = styled.div`
   display: inline-block;
 `;
 
-export default { Wrapper, Content };
+const Style = {
+  Wrapper,
+  Content,
+};
+
+export default Style;
