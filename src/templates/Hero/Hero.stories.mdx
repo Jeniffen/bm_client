@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Hero } from '.';
+
+<Meta title="COMPOSITES/Hero" component={Hero} />
+
+# Hero
+
+This mobile first Hero component is designed to responsively adopt to various
+screen sizes. Layout of this component depends on the device width and has
+media-query break for following thresholds:
+
+- `28em` Tablets, iPads
+- `46em` Small screens and Laptops
+- `62em` Desktops and lage screens
+- `73em` Extra large screens and TV
+- `126em` UHD screens and beyond
+
+export const Template = (args) => <Hero {...args} />;
+
+<Canvas withToolbar>
+  <Story
+    name="Default"
+    args={{
+      imageURL:
+        'https://images.unsplash.com/photo-1587271511223-18b7ef9a327a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3900&q=80',
+      heroTagline: 'THIS IS \nYOUR DAY',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Hero} />
