@@ -115,7 +115,7 @@ const customViewports = {
 export const parameters = {
   options: {
     storySort: {
-      order: ['Example', 'COMPONENTS', 'COMPOSITES'],
+      order: ['Example', 'COMPONENTS'],
     },
   },
   viewport: {
