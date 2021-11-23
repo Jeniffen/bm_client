@@ -23,8 +23,8 @@ export const Icons = styled.img`
         `;
       case 'x-small':
         return css`
-          width: 12px;
-          height: 12px;
+          width: 16px;
+          height: 16px;
         `;
       case 'small':
         return css`

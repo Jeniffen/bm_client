@@ -1,4 +1,5 @@
 import React from 'react';
+import { Searchbar } from '../../components/Searchbar';
 import { Hero } from '../../components/Hero';
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
 
   return (
     <>
+      <Searchbar />
       <Hero
         imageURL={heroContent.imageURL}
         heroTagline={heroContent.heroTagline}
