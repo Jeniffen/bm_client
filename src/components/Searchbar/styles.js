@@ -1,17 +1,30 @@
 import styled from 'styled-components';
 import { Icons } from '../Icons';
 
+const containerBackground = (isSolid) => {
+  return isSolid ? '#ffffff' : 'transparent';
+};
+
+const dialogBackground = (isSolid) => {
+  return isSolid ? '#f6f6f6' : '#ffffff';
+};
+
 const SearchContainer = styled.div`
   /* box model */
+  width: 100%;
   height: 5rem;
   width: 100%;
   padding: 1rem 1.5rem;
 
   /* background */
-  background-color: #ffffff;
+  background-color: ${({ isSolid }) => containerBackground(isSolid)};
 
   /* layout  */
+  overflow: hidden;
   display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 `;
 
 const SearchDialog = styled.button`
@@ -22,7 +35,7 @@ const SearchDialog = styled.button`
   border-radius: 1.5rem;
 
   /* background */
-  background-color: #f6f6f6;
+  background-color: ${({ isSolid }) => dialogBackground(isSolid)};
 
   /* layout  */
   display: flex;

@@ -65,4 +65,5 @@ export const Icons = styled.img`
   }};
 `;
 
-export default { Icons };
+const Style = { Icons };
+export default Style;
