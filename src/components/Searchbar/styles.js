@@ -16,7 +16,6 @@ const dialogShadow = (isSolid) => {
 const SearchContainer = styled.div`
   /* box model */
   width: 100%;
-  max-width: 46rem;
   height: 5rem;
   width: 100%;
   padding: 1rem 1.5rem;
@@ -26,6 +25,7 @@ const SearchContainer = styled.div`
 
   /* layout  */
   display: flex;
+  justify-content: center;
   position: fixed;
   top: 0;
   z-index: 1;
@@ -34,6 +34,7 @@ const SearchContainer = styled.div`
 const DialogContainer = styled.div`
   /* box model */
   width: 100%;
+  max-width: 46rem;
   height: 3rem;
   border-radius: 1.5rem;
 
