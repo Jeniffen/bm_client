@@ -5,19 +5,41 @@ import { Searchbar } from '.';
   title="Components/Searchbar"
   component={Searchbar}
   parameters={{
-    backgrounds: {
-      default: 'dark',
+    docs: {
+      inlineStories: false,
+      iFrameHeight: 500,
     },
   }}
 />
 
 # Searchbar
 
+This Searchbar component is designed to be mobile first. On mobile it comes in
+two states. The initial state (`isSolid: false`) is used when the application
+when searchbar needs to blend in into for example `Hero` sections. In that case,
+The searchar will in a transparent design.
+
 export const Template = (args) => <Searchbar {...args} />;
 
 <Canvas withToolbar>
   <Story
-    name="Default Searchbar"
+    name="Default"
+    args={{
+      isSolid: false,
+      searchDialogLabel: 'What are you looking for?',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+In the second state (`isSolid: true`) the searchbar is embedded in a solid
+container element. This is the case, when for example user is scrolling through
+the application.
+
+<Canvas>
+  <Story
+    name="Solid"
     args={{
       isSolid: true,
       searchDialogLabel: 'What are you looking for?',

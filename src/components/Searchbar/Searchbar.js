@@ -5,14 +5,7 @@ import Style from './styles';
 const Searcbhar = ({ isSolid, searchDialogLabel, className }) => {
   return (
     <Style.SearchContainer isSolid={isSolid} className={className}>
-      <Style.SearchDialog isSolid={isSolid}>
-        <Style.Icon
-          className="SearchButton-Icon"
-          type="magnifier"
-          size="x-small"
-        />
-        <Style.DialogLabel>{searchDialogLabel}</Style.DialogLabel>
-      </Style.SearchDialog>
+      <Style.Dialog isSolid={isSolid} searchDialogLabel={searchDialogLabel} />
     </Style.SearchContainer>
   );
 };

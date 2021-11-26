@@ -9,9 +9,14 @@ const dialogBackground = (isSolid) => {
   return isSolid ? '#f6f6f6' : '#ffffff';
 };
 
+const dialogShadow = (isSolid) => {
+  return isSolid ? 'none' : '0px 6px 20px rgb(0 0 0 / 20%) !important';
+};
+
 const SearchContainer = styled.div`
   /* box model */
   width: 100%;
+  max-width: 46rem;
   height: 5rem;
   width: 100%;
   padding: 1rem 1.5rem;
@@ -20,11 +25,20 @@ const SearchContainer = styled.div`
   background-color: ${({ isSolid }) => containerBackground(isSolid)};
 
   /* layout  */
-  overflow: hidden;
   display: flex;
   position: fixed;
   top: 0;
   z-index: 1;
+`;
+
+const DialogContainer = styled.div`
+  /* box model */
+  width: 100%;
+  height: 3rem;
+  border-radius: 1.5rem;
+
+  /* other */
+  box-shadow: ${({ isSolid }) => dialogShadow(isSolid)};
 `;
 
 const SearchDialog = styled.button`
@@ -65,5 +79,19 @@ export const Icon = styled(Icons)`
     brightness(86%) contrast(94%);
 `;
 
-const Style = { SearchContainer, SearchDialog, DialogLabel, Icon };
+export const Dialog = ({ isSolid, searchDialogLabel }) => {
+  return (
+    <DialogContainer isSolid={isSolid}>
+      <SearchDialog isSolid={isSolid}>
+        <Icon className="SearchButton-Icon" type="magnifier" size="x-small" />
+        <DialogLabel>{searchDialogLabel}</DialogLabel>
+      </SearchDialog>
+    </DialogContainer>
+  );
+};
+
+const Style = {
+  SearchContainer,
+  Dialog,
+};
 export default Style;
