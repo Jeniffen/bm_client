@@ -12,29 +12,29 @@ import img_mail from './static/icon-mail.svg';
 export const Icons = styled.img`
   box-sizing: border-box;
   position: relative;
-  margin: 0 16px 0 16px;
+  margin: 0 1rem 0 1rem;
 
   ${({ size }) => {
     switch (size) {
       case 'tiny':
         return css`
-          width: 5px;
-          height: 5px;
+          width: 0.3125rem;
+          height: 0.3125rem;
         `;
       case 'x-small':
         return css`
-          width: 12px;
-          height: 12px;
+          width: 1rem;
+          height: 1rem;
         `;
       case 'small':
         return css`
-          width: 20px;
-          height: 20px;
+          width: 1.25rem;
+          height: 1.25rem;
         `;
       default:
         return css`
-          width: 20px;
-          height: 20px;
+          width: 1.25rem;
+          height: 1.25rem;
         `;
     }
   }};
@@ -65,4 +65,5 @@ export const Icons = styled.img`
   }};
 `;
 
-export default { Icons };
+const Style = { Icons };
+export default Style;
