@@ -47,11 +47,11 @@ const ItemLabel = styled.div`
   color: #222222;
 `;
 
-export const NavbarItem = ({}) => {
+export const NavbarItem = ({ NavItemIcon, NavItemLabel }) => {
   return (
     <NavItem>
-      <Icon className="SearchButton-Icon" type="magnifier" size="small" />
-      <ItemLabel>Explore</ItemLabel>
+      <Icon className="NavbarItem-Icon" type={NavItemIcon} size="small" />
+      <ItemLabel>{NavItemLabel}</ItemLabel>
     </NavItem>
   );
 };

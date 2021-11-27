@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import img_avatar from './static/icon-avatar.svg';
 import img_close from './static/icon-close.svg';
+import img_heart from './static/icon-heart.svg';
 import img_logo_apple from './static/icon-logo-apple.svg';
 import img_logo_chevron_left from './static/icon-chevron-left.svg';
 import img_logo_chevron_right from './static/icon-chevron-right.svg';
@@ -13,6 +14,7 @@ export const Icons = styled.img`
   box-sizing: border-box;
   position: relative;
   margin: 0 1rem 0 1rem;
+  overflow: visible;
 
   ${({ size }) => {
     switch (size) {
@@ -28,8 +30,8 @@ export const Icons = styled.img`
         `;
       case 'small':
         return css`
-          width: 1.25rem;
-          height: 1.25rem;
+          width: 1.5rem;
+          height: 1.5rem;
         `;
       default:
         return css`
@@ -49,6 +51,8 @@ export const Icons = styled.img`
         return `url(${img_logo_chevron_right})`;
       case 'close':
         return `url(${img_close})`;
+      case 'heart':
+        return `url(${img_heart})`;
       case 'logo-apple':
         return `url(${img_logo_apple})`;
       case 'logo-facebook':
