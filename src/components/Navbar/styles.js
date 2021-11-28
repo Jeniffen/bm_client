@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import { Icons } from '../Icons';
 
+const iconColor = (isActive) => {
+  return isActive
+    ? 'invert(43%) sepia(66%) saturate(3025%) hue-rotate(303deg) brightness(86%) contrast(94%)'
+    : 'invert(95%) sepia(0%) saturate(679%) hue-rotate(229deg) brightness(82%) contrast(80%)';
+};
+
+const labelColor = (isActive) => {
+  return isActive ? '#222222' : '#747474';
+};
+
 const NavbarContainer = styled.nav`
   /* box model */
   width: 100%;
@@ -30,6 +40,10 @@ const NavItem = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* other */
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 export const Icon = styled(Icons)`
@@ -37,21 +51,31 @@ export const Icon = styled(Icons)`
   margin: 0 0.5rem 0.25rem 0.5rem;
 
   /* other */
-  filter: invert(43%) sepia(66%) saturate(3025%) hue-rotate(303deg)
-    brightness(86%) contrast(94%);
+  filter: ${({ isActive }) => iconColor(isActive)};
 `;
 
 const ItemLabel = styled.div`
   /* typography */
   font-size: 0.625rem;
-  color: #222222;
+  font-weight: 500;
+  color: ${({ isActive }) => labelColor(isActive)};
 `;
 
-export const NavbarItem = ({ NavItemIcon, NavItemLabel }) => {
+export const NavbarItem = ({
+  isActive,
+  NavItemIcon,
+  NavItemLabel,
+  onClick,
+}) => {
   return (
-    <NavItem>
-      <Icon className="NavbarItem-Icon" type={NavItemIcon} size="small" />
-      <ItemLabel>{NavItemLabel}</ItemLabel>
+    <NavItem onClick={onClick}>
+      <Icon
+        isActive={isActive}
+        type={NavItemIcon}
+        size="small"
+        className="NavbarItem-Icon"
+      />
+      <ItemLabel isActive={isActive}>{NavItemLabel}</ItemLabel>
     </NavItem>
   );
 };
