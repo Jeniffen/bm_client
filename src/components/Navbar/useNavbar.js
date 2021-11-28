@@ -1,12 +1,19 @@
-import _ from 'lodash';
-import useAuthState from '../../hooks/useAuthState';
+import { useState } from 'react';
 
 export default function useNavbar() {
-  const authState = useAuthState();
-  const user = _.get(authState.user, 'user');
+  const [itemStatus, setItemStatus] = useState({
+    explore: true,
+    wishlist: false,
+    login: false,
+  });
 
-  const imageURL = authState.isAuthenticated ? user.picture : 'avatar';
-  const userName = authState.isAuthenticated ? user.displayName : 'avatar-name';
+  const onItemSelect = (activeItem) => {
+    const selectedItem = Object.keys(itemStatus).reduce((acc, key) => {
+      acc[key] = key === activeItem;
+      return acc;
+    }, {});
 
-  return [imageURL, userName];
+    setItemStatus(selectedItem);
+  };
+  return [itemStatus, onItemSelect];
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navbar } from '../../components/Navbar';
 import { Searchbar } from '../../components/Searchbar';
 import { Hero } from '../../components/Hero';
 
@@ -13,6 +14,7 @@ const Home = () => {
 
   return (
     <>
+      <Navbar />
       <Searchbar isSolid={false} searchDialogLabel={searchDialogLabel} />
       <Hero
         imageURL={heroContent.imageURL}

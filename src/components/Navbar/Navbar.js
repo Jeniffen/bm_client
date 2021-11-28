@@ -1,30 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
+
 import useNavbar from './useNavbar';
-import { Toggle } from '../Toggle';
-import { Avatar } from '../Avatar';
-import { Menu } from '../Menus/Menu';
 
-const Navbar = ({ items, className }) => {
-  const [imageURL, userName] = useNavbar();
-
+const Navbar = ({ className }) => {
+  const [itemStatus, onItemSelect] = useNavbar();
   return (
-    <Style.Wrapper className={className}>
-      <Style.Content>
-        <Toggle toggleElement={<Menu items={items} />}>
-          <Avatar size="small" imageURL={imageURL} username={userName} />
-        </Toggle>
-      </Style.Content>
-    </Style.Wrapper>
+    <Style.NavbarContainer className={className}>
+      <Style.NavbarItem
+        isActive={itemStatus.explore}
+        NavItemIcon="magnifier"
+        NavItemLabel="Explore"
+        onClick={() => onItemSelect('explore')}
+      />
+      <Style.NavbarItem
+        isActive={itemStatus.wishlist}
+        NavItemIcon="heart"
+        NavItemLabel="Wishlist"
+        onClick={() => onItemSelect('wishlist')}
+      />
+      <Style.NavbarItem
+        isActive={itemStatus.login}
+        NavItemIcon="avatar"
+        NavItemLabel="Log in"
+        onClick={() => onItemSelect('login')}
+      />
+    </Style.NavbarContainer>
   );
 };
 
 Navbar.propTypes = {
-  /**
-   * Array of menu item objects
-   */
-  items: PropTypes.arrayOf(PropTypes.object),
   /**
    * ClassName of element
    */
