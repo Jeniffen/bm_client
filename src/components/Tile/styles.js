@@ -35,16 +35,26 @@ const TileImage = styled.div`
   height: 70%;
 
   /* background */
-  background-color: red;
+  background-color: #ffffff;
+  background-image: url(${(props) => props.imageURL});
+  background-position: center;
+  background-size: cover;
 `;
 
 const TileLabel = styled.div`
   /* box model */
   width: 100%;
   height: 30%;
+  padding: 1.25rem 1rem 1rem 1rem;
 
   /* background */
-  background-color: green;
+  background-color: #eb2f52;
+
+  /* typography */
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #ffffff;
 `;
 
 export const Container = ({ children }) => {

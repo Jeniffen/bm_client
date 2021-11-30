@@ -8,7 +8,16 @@ import { Tile } from '.';
 export const Template = (args) => <Tile {...args} />;
 
 <Canvas withToolbar>
-  <Story name="Default">{Template.bind({})}</Story>
+  <Story
+    name="Default"
+    args={{
+      imageURL:
+        'https://images.squarespace-cdn.com/content/v1/5292682ae4b00ad10e7441b7/1507314872432-RWB4KXY0N83UDLQX21GX/toronto-best-wedding-photographer-014.JPG?format=1500w',
+      label: 'Photography',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 <ArgsTable of={Tile} />
