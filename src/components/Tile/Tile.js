@@ -13,6 +13,14 @@ const Tile = ({ imageURL, label, className }) => {
 
 Tile.propTypes = {
   /**
+   * URL to image that should be displayed in tile
+   */
+  imageURL: PropTypes.string,
+  /**
+   * Label in within tile
+   */
+  label: PropTypes.string,
+  /**
    * ClassName of element
    */
   className: PropTypes.string,
