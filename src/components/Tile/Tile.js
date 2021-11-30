@@ -1,39 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Style from "./styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Style from './styles';
 
-const Tile = ({ imageURL, tileSize, tileType, title }) => {
+const Tile = ({ className }) => {
   return (
-    <Style.TileWrapper tileSize={tileSize}>
-      <Style.TileImage
-        imageURL={imageURL}
-        tileSize={tileSize}
-        tileType={tileType}
-      />
-      <Style.TileFooter>
-        <Style.TileFooterTitle>{title}</Style.TileFooterTitle>
-      </Style.TileFooter>
-    </Style.TileWrapper>
+    <Style.Container className={className}>
+      <Style.TileImage />
+      <Style.TileLabel />
+    </Style.Container>
   );
 };
 
 Tile.propTypes = {
   /**
-   * URL to tile image
+   * ClassName of element
    */
-  imageURL: PropTypes.string,
-  /**
-   * The size of the tile displayed
-   */
-  tileSize: PropTypes.oneOf(["medium", "large"]),
-  /**
-   * The shape of the tile displayed
-   */
-  tileType: PropTypes.oneOf(["square", "rectangle"]),
-  /**
-   * Title of tile
-   */
-  title: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Tile;

@@ -1,68 +1,63 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const tileWidth = (tileSize) => {
-  switch (tileSize) {
-    case 'medium':
-      return css`
-        width: 30vw;
-      `;
-    case 'large':
-      return 520;
-    default:
-      return 360;
-  }
-};
+const TileContainer = styled.div`
+  /* box model */
+  width: calc((100vw - 40px) / 1.66);
+  max-width: 20rem;
+  padding-bottom: 66.66%;
+  border-radius: 0.75rem;
 
-const tileHeight = (tileSize, tileType) => {
-  switch (tileType) {
-    case 'square':
-      return tileWidth(tileSize);
-    case 'rectangle':
-      return tileWidth(tileSize) / 1.5;
-    default:
-      return tileWidth(tileSize);
-  }
-};
+  /* background */
+  background-color: #000000;
+
+  /* layout  */
+  position: relative;
+  overflow: hidden;
+`;
 
 const TileWrapper = styled.div`
-  box-sizing: border-box;
-  overflow: hidden;
+  /* box model */
+  width: 100%;
+  height: 100%;
+
+  /* background */
+  background-color: blue;
+
+  /* layout  */
+  position: absolute;
   display: flex;
   flex-direction: column;
-  border-radius: 12px;
-  ${({ tileSize }) => tileWidth}
-  background-color: transparent;
-
-  :hover {
-    cursor: pointer;
-  }
 `;
 
 const TileImage = styled.div`
-  border-radius: 12px;
-  height: 18vw;
-  width: 18vw;
-  background-color: #fff;
-  background-image: url(${(props) => props.imageURL});
-  background-position: center;
-  background-size: cover;
+  /* box model */
+  width: 100%;
+  height: 70%;
+
+  /* background */
+  background-color: red;
 `;
 
-const TileFooter = styled.div`
-  display: flex;
-  flex: 1 1 auto;
-  background-color: transparent;
-  align-items: center;
+const TileLabel = styled.div`
+  /* box model */
+  width: 100%;
+  height: 30%;
+
+  /* background */
+  background-color: green;
 `;
 
-const TileFooterTitle = styled.p`
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    'Helvetica Neue', sans-serif !important;
-  font-weight: 500;
-  font-size: 18px;
-  letter-spacing: -0.025em;
-  margin: 10px 0 0 0;
-`;
+export const Container = ({ children }) => {
+  return (
+    <TileContainer>
+      <TileWrapper>{children}</TileWrapper>
+    </TileContainer>
+  );
+};
 
-const Style = { TileWrapper, TileImage, TileFooter, TileFooterTitle };
+const Style = {
+  Container,
+  TileImage,
+  TileLabel,
+};
 export default Style;
