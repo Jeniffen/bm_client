@@ -61,7 +61,7 @@ const TileLabel = styled.div`
 
   /* typography */
   font-size: 1.125rem;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
   color: #ffffff;
 
@@ -69,7 +69,7 @@ const TileLabel = styled.div`
   /* Medium sized Phones */
   @media all and (min-width: 20rem) {
     font-size: 1.25rem;
-    line-height: 1.5rem;
+    line-height: 1.375rem;
   }
   /* Large Phones */
   @media all and (min-width: 25rem) {
