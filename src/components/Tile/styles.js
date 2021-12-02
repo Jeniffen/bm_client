@@ -1,68 +1,101 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const tileWidth = (tileSize) => {
-  switch (tileSize) {
-    case 'medium':
-      return css`
-        width: 30vw;
-      `;
-    case 'large':
-      return 520;
-    default:
-      return 360;
-  }
-};
+const ParentContainer = styled.div`
+  /* box model */
+  width: calc((100vw - 2.5rem) / 1.66);
+  max-width: 20rem;
 
-const tileHeight = (tileSize, tileType) => {
-  switch (tileType) {
-    case 'square':
-      return tileWidth(tileSize);
-    case 'rectangle':
-      return tileWidth(tileSize) / 1.5;
-    default:
-      return tileWidth(tileSize);
-  }
-};
-
-const TileWrapper = styled.div`
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  ${({ tileSize }) => tileWidth}
-  background-color: transparent;
-
-  :hover {
-    cursor: pointer;
+  /* Small screens, laptops */
+  @media all and (min-width: 28rem) {
+    width: calc((100vw - 4.5rem) / 2.66);
   }
 `;
 
+const ChildContainer = styled.div`
+  /* box model */
+  min-height: min(calc(20rem * 1.66), calc((100vw - 2.5rem)) / 1.33);
+  padding-bottom: 66.66%;
+  border-radius: 0.75rem;
+
+  /* layout  */
+  position: relative;
+  overflow: hidden;
+
+  /* Small screens, laptops */
+  @media all and (min-width: 28rem) {
+    min-height: min(calc(20rem * 1.66), calc((100vw - 4.5rem)) / 1.99);
+  }
+`;
+
+const TileWrapper = styled.div`
+  /* box model */
+  width: 100%;
+  height: 100%;
+
+  /* layout  */
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+`;
+
 const TileImage = styled.div`
-  border-radius: 12px;
-  height: 18vw;
-  width: 18vw;
-  background-color: #fff;
+  /* box model */
+  width: 100%;
+  height: 70%;
+
+  /* background */
+  background-color: #ffffff;
   background-image: url(${(props) => props.imageURL});
   background-position: center;
   background-size: cover;
 `;
 
-const TileFooter = styled.div`
-  display: flex;
-  flex: 1 1 auto;
-  background-color: transparent;
-  align-items: center;
+const TileLabel = styled.div`
+  /* box model */
+  width: 100%;
+  height: 30%;
+  padding: 1.125rem 1rem 1rem 1rem;
+
+  /* background */
+  background-color: #eb2f52;
+
+  /* typography */
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  color: #ffffff;
+
+  /* Media query order matters */
+  /* Medium sized Phones */
+  @media all and (min-width: 20rem) {
+    font-size: 1.25rem;
+    line-height: 1.375rem;
+  }
+  /* Large Phones */
+  @media all and (min-width: 25rem) {
+    font-size: 1.375rem;
+    line-height: 1.4rem;
+  }
+  /* iPads, Tablets */
+  @media all and (min-width: 28rem) {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
 `;
 
-const TileFooterTitle = styled.p`
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    'Helvetica Neue', sans-serif !important;
-  font-weight: 500;
-  font-size: 18px;
-  letter-spacing: -0.025em;
-  margin: 10px 0 0 0;
-`;
+export const Container = ({ children }) => {
+  return (
+    <ParentContainer>
+      <ChildContainer>
+        <TileWrapper>{children}</TileWrapper>
+      </ChildContainer>
+    </ParentContainer>
+  );
+};
 
-const Style = { TileWrapper, TileImage, TileFooter, TileFooterTitle };
+const Style = {
+  Container,
+  TileImage,
+  TileLabel,
+};
 export default Style;
