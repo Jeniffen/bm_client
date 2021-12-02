@@ -17,7 +17,7 @@ Tile.propTypes = {
    */
   imageURL: PropTypes.string,
   /**
-   * Label in within tile
+   * Label within tile
    */
   label: PropTypes.string,
   /**
