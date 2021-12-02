@@ -5,16 +5,16 @@ import { Tile } from '.';
 
 # Tile
 
+This `Tile` compoent is designed to be responsive for devices with a max with of
+`768px`. This component can be used stand-alone or in conjunction with a
+`Carousell` compoent with multiple `Tile` components as children.
+
 export const Template = (args) => <Tile {...args} />;
 
 <Canvas withToolbar>
   <Story
     name="Default"
-    args={{
-      imageURL:
-        'https://images.squarespace-cdn.com/content/v1/5292682ae4b00ad10e7441b7/1507314872432-RWB4KXY0N83UDLQX21GX/toronto-best-wedding-photographer-014.JPG?format=1500w',
-      label: 'Photography',
-    }}
+    args={{ imageURL: 'https://bit.ly/3EhYqSc', label: 'Photography' }}
   >
     {Template.bind({})}
   </Story>

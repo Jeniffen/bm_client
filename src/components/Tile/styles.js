@@ -2,18 +2,18 @@ import styled from 'styled-components';
 
 const ParentContainer = styled.div`
   /* box model */
-  width: calc((100vw - 40px) / 1.66);
+  width: calc((100vw - 2.5rem) / 1.66);
   max-width: 20rem;
 
   /* Small screens, laptops */
   @media all and (min-width: 28rem) {
-    width: calc((100vw - 72px) / 2.66);
+    width: calc((100vw - 4.5rem) / 2.66);
   }
 `;
 
 const ChildContainer = styled.div`
   /* box model */
-  min-height: min(calc(20rem * 1.66), calc((100vw - 40px)) / 1.33);
+  min-height: min(calc(20rem * 1.66), calc((100vw - 2.5rem)) / 1.33);
   padding-bottom: 66.66%;
   border-radius: 0.75rem;
 
@@ -23,7 +23,7 @@ const ChildContainer = styled.div`
 
   /* Small screens, laptops */
   @media all and (min-width: 28rem) {
-    min-height: min(calc(20rem * 1.66), calc((100vw - 72px)) / 1.99);
+    min-height: min(calc(20rem * 1.66), calc((100vw - 4.5rem)) / 1.99);
   }
 `;
 
