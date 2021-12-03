@@ -24,6 +24,10 @@ const Carousell = ({ header, className }) => {
 
 Carousell.propTypes = {
   /**
+   * Title header of Carousell section
+   */
+  header: PropTypes.string,
+  /**
    * ClassName of element
    */
   className: PropTypes.string,
