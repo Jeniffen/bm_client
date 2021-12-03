@@ -17,7 +17,7 @@ const Carousell = ({ Element, header, content, className }) => {
 
 Carousell.propTypes = {
   /**
-   * A React Component that is displayed in carousell
+   * A React Component that is displayed in Carousell
    */
   Element: PropTypes.elementType,
   /**
@@ -25,7 +25,7 @@ Carousell.propTypes = {
    */
   header: PropTypes.string,
   /**
-   * Array containing meta information for carousell elements
+   * Array containing meta information for Carousell elements
    */
   content: PropTypes.arrayOf(PropTypes.object),
   /**
