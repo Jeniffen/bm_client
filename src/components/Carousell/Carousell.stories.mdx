@@ -6,10 +6,27 @@ import { Tile } from '../Tile';
 
 # Carousell
 
+This `Carousell` component is designed to be responsive for devices with a
+max-with of `768px`. In order to support bigger screen sizes, this component
+needs change into a Grid in which Elements are aligned.
+
 export const Template = (args) => <Carousell {...args} />;
 
 <Canvas withToolbar>
-  <Story name="Default" args={{ header: 'Explore services for your event' }}>
+  <Story
+    name="Default"
+    args={{
+      Element: Tile,
+      header: 'Explore services for your event',
+      content: [
+        { key: 1, imageURL: 'https://bit.ly/3EhYqSc', label: 'Photography' },
+        { key: 2, imageURL: 'https://bit.ly/3Dv2Rbb', label: 'Makeup Artists' },
+        { key: 3, imageURL: 'https://bit.ly/3lypvZL', label: 'Venues' },
+      ],
+    }}
+  >
     {Template.bind({})}
   </Story>
 </Canvas>
+
+<ArgsTable of={Carousell} />
