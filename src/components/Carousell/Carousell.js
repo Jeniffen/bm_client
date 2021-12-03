@@ -2,20 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles.js';
 
-import { Tile } from '../Tile';
-
-const Carousell = ({ header, className }) => {
-  const tileContent = [
-    { key: 1, imageURL: 'https://bit.ly/3EhYqSc', label: 'Photography' },
-    { key: 2, imageURL: 'https://bit.ly/3Dv2Rbb', label: 'Makeup Artists' },
-    { key: 3, imageURL: 'https://bit.ly/3lypvZL', label: 'Venues' },
-  ];
+const Carousell = ({ Element, header, content, className }) => {
   return (
-    <Style.CarousellContainer>
+    <Style.CarousellContainer className={className}>
       <Style.CarousellHeader header={header} />
-      <Style.Carousell className={className}>
-        {tileContent.map(({ key, imageURL, label }) => (
-          <Tile key={key} imageURL={imageURL} label={label} />
+      <Style.Carousell>
+        {content.map(({ key, imageURL, label }) => (
+          <Element key={key} imageURL={imageURL} label={label} />
         ))}
       </Style.Carousell>
     </Style.CarousellContainer>
@@ -24,9 +17,17 @@ const Carousell = ({ header, className }) => {
 
 Carousell.propTypes = {
   /**
+   * A React Component that is displayed in carousell
+   */
+  Element: PropTypes.elementType,
+  /**
    * Title header of Carousell section
    */
   header: PropTypes.string,
+  /**
+   * Array containing meta information for carousell elements
+   */
+  content: PropTypes.arrayOf(PropTypes.object),
   /**
    * ClassName of element
    */
