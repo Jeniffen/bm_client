@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar } from '../../components/Navbar';
 import { Searchbar } from '../../components/Searchbar';
-import { Hero } from '../../components/Hero';
+import { Hero } from '../../components/Sections/Hero';
 import { Carousell } from '../../components/Carousell';
 import { Tile } from '../../components/Tile';
 
