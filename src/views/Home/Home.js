@@ -4,6 +4,7 @@ import { Searchbar } from '../../components/Searchbar';
 import { Hero } from '../../components/Sections/Hero';
 import { Carousell } from '../../components/Carousell';
 import { Tile } from '../../components/Tile';
+import { Explore } from '../../components/Sections/Explore';
 
 const Home = () => {
   const heroContent = {
@@ -27,11 +28,13 @@ const Home = () => {
         imageURL={heroContent.imageURL}
         heroTagline={heroContent.heroTagline}
       />
+
       <Carousell
         Element={Tile}
         header={carouselllHeader}
         content={carousellContent}
       />
+      <Explore />
     </>
   );
 };

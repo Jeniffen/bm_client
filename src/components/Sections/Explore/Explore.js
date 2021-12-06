@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import Style from './styles';
 
 const Explore = () => {
-  return <Style.ExploreWrapper />;
+  return (
+    <Style.ExploreContainer>
+      <Style.ExploreWrapper />
+    </Style.ExploreContainer>
+  );
 };
 
 Explore.propTypes = {};
