@@ -6,35 +6,29 @@ import { Carousell } from '../../components/Carousell';
 import { Tile } from '../../components/Tile';
 import { Explore } from '../../components/Sections/Explore';
 
-const Home = () => {
-  const heroContent = {
-    key: 1,
-    imageURL: 'https://bit.ly/3xLNERA',
-    heroTagline: 'THIS IS \nYOUR DAY',
-  };
-  const searchDialogLabel = 'What are you looking for?';
-  const carouselllHeader = 'Explore services for your event';
-  const carousellContent = [
-    { key: 1, imageURL: 'https://bit.ly/3EhYqSc', label: 'Photography' },
-    { key: 2, imageURL: 'https://bit.ly/3Dv2Rbb', label: 'Makeup Artists' },
-    { key: 3, imageURL: 'https://bit.ly/3lypvZL', label: 'Venues' },
-  ];
+import useHome from './useHome';
 
+const Home = () => {
+  const [
+    heroContent,
+    searchbarContent,
+    carousellContent,
+    exploreContent,
+  ] = useHome();
   return (
     <>
       <Navbar />
-      <Searchbar isSolid={false} searchDialogLabel={searchDialogLabel} />
+      <Searchbar isSolid={false} searchDialogLabel={searchbarContent.label} />
       <Hero
         imageURL={heroContent.imageURL}
         heroTagline={heroContent.heroTagline}
       />
-
       <Carousell
         Element={Tile}
-        header={carouselllHeader}
-        content={carousellContent}
+        header={carousellContent.header}
+        content={carousellContent.elements}
       />
-      <Explore />
+      <Explore imageURL={exploreContent.servicePartner.imageURL} />
     </>
   );
 };

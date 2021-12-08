@@ -8,5 +8,7 @@ import { Explore } from '.';
 export const Template = (args) => <Explore {...args} />;
 
 <Canvas withToolbar>
-  <Story name="Default">{Template.bind({})}</Story>
+  <Story name="Default" args={{ imageURL: 'https://bit.ly/3dwyeHs' }}>
+    {Template.bind({})}
+  </Story>
 </Canvas>
