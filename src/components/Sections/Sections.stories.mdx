@@ -1,0 +1,58 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Hero } from './Hero';
+import { Explore } from './Explore';
+
+<Meta title="Components/Sections" component={Hero} />
+
+# Hero
+
+This mobile first Hero component is designed to responsively adopt to various
+screen sizes. Layout of this component depends on the device width and has
+media-query break for following thresholds:
+
+- `28em` Tablets, iPads
+- `46em` Small screens and Laptops
+- `62em` Desktops and lage screens
+- `73em` Extra large screens and TV
+- `126em` UHD screens and beyond
+
+export const TemplateHero = (args) => <Hero {...args} />;
+
+<Canvas withToolbar>
+  <Story
+    name="Hero"
+    args={{
+      imageURL: 'https://bit.ly/3xLNERA',
+      heroTagline: 'THIS IS \nYOUR DAY',
+    }}
+  >
+    {TemplateHero.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Hero} />
+
+# Explore
+
+This mobile first Explore section is already a component designed for a specific
+use-case. Given that, a generic base UI still need to be developed based on this
+component. Further, this compoent is designed to be responsive for devices with
+a max with of `768px`. For screens bigger than that, this CSS still needs to
+optimised.
+
+export const TemplateExplorePartner = (args) => <Explore {...args} />;
+
+<Canvas withToolbar>
+  <Story
+    name="Explore | Service Partner"
+    args={{
+      imageURL: 'https://bit.ly/3dwyeHs',
+      text: 'Become a service partner',
+      buttonLabel: 'Learn more',
+    }}
+  >
+    {TemplateExplorePartner.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Explore} />

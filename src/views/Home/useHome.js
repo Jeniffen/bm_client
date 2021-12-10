@@ -17,7 +17,11 @@ export default function useHome() {
   };
 
   const exploreContent = {
-    servicePartner: { imageURL: 'https://bit.ly/3dwyeHs' },
+    servicePartner: {
+      imageURL: 'https://bit.ly/3dwyeHs',
+      text: 'Become a service partner',
+      buttonLabel: 'Learn more',
+    },
   };
 
   return [heroContent, searchbarContent, carousellContent, exploreContent];

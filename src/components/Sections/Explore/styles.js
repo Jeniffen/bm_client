@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from '../../Button';
 
 const ParentContainer = styled.div`
   /* Until small screens, laptops only */
@@ -75,6 +76,50 @@ const ImageOverlay = styled.div`
   );
 `;
 
+const ExploreCallToAction = styled.div`
+  /* box model */
+  width: 100%;
+  height: 50%;
+  padding: 2rem;
+  margin: 0 auto;
+
+  /* layout  */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const ExploreCallToActionText = styled.div`
+  /* box model */
+  width: 13rem;
+
+  /* typography */
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.2rem;
+  letter-spacing: -0.05rem;
+  text-align: center;
+  white-space: pre-line;
+`;
+
+const ExploreButton = styled(Button)`
+  /* box model */
+  margin-top: 2rem;
+  border: none;
+
+  /* background */
+  background-color: #222222;
+
+  /* typography */
+  color: #ffffff;
+  font-size: 16px;
+
+  :hover {
+    border: none;
+  }
+`;
+
 const Container = ({ children, className }) => {
   return (
     <ParentContainer>
@@ -96,5 +141,8 @@ const Image = ({ imageURL }) => {
 const Style = {
   Container,
   Image,
+  ExploreCallToAction,
+  ExploreCallToActionText,
+  ExploreButton,
 };
 export default Style;

@@ -15,6 +15,7 @@ const Home = () => {
     carousellContent,
     exploreContent,
   ] = useHome();
+
   return (
     <>
       <Navbar />
@@ -28,7 +29,11 @@ const Home = () => {
         header={carousellContent.header}
         content={carousellContent.elements}
       />
-      <Explore imageURL={exploreContent.servicePartner.imageURL} />
+      <Explore
+        imageURL={exploreContent.servicePartner.imageURL}
+        text={exploreContent.servicePartner.text}
+        buttonLabel={exploreContent.servicePartner.buttonLabel}
+      />
     </>
   );
 };

@@ -103,25 +103,33 @@ const hoverBorder = (buttonType) => {
 
 export const Button = styled.button`
   box-sizing: border-box;
-  border: ${({ buttonType }) => defaultBorder(buttonType)};
-  border-radius: 8px;
-  height: 48px;
-  max-width: ${({ size }) => defaultMaxtWidth(size)};
   width: 100%;
+  max-width: ${({ size }) => defaultMaxtWidth(size)};
+  height: 3rem;
   padding: 1px 10px;
+  border: ${({ buttonType }) => defaultBorder(buttonType)};
+  border-radius: 0.5rem;
+
   background-color: ${({ buttonType }) => defaultBackgroundColor(buttonType)};
+
   align-items: center;
   display: flex;
   justify-content: center;
   position: relative;
+
   color: ${({ buttonType }) => defaultColor(buttonType)};
+
+  touch-action: manipulation;
 
   &:hover {
     border: ${({ buttonType }) => hoverBorder(buttonType)};
+
     background-color: ${({ buttonType }) => hoverBackgroundColor(buttonType)};
+
     color: ${({ buttonType }) => hoverColor(buttonType)};
-    cursor: pointer;
     transition: background-color 0.2s ease;
+
+    cursor: pointer;
   }
 
   &:focus {
