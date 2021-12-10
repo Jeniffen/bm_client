@@ -5,7 +5,7 @@ const HeroTagline = styled.span`
   position: absolute;
   top: 60%;
 
-  /* Typography */
+  /* typography */
   color: #ffffff;
   letter-spacing: -0.1rem;
   font-weight: 800;

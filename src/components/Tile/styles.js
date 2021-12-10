@@ -83,7 +83,7 @@ const TileLabel = styled.div`
   }
 `;
 
-export const Container = ({ children }) => {
+const Container = ({ children }) => {
   return (
     <ParentContainer>
       <ChildContainer>

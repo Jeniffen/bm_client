@@ -79,7 +79,7 @@ export const Icon = styled(Icons)`
     brightness(86%) contrast(94%);
 `;
 
-export const Dialog = ({ isSolid, searchDialogLabel }) => {
+const Dialog = ({ isSolid, searchDialogLabel }) => {
   return (
     <DialogContainer isSolid={isSolid}>
       <SearchDialog isSolid={isSolid}>
