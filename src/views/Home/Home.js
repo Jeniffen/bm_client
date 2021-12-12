@@ -5,6 +5,7 @@ import { Hero } from '../../components/Sections/Hero';
 import { Carousell } from '../../components/Carousell';
 import { Tile } from '../../components/Tile';
 import { Explore } from '../../components/Sections/Explore';
+import { Footer } from './../../components/Footer';
 
 import useHome from './useHome';
 
@@ -14,6 +15,7 @@ const Home = () => {
     searchbarContent,
     carousellContent,
     exploreContent,
+    footerContent,
   ] = useHome();
 
   return (
@@ -33,6 +35,10 @@ const Home = () => {
         imageURL={exploreContent.servicePartner.imageURL}
         text={exploreContent.servicePartner.text}
         buttonLabel={exploreContent.servicePartner.buttonLabel}
+      />
+      <Footer
+        links={footerContent.links}
+        copyright={footerContent.meta.copyright}
       />
     </>
   );

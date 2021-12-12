@@ -1,0 +1,53 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Footer } from './';
+
+<Meta title="Components/Footer" compoent={Footer} />
+
+# Footer
+
+This `Footer` compoent is designed to be mobile compatible. However is only
+partially responsive. Reworks needs to be done, when it comes to larger screens.
+On larger screen Links should distribute horizontally.
+
+export const Template = (args) => <Footer {...args} />;
+
+<Canvas withToolbar>
+  <Story
+    args={{
+      links: [
+        {
+          key: 1,
+          section: 'Support',
+          paths: [
+            { key: 1, label: 'Frequently asked questions', href: '/Home' },
+            { key: 2, label: 'Cancellation options', href: '/Home' },
+            { key: 3, label: 'Report a service', href: '/Home' },
+          ],
+        },
+        {
+          key: 2,
+          section: 'Offerings',
+          paths: [
+            { key: 1, label: 'Become a service partner', href: '/Home' },
+            { key: 2, label: 'Refer service partner', href: '/Home' },
+          ],
+        },
+        {
+          key: 3,
+          section: 'About',
+          paths: [
+            { key: 1, label: 'How Namdin works', href: '/Home' },
+            { key: 2, label: 'Our commitment', href: '/Home' },
+            { key: 3, label: 'Funding', href: '/Home' },
+          ],
+        },
+      ],
+      copyright: '© 2021 Namdin',
+    }}
+    name="Default"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Footer} />
