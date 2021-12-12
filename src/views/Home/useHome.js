@@ -24,5 +24,41 @@ export default function useHome() {
     },
   };
 
-  return [heroContent, searchbarContent, carousellContent, exploreContent];
+  const footerContent = {
+    links: [
+      {
+        key: 1,
+        section: 'Support',
+        paths: [
+          { key: 1, label: 'Frequently asked questions', href: '/Home' },
+          { key: 2, label: 'Cancellation options', href: '/Home' },
+          { key: 3, label: 'Report a service', href: '/Home' },
+        ],
+      },
+      {
+        key: 2,
+        section: 'Offerings',
+        paths: [{ key: 1, label: 'Become a service partner', href: '/Home' }],
+      },
+      {
+        key: 3,
+        section: 'About',
+        paths: [
+          { key: 1, label: 'How Namdin works', href: '/Home' },
+          { key: 2, label: 'Our commitment', href: '/Home' },
+        ],
+      },
+    ],
+    meta: {
+      copyright: '© 2021 Namdin',
+    },
+  };
+
+  return [
+    heroContent,
+    searchbarContent,
+    carousellContent,
+    exploreContent,
+    footerContent,
+  ];
 }
