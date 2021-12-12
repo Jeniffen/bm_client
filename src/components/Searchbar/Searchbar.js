@@ -2,10 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Style from './styles';
 
+import useSearchbar from './useSearchbar';
+
 const Searcbhar = ({ isSolid, searchDialogLabel, className }) => {
+  const [wrapSearchbar] = useSearchbar();
+
   return (
-    <Style.SearchContainer isSolid={isSolid} className={className}>
-      <Style.Dialog isSolid={isSolid} searchDialogLabel={searchDialogLabel} />
+    <Style.SearchContainer isSolid={wrapSearchbar} className={className}>
+      <Style.Dialog
+        isSolid={wrapSearchbar}
+        searchDialogLabel={searchDialogLabel}
+      />
     </Style.SearchContainer>
   );
 };

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { Icons } from '../Icons';
 
+const containerBoxShadow = (isSolid) => {
+  return isSolid ? 'rgb(0 0 0 / 10%) 0px 1px 0px' : 'none';
+};
+
 const containerBackground = (isSolid) => {
   return isSolid ? '#ffffff' : 'transparent';
 };
@@ -28,6 +32,10 @@ const SearchContainer = styled.div`
   position: fixed;
   top: 0;
   z-index: 1;
+
+  /* other */
+  box-shadow: ${({ isSolid }) => containerBoxShadow(isSolid)};
+  transition: background-color 0.3s cubic-bezier(0.3, 0, 0.7, 1);
 `;
 
 const DialogContainer = styled.div`
