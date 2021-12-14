@@ -66,6 +66,7 @@ export const Icon = styled(Icons)`
   /* box model */
   margin: 0 0.5rem 0.25rem 0.5rem;
   display: flex;
+  
   /* other */
   filter: ${({ isActive }) => iconColor(isActive)};
 `;
