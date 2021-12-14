@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 import { Icons } from '../Icons';
 
+const containerHeight = (isHidden) => {
+  return isHidden ? '0' : '4rem';
+};
+
+const containerVisibiliy = (isHidden) => {
+  return isHidden ? 'hidden' : 'visible';
+};
+
 const iconColor = (isActive) => {
   return isActive
     ? 'invert(43%) sepia(66%) saturate(3025%) hue-rotate(303deg) brightness(86%) contrast(94%)'
@@ -14,7 +22,7 @@ const labelColor = (isActive) => {
 const NavbarContainer = styled.nav`
   /* box model */
   width: 100%;
-  height: 4rem;
+  height: ${({ isHidden }) => containerHeight(isHidden)};
   max-width: 35rem;
   padding: 0 0.25rem;
   border-top: 1px solid #ebebeb;
@@ -29,6 +37,14 @@ const NavbarContainer = styled.nav`
   position: fixed;
   bottom: 0;
   z-index: 1;
+
+  /* other */
+  transition: height 0.2s cubic-bezier(0.4, 0.03, 0.5, 0.95);
+
+  * {
+    visibility: ${({ isHidden }) => containerVisibiliy(isHidden)};
+    transition: visibility 0.1s;
+  }
 `;
 
 const NavItem = styled.a`
@@ -49,7 +65,8 @@ const NavItem = styled.a`
 export const Icon = styled(Icons)`
   /* box model */
   margin: 0 0.5rem 0.25rem 0.5rem;
-
+  display: flex;
+  
   /* other */
   filter: ${({ isActive }) => iconColor(isActive)};
 `;

@@ -5,9 +5,10 @@ import Style from './styles';
 import useNavbar from './useNavbar';
 
 const Navbar = ({ className }) => {
-  const [itemStatus, onItemSelect] = useNavbar();
+  const [isHidden, itemStatus, onItemSelect] = useNavbar();
+
   return (
-    <Style.NavbarContainer className={className}>
+    <Style.NavbarContainer isHidden={isHidden} className={className}>
       <Style.NavbarItem
         isActive={itemStatus.explore}
         NavItemIcon="magnifier"
