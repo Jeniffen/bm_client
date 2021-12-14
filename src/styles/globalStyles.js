@@ -14,7 +14,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #f7fafc;
-    /*TODO Set all margin to 0 when mobile navbar disappears when bottom is reached*/
-    margin: 0 0 3.75rem 0;
+    margin: 0 ;
   }
 `;
