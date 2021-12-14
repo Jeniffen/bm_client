@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 
 const useNavbar = () => {
-  const [hideOnScroll, setHideOnScroll] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [heightMarker, setHeightMarker] = useState(0);
   const [itemStatus, setItemStatus] = useState({
     explore: true,
@@ -11,12 +11,12 @@ const useNavbar = () => {
   });
 
   const hideBar = (currPosY) => {
-    setHideOnScroll(true);
+    setIsHidden(true);
     setHeightMarker(currPosY);
   };
 
   const showBar = (currPosY) => {
-    setHideOnScroll(false);
+    setIsHidden(false);
     setHeightMarker(currPosY);
   };
 
@@ -25,7 +25,7 @@ const useNavbar = () => {
     ({ currPos }) => {
       // Always show at top of page
       if (currPos.y > -scrollThreshold) {
-        setTimeout(setHideOnScroll(false), 100);
+        setTimeout(setIsHidden(false), 100);
         // Hide when scrolling down
       } else if (currPos.y <= heightMarker - scrollThreshold) {
         setTimeout(hideBar(currPos.y), 100);
@@ -34,7 +34,7 @@ const useNavbar = () => {
         setTimeout(showBar(currPos.y), 100);
       }
     },
-    [hideOnScroll]
+    [isHidden]
   );
 
   const onItemSelect = (activeItem) => {
@@ -46,7 +46,7 @@ const useNavbar = () => {
     setItemStatus(selectedItem);
   };
 
-  return [hideOnScroll, itemStatus, onItemSelect];
+  return [isHidden, itemStatus, onItemSelect];
 };
 
 export default useNavbar;
