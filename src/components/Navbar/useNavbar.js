@@ -14,12 +14,10 @@ const useNavbar = () => {
     setIsHidden(true);
     setHeightMarker(currPosY);
   };
-
   const showBar = (currPosY) => {
     setIsHidden(false);
     setHeightMarker(currPosY);
   };
-
   const scrollThreshold = 45;
   useScrollPosition(
     ({ currPos }) => {
@@ -37,7 +35,21 @@ const useNavbar = () => {
     [isHidden]
   );
 
-  const onItemSelect = (activeItem) => {
+  const NavbarElements = onItemSelect(itemStatus, setItemStatus);
+
+  return [isHidden, NavbarElements];
+};
+
+/**
+ * Function to handle Navbar Item selection
+ *
+ * @param {object} itemStatus - The title of the book.
+ * @param {function} setItemStatus - The title of the book.
+ *
+ * @returns {array} Array of objects for Navbar elements
+ */
+const onItemSelect = (itemStatus, setItemStatus) => {
+  const updateSelection = (activeItem) => {
     const selectedItem = Object.keys(itemStatus).reduce((acc, key) => {
       acc[key] = key === activeItem;
       return acc;
@@ -46,7 +58,34 @@ const useNavbar = () => {
     setItemStatus(selectedItem);
   };
 
-  return [isHidden, itemStatus, onItemSelect];
+  const NavbarElements = [
+    {
+      key: 1,
+      itemStatus: itemStatus.explore,
+      icon: 'magnifier',
+      label: 'Explore',
+      onItemSelect: () => updateSelection('explore'),
+      to: '/',
+    },
+    {
+      key: 2,
+      itemStatus: itemStatus.wishlist,
+      icon: 'heart',
+      label: 'Wishlist',
+      onItemSelect: () => updateSelection('wishlist'),
+      to: '/wishlist',
+    },
+    {
+      key: 3,
+      itemStatus: itemStatus.login,
+      icon: 'avatar',
+      label: 'Log in',
+      onItemSelect: () => updateSelection('login'),
+      to: '/login',
+    },
+  ];
+
+  return NavbarElements;
 };
 
 export default useNavbar;

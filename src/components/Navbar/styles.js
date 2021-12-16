@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { Icons } from '../Icons';
 
 const containerHeight = (isHidden) => {
@@ -47,7 +48,7 @@ const NavbarContainer = styled.nav`
   }
 `;
 
-const NavItem = styled.a`
+const NavItem = styled(Link)`
   /* box model */
   width: 20%;
   margin: 0 0.125rem;
@@ -56,6 +57,9 @@ const NavItem = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* typography */
+  text-decoration: none;
 
   /* other */
   cursor: pointer;
@@ -66,7 +70,7 @@ export const Icon = styled(Icons)`
   /* box model */
   margin: 0 0.5rem 0.25rem 0.5rem;
   display: flex;
-  
+
   /* other */
   filter: ${({ isActive }) => iconColor(isActive)};
 `;
@@ -83,9 +87,10 @@ export const NavbarItem = ({
   NavItemIcon,
   NavItemLabel,
   onClick,
+  to,
 }) => {
   return (
-    <NavItem onClick={onClick}>
+    <NavItem to={to} onClick={onClick}>
       <Icon
         isActive={isActive}
         type={NavItemIcon}

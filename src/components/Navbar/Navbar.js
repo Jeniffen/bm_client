@@ -5,28 +5,22 @@ import Style from './styles';
 import useNavbar from './useNavbar';
 
 const Navbar = ({ className }) => {
-  const [isHidden, itemStatus, onItemSelect] = useNavbar();
+  const [isHidden, NavbarElements] = useNavbar();
 
   return (
     <Style.NavbarContainer isHidden={isHidden} className={className}>
-      <Style.NavbarItem
-        isActive={itemStatus.explore}
-        NavItemIcon="magnifier"
-        NavItemLabel="Explore"
-        onClick={() => onItemSelect('explore')}
-      />
-      <Style.NavbarItem
-        isActive={itemStatus.wishlist}
-        NavItemIcon="heart"
-        NavItemLabel="Wishlist"
-        onClick={() => onItemSelect('wishlist')}
-      />
-      <Style.NavbarItem
-        isActive={itemStatus.login}
-        NavItemIcon="avatar"
-        NavItemLabel="Log in"
-        onClick={() => onItemSelect('login')}
-      />
+      {NavbarElements.map(
+        ({ key, itemStatus, icon, label, onItemSelect, to }) => (
+          <Style.NavbarItem
+            key={key}
+            isActive={itemStatus}
+            NavItemIcon={icon}
+            NavItemLabel={label}
+            to={to}
+            onClick={onItemSelect}
+          />
+        )
+      )}
     </Style.NavbarContainer>
   );
 };
