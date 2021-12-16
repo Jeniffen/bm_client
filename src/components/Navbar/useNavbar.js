@@ -34,21 +34,21 @@ const useNavbar = () => {
     [isHidden]
   );
 
-  // Handle Navbar activity onClick
-  const NavbarElements = onItemSelect(itemStatus, setItemStatus);
+  // Set Navbar elements that will be rendered
+  const NavbarElements = setNavbarElement(itemStatus, setItemStatus);
 
   return [isHidden, NavbarElements];
 };
 
 /**
- * Function to handle Navbar Item selection
+ * Function to define Navbar elements
  *
  * @param {object} itemStatus - The title of the book.
  * @param {function} setItemStatus - The title of the book.
  *
  * @returns {array} Array of objects for Navbar elements
  */
-const onItemSelect = (itemStatus, setItemStatus) => {
+const setNavbarElement = (itemStatus, setItemStatus) => {
   const updateSelection = (activeItem) => {
     const selectedItem = Object.keys(itemStatus).reduce((acc, key) => {
       acc[key] = key === activeItem;
