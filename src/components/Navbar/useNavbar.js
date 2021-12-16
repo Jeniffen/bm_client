@@ -2,14 +2,13 @@ import { useState } from 'react';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 
 const useNavbar = () => {
+  const defaultItemStatus = { explore: true, wishlist: false, login: false };
+
   const [isHidden, setIsHidden] = useState(false);
   const [heightMarker, setHeightMarker] = useState(0);
-  const [itemStatus, setItemStatus] = useState({
-    explore: true,
-    wishlist: false,
-    login: false,
-  });
+  const [itemStatus, setItemStatus] = useState(defaultItemStatus);
 
+  // Handle Navbar visibility on scrolling
   const hideBar = (currPosY) => {
     setIsHidden(true);
     setHeightMarker(currPosY);
@@ -35,6 +34,7 @@ const useNavbar = () => {
     [isHidden]
   );
 
+  // Handle Navbar activity onClick
   const NavbarElements = onItemSelect(itemStatus, setItemStatus);
 
   return [isHidden, NavbarElements];
