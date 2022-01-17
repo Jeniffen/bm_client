@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navbar } from './../../components/Navbar';
 import { Searchbar } from '../../components/Searchbar';
 import { Hero } from '../../components/Sections/Hero';
 import { Carousell } from '../../components/Carousell';
@@ -8,7 +9,7 @@ import { Footer } from './../../components/Footer';
 
 import useHome from './useHome';
 
-const Home = () => {
+const Home = ({ navbarItem }) => {
   const [
     heroContent,
     searchbarContent,
@@ -19,6 +20,7 @@ const Home = () => {
 
   return (
     <>
+      <Navbar navbarItem={navbarItem} />
       <Searchbar isSolid={false} searchDialogLabel={searchbarContent.label} />
       <Hero
         imageURL={heroContent.imageURL}

@@ -1,9 +1,18 @@
 import { useState } from 'react';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 
-const useNavbar = () => {
-  const defaultItemStatus = { explore: true, wishlist: false, login: false };
+const useNavbar = (navbarItem) => {
+  // Determine navbar default state (Based on route)
+  const itemSet = ['explore', 'wishlist', 'login'];
+  const defaultItems = { explore: true, wishlist: false, login: false };
+  const defaultItemStatus = itemSet.includes(navbarItem)
+    ? Object.keys(defaultItems).reduce((acc, key) => {
+        acc[key] = key === navbarItem;
+        return acc;
+      }, {})
+    : defaultItems;
 
+  // Define local state
   const [isHidden, setIsHidden] = useState(false);
   const [heightMarker, setHeightMarker] = useState(0);
   const [itemStatus, setItemStatus] = useState(defaultItemStatus);

@@ -4,8 +4,8 @@ import Style from './styles';
 
 import useNavbar from './useNavbar';
 
-const Navbar = ({ className }) => {
-  const [isHidden, NavbarElements] = useNavbar();
+const Navbar = ({ navbarItem, className }) => {
+  const [isHidden, NavbarElements] = useNavbar(navbarItem);
 
   return (
     <Style.NavbarContainer isHidden={isHidden} className={className}>
